@@ -11,10 +11,10 @@ export default function Index() {
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
+          Next.js Welcome!
         </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
+        <Link href="/posts/first-post" color="secondary">
+          Go to the first-post page
         </Link>
         <ProTip />
         <Copyright />
