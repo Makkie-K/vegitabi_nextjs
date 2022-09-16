@@ -16,6 +16,8 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "classnames": "^2.3.2",
+    "gray-matter": "^4.0.3",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
