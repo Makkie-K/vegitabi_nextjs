@@ -16,10 +16,15 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "gray-matter": "^4.0.3",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "remark": "13.0.0",
+    "remark-html": "13.0.2"
   },
   "devDependencies": {
     "eslint": "latest",
