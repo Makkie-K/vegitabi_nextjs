@@ -9,6 +9,7 @@ import Copyright from "/src/components/utils/Copyright";
 import Layout, { siteTitle } from "/src/components/layouts/layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedPostsData } from "/src/lib/posts";
+import Date from "/src/components/date";
 
 export default function Index({ allPostsData }) {
   return (
@@ -26,11 +27,19 @@ export default function Index({ allPostsData }) {
           <ul className={utilStyles.list}>
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
-                {title}
+                <Link href={`/posts/${id}`}>{title}</Link>
+                {/* <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link> */}
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+                {/* {title}
                 <br />
                 {id}
                 <br />
-                {date}
+                {date} */}
               </li>
             ))}
           </ul>
