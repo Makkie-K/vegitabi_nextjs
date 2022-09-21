@@ -6,18 +6,16 @@ import Box from "@mui/material/Box";
 import ProTip from "/src/components/utils/ProTip";
 import Link from "/src/components/utils/Link";
 import Copyright from "/src/components/utils/Copyright";
-import Layout, { siteTitle } from "/src/components/layouts/layout";
+import Layout from "/src/components/layouts/layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedPostsData } from "/src/lib/posts";
 import Date from "/src/components/date";
+// import Header from "/src/components/layouts/Header";
 
 export default function Index({ allPostsData }) {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      {/* <Header /> */}
       <Container maxWidth="sm">
         <section className={utilStyles.headingMd}>
           <p>Vegan & Vegetarian</p>
@@ -28,29 +26,14 @@ export default function Index({ allPostsData }) {
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
                 <Link href={`/posts/${id}`}>{title}</Link>
-                {/* <Link href={`/posts/${id}`}>
-                  <a>{title}</a>
-                </Link> */}
                 <br />
                 <small className={utilStyles.lightText}>
                   <Date dateString={date} />
                 </small>
-                {/* {title}
-                <br />
-                {id}
-                <br />
-                {date} */}
               </li>
             ))}
           </ul>
         </section>
-        <Box sx={{ my: 4 }}>
-          <Link href="/posts/first-post" color="secondary">
-            Go to first-post
-          </Link>
-          <ProTip />
-          <Copyright />
-        </Box>
       </Container>
     </Layout>
   );
