@@ -8,7 +8,7 @@ import Footer from "./Footer";
 const name = "Vegitabi";
 export const siteTitle = "Vegitabi";
 
-function Layout({ children, home }) {
+function Layout({ children }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -34,6 +34,3 @@ function Layout({ children, home }) {
 }
 
 export default Layout;
-// export default function Layout({ children }) {
-//   return <div className={styles.container}>{children}</div>;
-// }
