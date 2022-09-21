@@ -6,7 +6,8 @@ import Box from "@mui/material/Box";
 import ProTip from "/src/components/utils/ProTip";
 import Link from "/src/components/utils/Link";
 import Copyright from "/src/components/utils/Copyright";
-import Layout, { siteTitle } from "/src/components/layouts/Layout";
+import Layout from "/src/components/layouts/Layout";
+// import Layout, { siteTitle } from "/src/components/layouts/Layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedPostsData } from "/src/lib/posts";
 import Date from "/src/components/date";
@@ -15,7 +16,7 @@ export default function Index({ allPostsData }) {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        {/* <title>{siteTitle}</title> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth="sm">

@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-export const siteTitle = "Vegitabi.com";
+// export const siteTitle = "Vegitabi.com";
 
 function Layout({ children }) {
   return (
