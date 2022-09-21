@@ -14,10 +14,6 @@ import Date from "/src/components/date";
 export default function Index({ allPostsData }) {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Container maxWidth="sm">
         <section className={utilStyles.headingMd}>
           <p>Vegan & Vegetarian</p>
@@ -28,18 +24,10 @@ export default function Index({ allPostsData }) {
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
                 <Link href={`/posts/${id}`}>{title}</Link>
-                {/* <Link href={`/posts/${id}`}>
-                  <a>{title}</a>
-                </Link> */}
                 <br />
                 <small className={utilStyles.lightText}>
                   <Date dateString={date} />
                 </small>
-                {/* {title}
-                <br />
-                {id}
-                <br />
-                {date} */}
               </li>
             ))}
           </ul>
