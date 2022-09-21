@@ -8,12 +8,8 @@ export const siteTitle = "Vegitabi";
 function Layout({ children }) {
   return (
     <div className={styles.container}>
-      {/* <p>Header</p> */}
       <Header />
-      <main>
-        {/* <Header /> */}
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
   );
