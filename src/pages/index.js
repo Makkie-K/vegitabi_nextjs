@@ -6,10 +6,11 @@ import Box from "@mui/material/Box";
 import ProTip from "/src/components/utils/ProTip";
 import Link from "/src/components/utils/Link";
 import Copyright from "/src/components/utils/Copyright";
-import Layout, { siteTitle } from "/src/components/layouts/layout";
+import Layout from "/src/components/layouts/layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedPostsData } from "/src/lib/posts";
 import Date from "/src/components/date";
+// import Header from "/src/components/layouts/Header";
 
 export default function Index({ allPostsData }) {
   return (
@@ -32,13 +33,6 @@ export default function Index({ allPostsData }) {
             ))}
           </ul>
         </section>
-        <Box sx={{ my: 4 }}>
-          <Link href="/posts/first-post" color="secondary">
-            Go to first-post
-          </Link>
-          <ProTip />
-          <Copyright />
-        </Box>
       </Container>
     </Layout>
   );
