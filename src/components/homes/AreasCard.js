@@ -5,26 +5,26 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-export default function CategoriesCard(props) {
+export default function AreasCard(props) {
   // console.log(props.name);
   return (
-    <Card sx={{ maxWidth: 634 }}>
-      <CardActionArea sx={{ position: "relative" }}>
+    <Card sx={{ maxWidth: 300 }}>
+      <CardActionArea>
         <CardMedia
           component="img"
-          height="422"
+          // height="422"
           image={props.image}
           alt={props.name}
         />
         <CardContent
           sx={{
-            position: "absolute",
-            width: "80%",
-            backgroundColor: "#fff",
-            opacity: "0.8",
-            left: "46px",
-            bottom: "5%",
-            height: "25%",
+            // position: "absolute",
+            // width: "80%",
+            // backgroundColor: "#fff",
+            // opacity: "0.8",
+            // left: "46px",
+            // bottom: "5%",
+            // height: "25%",
             textAlign: "center",
           }}
         >

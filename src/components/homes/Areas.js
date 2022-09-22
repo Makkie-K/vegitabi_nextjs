@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
+import AreasCard from "./AreasCard";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,16 +18,19 @@ export default function Areas() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <Item>オーストラリア</Item>
+          <AreasCard
+            name="オーストラリア"
+            image="/images/homes/australia.jpeg"
+          />
         </Grid>
         <Grid xs={12} md={3}>
-          <Item>オマーン</Item>
+          <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
         </Grid>
         <Grid xs={12} md={3}>
-          <Item>クック諸島</Item>
+          <AreasCard name="クック諸島" image="/images/homes/cookislands.jpeg" />
         </Grid>
         <Grid xs={12} md={3}>
-          <Item>U.A.E</Item>
+          <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
         </Grid>
       </Grid>
     </Box>
