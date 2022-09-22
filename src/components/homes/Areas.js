@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
+import Link from "@mui/material/Link";
 import AreasCard from "./AreasCard";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,19 +19,30 @@ export default function Areas() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <AreasCard
-            name="オーストラリア"
-            image="/images/homes/australia.jpeg"
-          />
+          <Link href="/australia-index">
+            <AreasCard
+              name="オーストラリア"
+              image="/images/homes/australia.jpeg"
+            />
+          </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
+          <Link href="/oman-index">
+            <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
+          </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <AreasCard name="クック諸島" image="/images/homes/cookislands.jpeg" />
+          <Link href="/cookislands-index">
+            <AreasCard
+              name="クック諸島"
+              image="/images/homes/cookislands.jpeg"
+            />
+          </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
+          <Link href="/uae-index">
+            <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
+          </Link>
         </Grid>
       </Grid>
     </Box>
