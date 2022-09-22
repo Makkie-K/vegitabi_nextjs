@@ -16,10 +16,8 @@ export default function Index({ allPostsData }) {
   return (
     <Layout home>
       {/* <Header /> */}
-      <Container maxWidth="sm">
-        <section className={utilStyles.headingMd}>
-          <p>Vegan & Vegetarian</p>
-        </section>
+      <Container>
+        {/* <Container maxWidth="sm"> */}
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>Blog</h2>
           <ul className={utilStyles.list}>
