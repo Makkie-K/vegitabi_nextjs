@@ -23,3 +23,7 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.main {
+  min-height: calc(100vh - 113px);
+}
