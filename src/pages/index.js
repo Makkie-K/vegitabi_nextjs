@@ -10,16 +10,19 @@ import Layout from "/src/components/layouts/layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedPostsData } from "/src/lib/posts";
 import Date from "/src/components/date";
+import Categories from "/src/components/homes/Categories";
+import Areas from "/src/components/homes/Areas";
 // import Header from "/src/components/layouts/Header";
 
 export default function Index({ allPostsData }) {
   return (
-    <Layout home>
+    <Layout>
       {/* <Header /> */}
       <Container>
         {/* <Container maxWidth="sm"> */}
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>Blog</h2>
+          <Categories />
+          <Areas />
           <ul className={utilStyles.list}>
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
