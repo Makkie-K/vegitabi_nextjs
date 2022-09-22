@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 // import Link from "/src/components/utils/Link";
 import Link from "@mui/material/Link";
+import HeaderMenu1 from "./HeaderMenu1";
 // const pages = ["Products", "Pricing", "Blog"];
 const indexes = [
   ["記事一覧", "/posts-index"],
@@ -94,20 +95,14 @@ const ResponsiveAppBar = () => {
               {indexes.map((index) => (
                 <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link href={index[1]} color="inherit">
+                    <Link href={index[1]} color="inherit" underline="none">
                       {index[0]}
                     </Link>
                   </Typography>
                 </MenuItem>
               ))}
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
             </Menu>
           </Box>
-          {/* スマホサイズ表示 */}
           <Typography
             variant="h5"
             noWrap
@@ -126,6 +121,7 @@ const ResponsiveAppBar = () => {
           >
             Vegitabi.com
           </Typography>
+          <HeaderMenu1 />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* pcサイズ表示 */}
             {indexes.map((index) => (
@@ -137,20 +133,16 @@ const ResponsiveAppBar = () => {
                 <Link href={index[1]} color="inherit" underline="none">
                   {index[0]}
                 </Link>
-                {/* {indexs.map((index) => (
-                  <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{index[0]}</Typography>
-                  </MenuItem>
-                ))} */}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-              </IconButton>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0 }}
+              ></IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
