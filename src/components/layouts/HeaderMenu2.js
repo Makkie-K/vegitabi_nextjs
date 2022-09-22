@@ -23,7 +23,7 @@ export default function HeaderMenu2() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        sx={{ color: "white" }}
+        sx={{ color: "black" }}
       >
         エリア別
       </Button>
