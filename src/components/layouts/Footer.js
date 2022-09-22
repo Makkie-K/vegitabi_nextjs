@@ -30,5 +30,6 @@ export default function Footer() {
         </Grid>
       </Grid>
     </Box>
+
   );
 }
