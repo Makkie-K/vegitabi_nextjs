@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 // import Link from "/src/components/utils/Link";
 import Link from "@mui/material/Link";
 import HeaderMenu1 from "./HeaderMenu1";
+import HeaderMenu2 from "./HeaderMenu2";
 // const pages = ["Products", "Pricing", "Blog"];
 const indexes = [
   ["記事一覧", "/posts-index"],
@@ -55,11 +56,11 @@ const ResponsiveAppBar = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
+              // color: "inherit",
               textDecoration: "none",
             }}
           >
-            {/* パソコンサイズ */}
             Vegitabi.com
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -69,7 +70,8 @@ const ResponsiveAppBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              // color="inherit"
+              color="default"
             >
               <MenuIcon />
             </IconButton>
@@ -91,8 +93,8 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* スマホサイズ表示 */}
               <HeaderMenu1 />
+              <HeaderMenu2 />
               {indexes.map((index) => (
                 <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
@@ -116,20 +118,22 @@ const ResponsiveAppBar = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
+              // color: "inherit",
               textDecoration: "none",
             }}
           >
-            {/* スマホサイズ */}
             Vegitabi.com
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <HeaderMenu1 />
+            <HeaderMenu2 />
             {indexes.map((index) => (
               <Button
                 key={index[0]}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
+                // sx={{ my: 2, color: "white", display: "block" }}
               >
                 <Link href={index[1]} color="inherit" underline="none">
                   {index[0]}

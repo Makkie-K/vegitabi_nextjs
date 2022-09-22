@@ -19,7 +19,7 @@ export default function Areas() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <Link href="/australia-index">
+          <Link href="/australia-index" underline="none">
             <AreasCard
               name="オーストラリア"
               image="/images/homes/australia.jpeg"
@@ -27,12 +27,12 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/oman-index">
+          <Link href="/oman-index" underline="none">
             <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/cookislands-index">
+          <Link href="/cookislands-index" underline="none">
             <AreasCard
               name="クック諸島"
               image="/images/homes/cookislands.jpeg"
@@ -40,7 +40,7 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/uae-index">
+          <Link href="/uae-index" underline="none">
             <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
           </Link>
         </Grid>
