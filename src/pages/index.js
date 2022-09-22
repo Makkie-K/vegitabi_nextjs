@@ -15,7 +15,6 @@ import Date from "/src/components/date";
 export default function Index({ allPostsData }) {
   return (
     <Layout home>
-      {/* <Header /> */}
       <Container maxWidth="sm">
         <section className={utilStyles.headingMd}>
           <p>Vegan & Vegetarian</p>

@@ -11,6 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+
 // import Link from "/src/components/utils/Link";
 import Link from "@mui/material/Link";
 import HeaderMenu1 from "./HeaderMenu1";
@@ -19,6 +20,7 @@ const indexes = [
   ["記事一覧", "/posts-index"],
   ["コラム一覧", "/columns-index"],
 ];
+
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -43,8 +45,6 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
-          {/* pcサイズ表示 */}
           <Typography
             variant="h6"
             noWrap
@@ -123,7 +123,6 @@ const ResponsiveAppBar = () => {
           </Typography>
           <HeaderMenu1 />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* pcサイズ表示 */}
             {indexes.map((index) => (
               <Button
                 key={index[0]}
