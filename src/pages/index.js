@@ -23,7 +23,7 @@ export default function Index({ allPostsData }) {
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Categories />
           <Areas />
-          <ul className={utilStyles.list}>
+          {/* <ul className={utilStyles.list}>
             {allPostsData.map(({ id, date, title }) => (
               <li className={utilStyles.listItem} key={id}>
                 <Link href={`/posts/${id}`}>{title}</Link>
@@ -33,7 +33,7 @@ export default function Index({ allPostsData }) {
                 </small>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </section>
       </Container>
     </Layout>

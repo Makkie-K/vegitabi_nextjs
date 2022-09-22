@@ -21,7 +21,6 @@ const indexes = [
   ["コラム一覧", "/columns-index"],
 ];
 
-
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -60,6 +59,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
+            {/* パソコンサイズ */}
             Vegitabi.com
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -92,6 +92,7 @@ const ResponsiveAppBar = () => {
               }}
             >
               {/* スマホサイズ表示 */}
+              <HeaderMenu1 />
               {indexes.map((index) => (
                 <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
@@ -119,10 +120,11 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
+            {/* スマホサイズ */}
             Vegitabi.com
           </Typography>
-          <HeaderMenu1 />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <HeaderMenu1 />
             {indexes.map((index) => (
               <Button
                 key={index[0]}
