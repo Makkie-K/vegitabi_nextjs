@@ -11,12 +11,12 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Link from "/src/components/utils/Link";
-
+// import Link from "/src/components/utils/Link";
+import Link from "@mui/material/Link";
 // const pages = ["Products", "Pricing", "Blog"];
 const indexes = [
-  ["記事一覧", "/"],
-  ["コラム一覧", "/"],
+  ["記事一覧", "/posts-index"],
+  ["コラム一覧", "/columns-index"],
 ];
 
 const ResponsiveAppBar = () => {
@@ -90,9 +90,14 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
+              {/* スマホサイズ表示 */}
               {indexes.map((index) => (
                 <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{index[0]}</Typography>
+                  <Typography textAlign="center">
+                    <Link href={index[1]} color="inherit">
+                      {index[0]}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
               {/* {pages.map((page) => (
@@ -122,13 +127,16 @@ const ResponsiveAppBar = () => {
             Vegitabi.com
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {/* pcサイズ表示 */}
             {indexes.map((index) => (
               <Button
                 key={index[0]}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {index[0]}
+                <Link href={index[1]} color="inherit" underline="none">
+                  {index[0]}
+                </Link>
                 {/* {indexs.map((index) => (
                   <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{index[0]}</Typography>
