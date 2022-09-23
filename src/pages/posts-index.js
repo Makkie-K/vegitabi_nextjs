@@ -12,27 +12,54 @@ import { getSortedPostsData } from "/src/lib/posts";
 import Date from "/src/components/date";
 import Categories from "/src/components/homes/Categories";
 import Areas from "/src/components/homes/Areas";
+import Avatar from "@mui/material/Avatar";
 // import Header from "/src/components/layouts/Header";
 
 export default function Index({ allPostsData }) {
   return (
     <Layout>
       {/* <Header /> */}
-      <Container>
-        {/* <Container maxWidth="sm"> */}
+      <Container maxWidth="md">
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>{title}</Link>
-                <br />
-                <img src={`/images/posts/${id}/1.webp`} />
+          {/* <ul className={utilStyles.list}> */}
+          {allPostsData.map(({ id, date, title, category, area }) => (
+            <Box
+              className={utilStyles.listItem}
+              key={id}
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+              }}
+            >
+              <Box sx={{ width: { xs: "100%", md: 300 } }}>
+                <Avatar
+                  alt={title}
+                  src={`/images/posts/${id}/1.webp`}
+                  variant="square"
+                  // sx={{ width: "100%", height: 135 }}
+                  sx={{ width: "100%", height: 135 }}
+                />
+              </Box>
+              <Box>
+                <Link
+                  href={`/posts/${id}`}
+                  sx={{
+                    display: "flex",
+                    textDecorationColor: "rgba(0, 0, 0, 0.55)",
+                    color: "rgba(0, 0, 0, 0.55)",
+                  }}
+                >
+                  {title}
+                </Link>
                 <small className={utilStyles.lightText}>
                   <Date dateString={date} />
                 </small>
-              </li>
-            ))}
-          </ul>
+                <Box>{category}</Box>
+                <Box>{area}</Box>
+              </Box>
+            </Box>
+          ))}
+          {/* </ul> */}
         </section>
       </Container>
     </Layout>

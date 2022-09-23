@@ -15,20 +15,22 @@ import Copyright from "/src/components/utils/Copyright";
 
 export default function Footer() {
   return (
-    <Box sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}>
-      <Grid spacing={2}>
-        <Grid xs={12} md={4}>
-          <div>お問い合わせ</div>
-        </Grid>
-        <Grid xs={12} md={4}>
-          <div>プライバシーポリシーと利用規約</div>
-        </Grid>
-        <Grid xs={12} md={4}>
-          <div>
-            <Copyright />
-          </div>
-        </Grid>
+    <Grid
+      container
+      sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}
+      spacing={2}
+    >
+      <Grid xs={12} md={4}>
+        <div>お問い合わせ</div>
       </Grid>
-    </Box>
+      <Grid xs={12} md={4}>
+        <div>プライバシーポリシーと利用規約</div>
+      </Grid>
+      <Grid xs={12} md={4}>
+        <div>
+          <Copyright />
+        </div>
+      </Grid>
+    </Grid>
   );
 }
