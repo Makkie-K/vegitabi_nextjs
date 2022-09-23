@@ -63,7 +63,12 @@ const ResponsiveAppBar = () => {
           >
             Vegitabi.com
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -125,7 +130,13 @@ const ResponsiveAppBar = () => {
           >
             Vegitabi.com
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             <HeaderMenu1 />
             <HeaderMenu2 />
             {indexes.map((index) => (
