@@ -9,10 +9,13 @@ import Typography from "@mui/material/Typography";
 import Link from "/src/components/utils/Link";
 import Box from "@mui/material/Box";
 
-export default function AlignItemsList() {
+export default function ListPost(props) {
+  console.log(props);
   return (
     <Box sx={{ display: "flex" }}>
-      <div>photo</div>
+      <div>
+        <img src={`/images/posts/${id}/1.webp`} />
+      </div>
       <div>text</div>
     </Box>
   );
