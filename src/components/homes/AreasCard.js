@@ -8,7 +8,7 @@ import { CardActionArea } from "@mui/material";
 export default function AreasCard(props) {
   // console.log(props.name);
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <Card>
       <CardActionArea>
         <CardMedia
           component="img"

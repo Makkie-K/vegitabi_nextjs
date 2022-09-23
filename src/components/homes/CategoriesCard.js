@@ -22,9 +22,10 @@ export default function CategoriesCard(props) {
             width: "80%",
             backgroundColor: "#fff",
             opacity: "0.8",
-            left: "46px",
-            bottom: "5%",
+            left: "50%",
+            bottom: "-3%",
             height: "25%",
+            transform: "translate(-50%, -50%)",
             textAlign: "center",
           }}
         >

@@ -16,7 +16,7 @@ import Copyright from "/src/components/utils/Copyright";
 export default function Footer() {
   return (
     <Box sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}>
-      <Grid container spacing={2}>
+      <Grid spacing={2}>
         <Grid xs={12} md={4}>
           <div>お問い合わせ</div>
         </Grid>
@@ -30,6 +30,5 @@ export default function Footer() {
         </Grid>
       </Grid>
     </Box>
-
   );
 }
