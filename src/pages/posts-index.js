@@ -1,21 +1,39 @@
-import Box from "@mui/material/Box";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
-import EachPostIndex from "/src/components/posts-index/each-post-index";
+import * as React from "react";
+import List from "/src/components/List";
+import Layout from "/src/components/layouts/layout";
+// import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Date from "/src/components/date";
+import { getSortedPostsData } from "/src/lib/posts";
+import Link from "/src/components/utils/Link";
 
-export default function PostsIndex() {
-  // for (let i = 0; i < 10; i++) {
-  //   console.log(i);
-  // }
-  const numbers = [1, 2, 3, 4, 5];
+export default function PostsIndex({ allPostsData }) {
+  console.log(allPostsData);
   return (
-    <>
-      <Typography sx={{ textAlign: "center" }}>記事一覧</Typography>
-      {numbers.map((number) => (
-        <MenuItem key={number}>
-          <EachPostIndex />
-        </MenuItem>
-      ))}
-    </>
+    <Layout>
+      <Container maxWidth="md">
+        <ul>
+          {allPostsData.map(({ id, date, title, category, area }) => {
+            <List />;
+            // <li>
+            //   <Link href="/">{id}</Link>
+            //   <br />
+            //   <small>
+            //     <Date dateString={date} />
+            //   </small>
+            // </li>;
+          })}
+        </ul>
+        <List />
+      </Container>
+    </Layout>
   );
+}
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }
