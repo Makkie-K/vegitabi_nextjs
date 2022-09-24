@@ -19,33 +19,47 @@ export default function Index({ allPostsData }) {
   return (
     <Layout>
       {/* <Header /> */}
-      <Container maxWidth="md">
+      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "lightgrey",
+            marginBottom: "30px",
+          }}
+        >
+          記事一覧
+        </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           {/* <ul className={utilStyles.list}> */}
-          {allPostsData.map(({ id, date, title, category, area }) => (
+          {allPostsData.map(({ id, date, title, headline, category, area }) => (
             <Box
               className={utilStyles.listItem}
               key={id}
               sx={{
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
+                border: "solid 1px lightgrey",
+                padding: "5px",
               }}
             >
-              <Box sx={{ width: { xs: "100%", md: 300 } }}>
+              <Box sx={{ width: { xs: "100%", md: "50%" } }}>
                 <Avatar
                   alt={title}
                   src={`/images/posts/${id}/1.webp`}
                   variant="square"
                   // sx={{ width: "100%", height: 135 }}
-                  sx={{ width: "100%", height: 135 }}
+                  sx={{ width: "100%", height: 180 }}
                 />
               </Box>
-              <Box>
+              <Box
+                sx={{ paddingLeft: "5px", width: { xs: "100%", md: "50%" } }}
+              >
                 <Link
                   href={`/posts/${id}`}
                   sx={{
                     display: "flex",
-                    textDecorationColor: "rgba(0, 0, 0, 0.55)",
+                    // textDecorationColor: "rgba(0, 0, 0, 0.55)",
+                    textDecoration: "none",
                     color: "rgba(0, 0, 0, 0.55)",
                   }}
                 >
@@ -54,8 +68,22 @@ export default function Index({ allPostsData }) {
                 <small className={utilStyles.lightText}>
                   <Date dateString={date} />
                 </small>
-                <Box>{category}</Box>
-                <Box>{area}</Box>
+                <Box sx={{ display: "flex" }}>
+                  <Link
+                    href={`/posts/${id}`}
+                    sx={{
+                      color: "rgba(0, 0, 0, 0.55)",
+                      textDecoration: "none",
+                      fontSize: "85%",
+                      // position: "fixed",
+                      bottom: 0,
+                    }}
+                  >
+                    {headline}
+                  </Link>
+                </Box>
+                {/* <Box>{category}</Box>
+                <Box>{area}</Box> */}
               </Box>
             </Box>
           ))}
