@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
+import { log } from "console";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 // console.log("process.cwd:" + process.cwd());
@@ -21,10 +22,19 @@ export function getSortedPostsData() {
     // console.log("**************" + fileContents);
     // 投稿のメタデータ部分を解析するために gray-matter を使う
     const matterResult = matter(fileContents);
+    const contents = matterResult.content.slice(0, 70);
+    // console.log(`content.slice : ${contents.slice(0, 50)}`);
+    // console.log(
+    //   "*******ここから**********" +
+    //     matterResult.content +
+    //     "*****ここまで********"
+    // );
     // console.log("**************" + JSON.stringify(matterResult.data));
     // データを id と合わせる
+    // console.log(matterResult.data);
     return {
       id,
+      contents,
       ...matterResult.data,
     };
   });
