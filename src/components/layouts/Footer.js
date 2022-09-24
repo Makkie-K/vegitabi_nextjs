@@ -17,40 +17,49 @@ import Link from "/src/components/utils/Link";
 
 export default function Footer() {
   return (
-    <Container
+    <Grid
+      container
       sx={{
-        paddingTop: "9px",
+        flexGrow: 1,
         backgroundColor: "#f5f5f5",
+        paddingLeft: "20px",
+        paddingTop: "10px",
+        paddingRight: "20px",
+        paddingBottom: "10px",
       }}
+      // sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}
+      spacing={2}
     >
-      <Grid
-        container
-        sx={{ flexGrow: 1 }}
-        // sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}
-        spacing={2}
-      >
-        <Grid xs={12} md={4}>
-          <Link
-            href="/contact"
-            sx={{ textDecoration: "none", color: "inherit" }}
-          >
-            お問い合わせ
-          </Link>
-        </Grid>
-        <Grid xs={12} md={4}>
-          <Link
-            href="/privacyPolicy"
-            sx={{ textDecoration: "none", color: "inherit" }}
-          >
-            プライバシーポリシーと利用規約
-          </Link>
-        </Grid>
-        <Grid xs={12} md={4}>
-          <div>
-            <Copyright />
-          </div>
-        </Grid>
+      <Grid xs={12} md={4} sx={{ textAlign: "left" }}>
+        <Link
+          href="/contact"
+          sx={{
+            textDecoration: "none",
+            color: "inherit",
+            // paddingLeft: { xs: "18px", md: "40px" },
+          }}
+        >
+          お問い合わせ
+        </Link>
       </Grid>
-    </Container>
+      <Grid xs={12} md={4} sx={{ textAlign: { xs: "left", md: "center" } }}>
+        <Link
+          href="/privacyPolicy"
+          sx={{
+            textDecoration: "none",
+            color: "inherit",
+            // paddingLeft: { xs: "18px", md: 0 },
+          }}
+        >
+          プライバシーポリシーと利用規約
+        </Link>
+      </Grid>
+      <Grid xs={12} md={4} sx={{ textAlign: { xs: "left", md: "right" } }}>
+        <div>
+          <Copyright />
+        </div>
+      </Grid>
+    </Grid>
+    // </Container>
   );
 }
