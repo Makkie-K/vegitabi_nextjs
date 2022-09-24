@@ -31,7 +31,7 @@ export default function Index({ allPostsData }) {
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           {/* <ul className={utilStyles.list}> */}
-          {allPostsData.map(({ id, date, title, headline, category, area }) => (
+          {allPostsData.map(({ id, date, title, contents, category, area }) => (
             <Box
               className={utilStyles.listItem}
               key={id}
@@ -52,34 +52,40 @@ export default function Index({ allPostsData }) {
                 />
               </Box>
               <Box
-                sx={{ paddingLeft: "5px", width: { xs: "100%", md: "50%" } }}
+                sx={{
+                  paddingLeft: "5px",
+                  width: { xs: "100%", md: "50%" },
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column",
+                }}
               >
-                <Link
-                  href={`/posts/${id}`}
-                  sx={{
-                    display: "flex",
-                    // textDecorationColor: "rgba(0, 0, 0, 0.55)",
-                    textDecoration: "none",
-                    color: "rgba(0, 0, 0, 0.55)",
-                  }}
-                >
-                  {title}
-                </Link>
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-                <Box sx={{ display: "flex" }}>
+                <Box sx={{ margin: "15px" }}>
+                  <Link
+                    href={`/posts/${id}`}
+                    sx={{
+                      display: "flex",
+                      // textDecorationColor: "rgba(0, 0, 0, 0.55)",
+                      textDecoration: "none",
+                      color: "rgba(0, 0, 0, 0.55)",
+                    }}
+                  >
+                    {title}
+                  </Link>
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
+                </Box>
+                <Box sx={{ margin: "15px" }}>
                   <Link
                     href={`/posts/${id}`}
                     sx={{
                       color: "rgba(0, 0, 0, 0.55)",
                       textDecoration: "none",
                       fontSize: "85%",
-                      // position: "fixed",
-                      bottom: 0,
                     }}
                   >
-                    {headline}
+                    {contents}
                   </Link>
                 </Box>
                 {/* <Box>{category}</Box>

@@ -26,6 +26,7 @@ export default function Footer() {
         paddingTop: "10px",
         paddingRight: "20px",
         paddingBottom: "10px",
+        margin: 0,
       }}
       // sx={{ flexGrow: 1, borderTop: "solid 1px grey" }}
       spacing={2}
