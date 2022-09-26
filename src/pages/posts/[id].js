@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from "/src/lib/posts";
 import Head from "next/head";
 import Date from "/src/components/date";
 import utilStyles from "/src/styles/utils.module.css";
+import Box from "@mui/material/Box";
 
 export default function Post({ postData }) {
   return (
@@ -10,13 +11,15 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <br />
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <article sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
+        <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
+          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+          <br />
+          <div className={utilStyles.lightText}>
+            <Date dateString={postData.date} />
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </Box>
       </article>
     </Layout>
     // <>
