@@ -4,6 +4,8 @@ import Head from "next/head";
 import Date from "/src/components/date";
 import utilStyles from "/src/styles/utils.module.css";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Markdown from "/src/components/markdown";
 
 export default function Post({ postData }) {
   return (
@@ -11,19 +13,19 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
+      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <br />
-          <div className={utilStyles.lightText}>
-            <Date dateString={postData.date} />
-          </div>
-          <div
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-            className={utilStyles.text}
-          />
+          <article>
+            <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+            <br />
+            <div className={utilStyles.lightText}>
+              <Date dateString={postData.date} />
+            </div>
+            <Markdown>{postData.contentHtml}</Markdown>
+            {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+          </article>
         </Box>
-      </article>
+      </Container>
     </Layout>
     // <>
     //   <div>{postData.title}</div>
