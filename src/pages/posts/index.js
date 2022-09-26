@@ -43,13 +43,15 @@ export default function Index({ allPostsData }) {
               }}
             >
               <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                <Avatar
-                  alt={title}
-                  src={`/images/posts/${id}/1.webp`}
-                  variant="square"
-                  // sx={{ width: "100%", height: 135 }}
-                  sx={{ width: "100%", height: 180 }}
-                />
+                <Link href={`/posts/${id}`}>
+                  <Avatar
+                    alt={title}
+                    src={`/images/posts/${id}/1.webp`}
+                    variant="square"
+                    // sx={{ width: "100%", height: 135 }}
+                    sx={{ width: "100%", height: 180 }}
+                  />
+                </Link>
               </Box>
               <Box
                 sx={{
@@ -60,14 +62,18 @@ export default function Index({ allPostsData }) {
                   flexDirection: "column",
                 }}
               >
-                <Box sx={{ margin: "15px" }}>
+                <Box sx={{ margin: "9px" }}>
                   <Link
                     href={`/posts/${id}`}
                     sx={{
-                      display: "flex",
-                      // textDecorationColor: "rgba(0, 0, 0, 0.55)",
+                      // display: "flex",
+                      display: "-webkit-box",
                       textDecoration: "none",
                       color: "rgba(0, 0, 0, 0.55)",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      "-webkit-box-orient": "vertical",
+                      "-webkit-line-clamp": "2",
                     }}
                   >
                     {title}
@@ -76,7 +82,17 @@ export default function Index({ allPostsData }) {
                     <Date dateString={date} />
                   </small>
                 </Box>
-                <Box sx={{ margin: "15px" }}>
+                <Box
+                  sx={{
+                    margin: "9px",
+                    height: "60px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    "-webkit-box-orient": "vertical",
+                    "-webkit-line-clamp": "2",
+                  }}
+                >
                   <Link
                     href={`/posts/${id}`}
                     sx={{
