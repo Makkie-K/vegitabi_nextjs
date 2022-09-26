@@ -81,10 +81,11 @@ export async function getPostData(id) {
   const matterResult = matter(fileContents);
 
   // マークダウンを HTML 文字列に変換するために remark を使う
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  // const processedContent = await remark()
+  //   .use(html)
+  //   .process(matterResult.content);
+  // const contentHtml = processedContent.toString();
+  const contentHtml = matterResult.content.toString();
 
   // データを id と組み合わせる
   return {
