@@ -7,18 +7,21 @@ import Box from "@mui/material/Box";
 
 export default function Post({ postData }) {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
+      <article>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <br />
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+            className={utilStyles.text}
+          />
         </Box>
       </article>
     </Layout>
