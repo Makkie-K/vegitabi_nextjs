@@ -63,3 +63,18 @@
   width: 100%;
   max-width: 768px;
 }
+
+.text table tr td:nth-of-type(1) {
+  border-top: 1px solid #bbe4a3;
+  border-bottom: 1px solid #bbe4a3;
+  padding: 5px 8px;
+  background-color: #e6f5e0;
+  width: 146px;
+  font-size: 14px;
+}
+
+.text table tr td:nth-of-type(2) {
+  border-bottom: 1px solid #bbe4a3;
+  padding: 5px 8px;
+  font-size: 14px;
+}
