@@ -21,7 +21,9 @@ export default function Post({ postData }) {
             <div className={utilStyles.lightText}>
               <Date dateString={postData.date} />
             </div>
-            <Markdown>{postData.contentHtml}</Markdown>
+            <Markdown className={utilStyles.text}>
+              {postData.contentHtml}
+            </Markdown>
             {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
           </article>
         </Box>
