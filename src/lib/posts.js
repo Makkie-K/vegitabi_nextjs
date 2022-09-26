@@ -22,7 +22,7 @@ export function getSortedPostsData() {
     // console.log("**************" + fileContents);
     // 投稿のメタデータ部分を解析するために gray-matter を使う
     const matterResult = matter(fileContents);
-    const contents = matterResult.content.slice(0, 70);
+    const contents = matterResult.content.slice(0, 200);
     // console.log(`content.slice : ${contents.slice(0, 50)}`);
     // console.log(
     //   "*******ここから**********" +
