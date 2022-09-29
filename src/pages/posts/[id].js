@@ -6,6 +6,7 @@ import utilStyles from "/src/styles/utils.module.css";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
+import ShopInfo from "/src/components/ShopInfo";
 
 export default function Post({ postData }) {
   return (
@@ -25,6 +26,15 @@ export default function Post({ postData }) {
               {postData.contentHtml}
             </Markdown>
             {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+            <ShopInfo
+              address={postData.address}
+              map={postData.map}
+              title={postData.title}
+              url={postData.url}
+              businessHour={postData.businessHour}
+              telephone={postData.telephone}
+              others={postData.others}
+            />
           </article>
         </Box>
       </Container>
