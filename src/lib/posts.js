@@ -22,6 +22,7 @@ export function getSortedPostsData() {
     // console.log("**************" + fileContents);
     // 投稿のメタデータ部分を解析するために gray-matter を使う
     const matterResult = matter(fileContents);
+    // console.log(matterResult.data);
     const contents = matterResult.content.slice(0, 200);
     // console.log(`content.slice : ${contents.slice(0, 50)}`);
     // console.log(
@@ -29,9 +30,9 @@ export function getSortedPostsData() {
     //     matterResult.content +
     //     "*****ここまで********"
     // );
-    // console.log("**************" + JSON.stringify(matterResult.data));
+    // console.log("メタデータ" + JSON.stringify(matterResult.data));
     // データを id と合わせる
-    // console.log(matterResult.data);
+    // console.log("メタデータ" + matterResult.data);
     return {
       id,
       contents,
