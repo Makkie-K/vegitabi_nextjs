@@ -5,8 +5,6 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Image from "next/image";
 
-import profilePic from "/public/images/menus/1/berryPatch_menu10.webp";
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,7 +18,7 @@ const style = {
   // p: 4,
 };
 
-export default function BasicModal() {
+export default function BasicModal({ menu }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -44,18 +42,16 @@ export default function BasicModal() {
             bgcolor: "#fff",
           }}
         >
-          <ImageMenu />
-          {/* <ImageMenu />
-          <ImageMenu />
-          <ImageMenu /> */}
-          {/* <Image src={src1} width={768} height={1133} /> */}
-          {/* <Image src={profilePic} /> */}
+          {menu.map((m) => (
+            // <div>{menu.img}</div>
+            <Image src={m} width={768} height={1133} />
+          ))}
         </Box>
       </Modal>
     </div>
   );
 }
 export function ImageMenu() {
-  const src1 = "/images/menus/1/berryPatch_menu10.webp";
-  return <Image src={src1} width={768} height={1133} />;
+  // const src1 = "/images/menus/1/berryPatch_menu10.webp";
+  // return <Image src={src1} width={768} height={1133} />;
 }
