@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Image from "next/image";
+
 import profilePic from "/public/images/menus/1/berryPatch_menu10.webp";
 
 const style = {
@@ -11,12 +12,12 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "768px",
-  height: "1110px",
+  // width: "768px",
+  // height: "1110px",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  // p: 4,
 };
 
 export default function BasicModal() {
@@ -26,18 +27,35 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Menu</Button>
+      <Button onClick={handleOpen}>menu</Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          console.log("Hello world");
-          {/* <Image src={profilePic} layout="fill" /> */}
+        <Box
+          sx={{
+            margin: "20px auto",
+            padding: { xs: 0, md: "20px" },
+            width: { xs: "89%", md: "768px" },
+            height: { xs: "93%", md: "93%" },
+            overflow: "scroll",
+            bgcolor: "#fff",
+          }}
+        >
+          <ImageMenu />
+          {/* <ImageMenu />
+          <ImageMenu />
+          <ImageMenu /> */}
+          {/* <Image src={src1} width={768} height={1133} /> */}
+          {/* <Image src={profilePic} /> */}
         </Box>
       </Modal>
     </div>
   );
+}
+export function ImageMenu() {
+  const src1 = "/images/menus/1/berryPatch_menu10.webp";
+  return <Image src={src1} width={768} height={1133} />;
 }

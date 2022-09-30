@@ -34,6 +34,7 @@ export default function Post({ postData }) {
               businessHour={postData.businessHour}
               telephone={postData.telephone}
               others={postData.others}
+              menu={postData.menu}
             />
           </article>
         </Box>
