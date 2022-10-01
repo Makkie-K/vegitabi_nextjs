@@ -43,7 +43,6 @@ export default function BasicModal({ menu }) {
           }}
         >
           {menu.map((m) => (
-            // <div>{menu.img}</div>
             <Image src={m} width={768} height={1133} />
           ))}
         </Box>
