@@ -1,5 +1,6 @@
 import { GoogleMap } from "/src/components/GoogleMap";
 import ShopModal from "/src/components/ShopModal";
+import Table from "/src/components/Table";
 
 export default function ShopInfo({
   map,
@@ -9,9 +10,12 @@ export default function ShopInfo({
   url,
   businessHour,
   others,
-  menu,
+  fileCount,
+  id,
 }) {
+  console.log(id);
   return (
+    // <Table />
     <div>
       <div>{title}</div>
       <div>{address}</div>
@@ -20,24 +24,11 @@ export default function ShopInfo({
       <div>{url}</div>
       <div>{businessHour}</div>
       <div>{others}</div>
+      {/* <div>{files}</div> */}
       <div>
-        <ShopModal menu={menu} />
+        <ShopModal fileCount={fileCount} id={id} />
       </div>
+      <div>{/* <ShopModal fileCount={fileCount} /> */}</div>
     </div>
   );
 }
-
-// export function GoogleMap({ map }) {
-//   return (
-//     <div>
-//       <iframe
-//         src={map}
-//         width="100%"
-//         // style="border:0;"
-//         allowfullscreen=""
-//         loading="lazy"
-//         referrerPolicy="no-referrer-when-downgrade"
-//       ></iframe>
-//     </div>
-//   );
-// }
