@@ -77,9 +77,11 @@ export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
+  const files = fs.readdirSync(process.cwd() + "/public/images/menus/1");
+  const fileCount = files.length;
   // 投稿のメタデータ部分を解析するために gray-matter を使う
   const matterResult = matter(fileContents);
+  // console.log("fileCount:" + fileCount);
 
   // マークダウンを HTML 文字列に変換するために remark を使う
   // const processedContent = await remark()
@@ -92,6 +94,8 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
+    files,
+    fileCount,
     ...matterResult.data,
   };
 }
