@@ -9,6 +9,7 @@ import Markdown from "/src/components/markdown";
 import ShopInfo from "/src/components/ShopInfo";
 
 export default function Post({ postData }) {
+  console.log({ postData });
   return (
     <Layout>
       <Head>
@@ -34,7 +35,10 @@ export default function Post({ postData }) {
               businessHour={postData.businessHour}
               telephone={postData.telephone}
               others={postData.others}
-              menu={postData.menu}
+              files={postData.files}
+              fileCount={postData.fileCount}
+              // id={postData.id}
+              id={Number(postData.id)}
             />
           </article>
         </Box>
