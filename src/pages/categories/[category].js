@@ -1,15 +1,14 @@
 import Layout from "/src/components/layouts/layout";
-import { getAllPostIds, getPostData } from "/src/lib/posts";
+// import { getAllPostIds, getPostData } from "/src/lib/posts";
 import Head from "next/head";
 import Date from "/src/components/date";
 import utilStyles from "/src/styles/utils.module.css";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
-import ShopInfo from "/src/components/ShopInfo";
+// import ShopInfo from "/src/components/ShopInfo";
 
-export default function Post({ postData }) {
-  console.log({ postData });
+export default function CategoryIndex({}) {
   return (
     <Layout>
       <Head>

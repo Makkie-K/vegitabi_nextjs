@@ -104,12 +104,9 @@ export default function Index({ allPostsData }) {
                     {contents}
                   </Link>
                 </Box>
-                {/* <Box>{category}</Box>
-                <Box>{area}</Box> */}
               </Box>
             </Box>
           ))}
-          {/* </ul> */}
         </section>
       </Container>
     </Layout>
