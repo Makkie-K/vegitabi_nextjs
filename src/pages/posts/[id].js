@@ -15,7 +15,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+      <Container maxWidth="md" sx={{ marginTop: "30px" }}>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <article>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
