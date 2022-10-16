@@ -9,7 +9,7 @@ import Markdown from "/src/components/markdown";
 import ShopInfo from "/src/components/ShopInfo";
 
 export default function Post({ postData }) {
-  console.log({ postData });
+  // console.log({ postData });
   return (
     <Layout>
       <Head>
@@ -54,6 +54,7 @@ export default function Post({ postData }) {
 export async function getStaticPaths() {
   // id としてとりうる値のリストを返す
   const paths = getAllPostIds();
+  // console.log(paths[0].params);
   return {
     paths,
     fallback: false,

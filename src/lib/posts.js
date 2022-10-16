@@ -6,8 +6,8 @@ import html from "remark-html";
 import { log } from "console";
 
 const postsDirectory = path.join(process.cwd(), "posts");
+// console.log(postsDirectory);
 // console.log("process.cwd:" + process.cwd());
-// console.log("**************" + postsDirectory);
 export function getSortedPostsData() {
   // /posts　配下のファイル名を取得する
   const fileNames = fs.readdirSync(postsDirectory);
@@ -24,15 +24,6 @@ export function getSortedPostsData() {
     const matterResult = matter(fileContents);
     // console.log(matterResult.data);
     const contents = matterResult.content.slice(0, 200);
-    // console.log(`content.slice : ${contents.slice(0, 50)}`);
-    // console.log(
-    //   "*******ここから**********" +
-    //     matterResult.content +
-    //     "*****ここまで********"
-    // );
-    // console.log("メタデータ" + JSON.stringify(matterResult.data));
-    // データを id と合わせる
-    // console.log("メタデータ" + matterResult.data);
     return {
       id,
       contents,
@@ -50,21 +41,6 @@ export function getSortedPostsData() {
 }
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
-  // console.log("**************" + postsDirectory);
-  // console.log(fileNames);
-  // 以下のような配列を返します:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -73,21 +49,47 @@ export function getAllPostIds() {
     };
   });
 }
+// getAllPostIds()
+export function getAllCategories() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  // const categories = [];
+  // ***********************
+  const categories = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    const category = matterResult.data.category;
+    return category;
+  });
+  console.log(categories);
+
+  // ***********************
+  // console.log(fileNames);
+  // マークダウンファイルからカテゴリー名を配列で取得
+  // const categories = ["accomodation", "eat-drink"];
+  // console.log(categories);
+  return categories.map((category) => {
+    // console.log(category);
+    return {
+      params: {
+        category: category,
+      },
+    };
+  });
+}
+
+export function getPostDataByCategory(category) {}
+
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const files = fs.readdirSync(process.cwd() + "/public/images/menus/1");
+  // console.log("files:" + files);
   const fileCount = files.length;
   // 投稿のメタデータ部分を解析するために gray-matter を使う
+  // console.log("メタデータ: " + matter(fileContents).data.category.toString());
   const matterResult = matter(fileContents);
-  // console.log("fileCount:" + fileCount);
-
-  // マークダウンを HTML 文字列に変換するために remark を使う
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(matterResult.content);
-  // const contentHtml = processedContent.toString();
   const contentHtml = matterResult.content.toString();
 
   // データを id と組み合わせる
