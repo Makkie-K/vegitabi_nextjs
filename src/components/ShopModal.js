@@ -35,7 +35,7 @@ export default function BasicModal({ id, fileCount }) {
   for (let i = 1; i < fileCount; i++) {
     menus[i] = { id: id, num: i };
   }
-  console.log(menus);
+  // console.log(menus);
   return (
     <div>
       <Button onClick={handleOpen}>MENU</Button>
