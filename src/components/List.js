@@ -10,7 +10,7 @@ import Link from "/src/components/utils/Link";
 import Box from "@mui/material/Box";
 
 export default function ListPost(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <Box sx={{ display: "flex" }}>
       <div>
