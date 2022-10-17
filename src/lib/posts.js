@@ -11,6 +11,7 @@ const postsDirectory = path.join(process.cwd(), "posts");
 export function getSortedPostsData() {
   // /posts　配下のファイル名を取得する
   const fileNames = fs.readdirSync(postsDirectory);
+  // console.log("fileNames:" + fileNames);
   const allPostsData = fileNames.map((fileName) => {
     // id を取得するためにファイル名から ".md" を削除する
     const id = fileName.replace(/\.md$/, "");
@@ -61,7 +62,7 @@ export function getAllCategories() {
     const category = matterResult.data.category;
     return category;
   });
-  console.log(categories);
+  // console.log(categories);
 
   // ***********************
   // console.log(fileNames);
@@ -78,7 +79,39 @@ export function getAllCategories() {
   });
 }
 
-export function getPostDataByCategory(category) {}
+export function getPostDataByCategory(category) {
+  // posts配下のマークダウンファイルを全件取得する
+  const fileNames = fs.readdirSync(postsDirectory);
+  let categoryPostsData = fileNames.map((fileName) => {
+    // id を取得するためにファイル名から ".md" を削除する
+    const id = fileName.replace(/\.md$/, "");
+    // 抽出されたidを元に、マークダウンファイルのdataとcontentを取得し、returnする
+    const fullPath = path.join(postsDirectory, fileName);
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    // console.log(fileContents);
+    const matterResult = matter(fileContents);
+    // const contentHtml = matterResult.content.toString();
+    const contents = matterResult.content.slice(0, 200);
+    const c = matterResult.data.category;
+    if (c === category) {
+      return {
+        id,
+        contents,
+        ...matterResult.data,
+      };
+    }
+  });
+  categoryPostsData = categoryPostsData.filter((val) => Boolean(val));
+  return categoryPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  // return allPostsData;
+}
 
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);

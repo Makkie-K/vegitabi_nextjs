@@ -1,12 +1,27 @@
 import { getAllCategories, getPostDataByCategory } from "/src/lib/posts";
+import utilStyles from "/src/styles/utils.module.css";
+import Link from "/src/components/utils/Link";
+import Date from "/src/components/date";
 
 export default function CategoryIndex({ postData }) {
-  return <p>{postData}-index</p>;
+  return (
+    <ul className={utilStyles.list}>
+      {postData.map(({ id, date, title }) => (
+        <li className={utilStyles.listItem} key={id}>
+          <Link href={`/posts/${id}`}>{title}</Link>
+          <br />
+          <small className={utilStyles.lightText}>
+            <Date dateString={date} />
+          </small>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export async function getStaticPaths() {
   const paths = getAllCategories();
-  console.log(paths);
+  // console.log(paths);
 
   return {
     paths,
@@ -17,8 +32,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // console.log(params);
   const postData = getPostDataByCategory(params.category);
-  // const postData = getSortedPostsData()
-
+  // const pData = getPostDataByCategory(params.category);
+  // const postData = pData.filter((val) => Boolean(val));
+  // const postData = getPostDataByCategory(params.category);
+  // console.log("In getStaticProps" + JSON.stringify(postData));
   // console.log(postData);
   return {
     props: {
