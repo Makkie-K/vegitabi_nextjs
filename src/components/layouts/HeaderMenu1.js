@@ -37,16 +37,16 @@ export default function HeaderMenu1() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href="/accomodation-index">宿泊施設</Link>
+          <Link href="/categories/宿泊施設">宿泊施設</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/eat-drink-index">飲食店</Link>
+          <Link href="/categories/飲食店">飲食店</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/airplane-airport-index">空港・機内食</Link>
+          <Link href="/categories/空港・機内食">空港・機内食</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/others-index">その他</Link>
+          <Link href="/categories/その他">その他</Link>
         </MenuItem>
       </Menu>
     </Box>

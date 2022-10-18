@@ -1,4 +1,4 @@
-import { getAllCategories, getPostDataByCategory } from "/src/lib/posts";
+import { getAllAreas, getPostDataByArea } from "/src/lib/posts";
 import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
 import Date from "/src/components/date";
@@ -7,7 +7,7 @@ import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 
-export default function CategoryIndex({ postData }) {
+export default function AreaIndex({ postData }) {
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
@@ -18,7 +18,7 @@ export default function CategoryIndex({ postData }) {
             marginBottom: "30px",
           }}
         >
-          {postData[0].category}の記事一覧
+          {postData[0].area}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           {postData.map(({ id, date, title, contents }) => (
@@ -105,7 +105,7 @@ export default function CategoryIndex({ postData }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllCategories();
+  const paths = getAllAreas();
   // console.log(paths);
 
   return {
@@ -116,7 +116,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // console.log(params);
-  const postData = getPostDataByCategory(params.category);
+  const postData = getPostDataByArea(params.area);
   // const pData = getPostDataByCategory(params.category);
   // const postData = pData.filter((val) => Boolean(val));
   // const postData = getPostDataByCategory(params.category);
@@ -128,28 +128,3 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-
-// export async function getStaticPaths() {
-//   // id としてとりうる値のリストを返す
-//   // const paths = getAllCategories();
-//   // const pathss = ["accomodation", "eat-drink"];
-//   const paths = [
-//     { paths: { category: "accommodation" } },
-//     { paths: { category: "eat-drink" } },
-//   ];
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-// export async function getStaticProps({ params }) {
-//   console.log("params: " + JSON.stringify(params));
-
-//   // params.id を使用して、ブログの投稿に必要なデータを取得する
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
