@@ -62,13 +62,6 @@ export function getAllCategories() {
     const category = matterResult.data.category;
     return category;
   });
-  // console.log(categories);
-
-  // ***********************
-  // console.log(fileNames);
-  // マークダウンファイルからカテゴリー名を配列で取得
-  // const categories = ["accomodation", "eat-drink"];
-  // console.log(categories);
   return categories.map((category) => {
     // console.log(category);
     return {
@@ -133,4 +126,59 @@ export async function getPostData(id) {
     fileCount,
     ...matterResult.data,
   };
+}
+
+export function getAllAreas() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  // const categories = [];
+  // ***********************
+  const areas = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    const area = matterResult.data.area;
+    return area;
+  });
+  return areas.map((area) => {
+    // console.log(category);
+    return {
+      params: {
+        area: area,
+      },
+    };
+  });
+}
+
+export function getPostDataByArea(area) {
+  // posts配下のマークダウンファイルを全件取得する
+  const fileNames = fs.readdirSync(postsDirectory);
+  let areaPostsData = fileNames.map((fileName) => {
+    // id を取得するためにファイル名から ".md" を削除する
+    const id = fileName.replace(/\.md$/, "");
+    // 抽出されたidを元に、マークダウンファイルのdataとcontentを取得し、returnする
+    const fullPath = path.join(postsDirectory, fileName);
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    // console.log(fileContents);
+    const matterResult = matter(fileContents);
+    // const contentHtml = matterResult.content.toString();
+    const contents = matterResult.content.slice(0, 200);
+    const a = matterResult.data.area;
+    if (a === area) {
+      return {
+        id,
+        contents,
+        ...matterResult.data,
+      };
+    }
+  });
+  areaPostsData = areaPostsData.filter((val) => Boolean(val));
+  return areaPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  // return allPostsData;
 }
