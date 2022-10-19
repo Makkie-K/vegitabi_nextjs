@@ -1,0 +1,122 @@
+import * as React from "react";
+import Head from "next/head";
+import Container from "@mui/material/Container";
+// import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import ProTip from "/src/components/utils/ProTip";
+import Link from "/src/components/utils/Link";
+// import Copyright from "/src/components/utils/Copyright";
+import Layout from "/src/components/layouts/layout";
+import utilStyles from "/src/styles/utils.module.css";
+import { getSortedColumnsData } from "/src/lib/columns";
+import Date from "/src/components/date";
+// import Categories from "/src/components/homes/Categories";
+// import Areas from "/src/components/homes/Areas";
+import Avatar from "@mui/material/Avatar";
+// import Header from "/src/components/layouts/Header";
+
+export default function Index({ allColumnsData }) {
+  return (
+    <Layout>
+      {/* <Header /> */}
+      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "lightgrey",
+            marginBottom: "30px",
+          }}
+        >
+          記事一覧
+        </Box>
+        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+          {/* <ul className={utilStyles.list}> */}
+          {allColumnsData.map(({ id, date, title, contents }) => (
+            <Box
+              className={utilStyles.listItem}
+              key={id}
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                border: "solid 1px lightgrey",
+                padding: "5px",
+              }}
+            >
+              <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+                <Link href={`/columns/${id}`}>
+                  <Avatar
+                    alt={title}
+                    src={`/images/columns/${id}/1.webp`}
+                    variant="square"
+                    // sx={{ width: "100%", height: 135 }}
+                    sx={{ width: "100%", height: 180 }}
+                  />
+                </Link>
+              </Box>
+              <Box
+                sx={{
+                  paddingLeft: "5px",
+                  width: { xs: "100%", md: "50%" },
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column",
+                }}
+              >
+                <Box sx={{ margin: "9px" }}>
+                  <Link
+                    href={`/columns/${id}`}
+                    sx={{
+                      // display: "flex",
+                      display: "-webkit-box",
+                      textDecoration: "none",
+                      color: "rgba(0, 0, 0, 0.55)",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      "-webkit-box-orient": "vertical",
+                      "-webkit-line-clamp": "2",
+                    }}
+                  >
+                    {title}
+                  </Link>
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
+                </Box>
+                <Box
+                  sx={{
+                    margin: "9px",
+                    height: "60px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    display: "-webkit-box",
+                    "-webkit-box-orient": "vertical",
+                    "-webkit-line-clamp": "2",
+                  }}
+                >
+                  <Link
+                    href={`/columns/${id}`}
+                    sx={{
+                      color: "rgba(0, 0, 0, 0.55)",
+                      textDecoration: "none",
+                      fontSize: "85%",
+                    }}
+                  >
+                    {contents}
+                  </Link>
+                </Box>
+              </Box>
+            </Box>
+          ))}
+        </section>
+      </Container>
+    </Layout>
+  );
+}
+export async function getStaticProps() {
+  const allColumnsData = getSortedColumnsData();
+  return {
+    props: {
+      allColumnsData,
+    },
+  };
+}
