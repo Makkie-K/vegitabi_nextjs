@@ -45,7 +45,7 @@ export default function Footer() {
       </Grid>
       <Grid xs={12} md={4} sx={{ textAlign: { xs: "left", md: "center" } }}>
         <Link
-          href="/privacyPolicy"
+          href="/privacy-policy"
           sx={{
             textDecoration: "none",
             color: "inherit",

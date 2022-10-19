@@ -1,3 +1,13 @@
+import Container from "@mui/material/Container";
+
 export default function PrivacyPolicy() {
-  return <p>プライバシーポリシーと利用規約</p>;
+  return (
+    <Container>
+      <img
+        src="/images/homes/privacy-policy4.jpg"
+        width="100%"
+        sx={{ padding: 0 }}
+      ></img>
+    </Container>
+  );
 }
