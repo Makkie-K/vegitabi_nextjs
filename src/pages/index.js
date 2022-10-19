@@ -14,7 +14,7 @@ import Categories from "/src/components/homes/Categories";
 import Areas from "/src/components/homes/Areas";
 // import Header from "/src/components/layouts/Header";
 
-export default function Index({ allPostsData }) {
+export default function Index() {
   return (
     <Layout>
       {/* <Header /> */}
@@ -23,17 +23,6 @@ export default function Index({ allPostsData }) {
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Categories />
           <Areas />
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>{title}</Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-              </li>
-            ))}
-          </ul>
         </section>
       </Container>
     </Layout>
