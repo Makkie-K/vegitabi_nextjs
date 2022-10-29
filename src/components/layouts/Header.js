@@ -11,6 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import SearchBar from "/src/components/layouts/SearchBar";
 
 // import Link from "/src/components/utils/Link";
 import Link from "@mui/material/Link";
@@ -139,6 +140,7 @@ const ResponsiveAppBar = () => {
           >
             <HeaderMenu1 />
             <HeaderMenu2 />
+
             {indexes.map((index) => (
               <Button
                 key={index[0]}
@@ -151,6 +153,7 @@ const ResponsiveAppBar = () => {
                 </Link>
               </Button>
             ))}
+            <SearchBar />
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

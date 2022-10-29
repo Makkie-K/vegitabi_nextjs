@@ -6,7 +6,7 @@ import html from "remark-html";
 import { log } from "console";
 
 const columnsDirectory = path.join(process.cwd(), "columns");
-console.log(columnsDirectory);
+// console.log(columnsDirectory);
 // console.log("process.cwd:" + process.cwd());
 export function getSortedColumnsData() {
   // /posts　配下のファイル名を取得する
