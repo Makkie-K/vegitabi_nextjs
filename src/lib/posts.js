@@ -63,7 +63,6 @@ export function getAllCategories() {
     return category;
   });
   return categories.map((category) => {
-    // console.log(category);
     return {
       params: {
         category: category,
@@ -103,7 +102,6 @@ export function getPostDataByCategory(category) {
       return -1;
     }
   });
-  // return allPostsData;
 }
 
 export async function getPostData(id) {
@@ -130,8 +128,6 @@ export async function getPostData(id) {
 
 export function getAllAreas() {
   const fileNames = fs.readdirSync(postsDirectory);
-  // const categories = [];
-  // ***********************
   const areas = fileNames.map((fileName) => {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -140,7 +136,6 @@ export function getAllAreas() {
     return area;
   });
   return areas.map((area) => {
-    // console.log(category);
     return {
       params: {
         area: area,
@@ -159,9 +154,7 @@ export function getPostDataByArea(area) {
     const fullPath = path.join(postsDirectory, fileName);
 
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    // console.log(fileContents);
     const matterResult = matter(fileContents);
-    // const contentHtml = matterResult.content.toString();
     const contents = matterResult.content.slice(0, 200);
     const a = matterResult.data.area;
     if (a === area) {
@@ -180,5 +173,42 @@ export function getPostDataByArea(area) {
       return -1;
     }
   });
-  // return allPostsData;
+}
+
+// keywordを含んだ記事をreturnする
+export function getSearchedPostsData(keyword) {
+  // console.log(keyword);
+  const result = [
+    { id: "4", title: "オーストラリアの記事" },
+    { id: "5", title: "日本の記事" },
+  ];
+  return result;
+  // return [
+  // {
+  // id: "4",
+  // contents:
+  //   "\n" +
+  //   "![alt](/images/posts/1/2.webp)\n" +
+  //   "\n" +
+  //   "デボンポート北部のターナーズ・ビーチにほど近い場所にあるベリー畑。\n" +
+  //   "夏にはベリー摘みの体験ができるこのファームに併設されているのは、\n" +
+  //   "![alt](/images/posts/1/13.webp)\n" +
+  //   "自家栽培のベリーやハーブを使った料理やデザートを楽しめる\n" +
+  //   "レストランです。\n" +
+  //   "![alt](/images/posts/1/14.webp",
+  // title: "オーストラリアの記事",
+  // date: "2022-09-26",
+  // category: "飲食店",
+  // area: "オーストラリア",
+  // address: "1-1-1 Nakano",
+  // map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.7385056989474!2d146.23618631482057!3d-41.16205697928552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa7bcbff45c9d9cd%3A0xbff879cb93cfc4c8!2sTurners%20Beach%20Berry%20Patch!5e0!3m2!1sja!2sau!4v1664233106816!5m2!1sja!2sau",
+  // telephone: " 000-0000 ",
+  // url: "https://www.google.com/",
+  // businessHour: " 火曜日 〜 日曜日 10:00 〜 17:00 ",
+  // others: "",
+  // id,
+  // contents,
+  // ...matterResult.data,
+  //   },
+  // ];
 }

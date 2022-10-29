@@ -37,16 +37,16 @@ export default function HeaderMenu2() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href="/australia-index">オーストラリア</Link>
+          <Link href="/areas/オーストラリア">オーストラリア</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/oman-index">オマーン</Link>
+          <Link href="/areas/オマーン">オマーン</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/cookislands-index">クック諸島</Link>
+          <Link href="/areas/クック諸島">クック諸島</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link href="/uae-index">U.A.E</Link>
+          <Link href="/areas/U.A.E">U.A.E</Link>
         </MenuItem>
       </Menu>
     </Box>
