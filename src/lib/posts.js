@@ -178,19 +178,8 @@ export function getPostDataByArea(area) {
 // keywordを含んだ記事をreturnする
 export function getSearchedPostsData(keyword) {
   const results = getSortedPostsData();
-  console.log(results);
-
-  let result = [];
-  results.map((r) => {
-    const str = r.contents;
-    const kw = JSON.parse(`{"keyword":"${keyword}"}`);
-    const regex = kw.keyword;
-
-    if (str.match(regex)) {
-      result[r.length] = r;
-    }
-  });
-  result = Object.values(result);
+  // console.log(results);
+  const result = results.filter((r) => r.contents.indexOf(keyword) > -1);
 
   return result;
 }
