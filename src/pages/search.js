@@ -12,6 +12,16 @@ export default function Search({ searchedPostsData }) {
         <div key={result.id}>
           <div>{result.id}</div>
           <div>{result.title}</div>
+          <div>{result.contents}</div>
+          <div>{result.date}</div>
+          <div>{result.category}</div>
+          <div>{result.area}</div>
+          <div>{result.address}</div>
+          <div>{result.map}</div>
+          <div>{result.telephone}</div>
+          <div>{result.url}</div>
+          <div>{result.businessHour}</div>
+          <div>{result.others}</div>
         </div>
       ))}
     </div>
