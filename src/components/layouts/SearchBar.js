@@ -23,7 +23,12 @@ export default function SearchBar() {
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
-      <InputBase placeholder="検索" value={keyword} onChange={handleChange} />
+      <InputBase
+        placeholder="検索"
+        value={keyword}
+        onChange={handleChange}
+        required
+      />
       <IconButton type="submit">
         <SearchIcon />
       </IconButton>
