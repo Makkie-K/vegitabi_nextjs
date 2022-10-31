@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 import { log } from "console";
+import { id } from "date-fns/locale";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 // console.log(postsDirectory);
@@ -177,9 +178,60 @@ export function getPostDataByArea(area) {
 
 // keywordを含んだ記事をreturnする
 export function getSearchedPostsData(keyword) {
-  const results = getSortedPostsData();
-  // console.log(results);
-  const result = results.filter((r) => r.contents.indexOf(keyword) > -1);
+  const keywords = handleKeyword(keyword);
+  let results = [];
+  let hitIDs = [];
+  // console.log(keywords);
+  if (keywords.length !== 0) {
+    const allPostsData = getSortedPostsData();
 
-  return result;
+    // console.log({ results });
+    // console.log({ keywords });
+
+    for (let i = 0; i < allPostsData.length; i++) {
+      let count = 0;
+      // console.log(results[i].contents);
+      for (let j = 0; j < keywords.length; j++) {
+        // console.log(keywords[j]);
+        if (allPostsData[i].contents.indexOf(keywords[j]) > -1) {
+          count = count + 1;
+        }
+      }
+      // console.log({ count });
+      // console.log(keywords.length);
+      if (count === keywords.length) {
+        // console.log(allPostsData[i]);
+        hitIDs.push(allPostsData[i].id);
+      }
+    }
+  }
+  // console.log(hitIDs);
+
+  for (let i = 0; i < hitIDs.length; i++) {
+    const id = hitIDs[i];
+    const data = Promise.resolve(getPostData(id));
+    // results.push(getPostData(id));
+    data.then((value) => {
+      console.log(value);
+      results.push(value);
+    });
+    // console.log(data);
+  }
+
+  // console.log(results);
+  return results;
+}
+
+export function handleKeyword(keyword) {
+  // console.log({ keyword });
+  // const keyword2 = "　テスト　　　デボンポート ";
+  // console.log({ keyword2 });
+  let handledKeyword = keyword.trim();
+  // console.log({ handledKeyword });
+  handledKeyword = handledKeyword.replace(/　/g, " ");
+  // console.log({ handledKeyword });
+
+  const handledKeywords = handledKeyword.split(/\s/);
+  // console.log(handledKeywords);
+  return handledKeywords.filter(Boolean);
 }
