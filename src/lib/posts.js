@@ -177,16 +177,13 @@ export function getPostDataByArea(area) {
 }
 
 // keywordを含んだ記事をreturnする
-export function getSearchedPostsData(keyword) {
+export async function getSearchedPostsData(keyword) {
   const keywords = handleKeyword(keyword);
   let results = [];
   let hitIDs = [];
   // console.log(keywords);
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
-
-    // console.log({ results });
-    // console.log({ keywords });
 
     for (let i = 0; i < allPostsData.length; i++) {
       let count = 0;
@@ -197,41 +194,26 @@ export function getSearchedPostsData(keyword) {
           count = count + 1;
         }
       }
-      // console.log({ count });
-      // console.log(keywords.length);
       if (count === keywords.length) {
-        // console.log(allPostsData[i]);
         hitIDs.push(allPostsData[i].id);
       }
     }
   }
-  // console.log(hitIDs);
 
   for (let i = 0; i < hitIDs.length; i++) {
     const id = hitIDs[i];
-    const data = Promise.resolve(getPostData(id));
-    // results.push(getPostData(id));
-    data.then((value) => {
-      console.log(value);
-      results.push(value);
-    });
-    // console.log(data);
+    const data = await getPostData(id);
+    results.push(data);
   }
-
-  // console.log(results);
+  // console.log({ results });
   return results;
 }
 
 export function handleKeyword(keyword) {
-  // console.log({ keyword });
-  // const keyword2 = "　テスト　　　デボンポート ";
-  // console.log({ keyword2 });
   let handledKeyword = keyword.trim();
-  // console.log({ handledKeyword });
+
   handledKeyword = handledKeyword.replace(/　/g, " ");
-  // console.log({ handledKeyword });
 
   const handledKeywords = handledKeyword.split(/\s/);
-  // console.log(handledKeywords);
   return handledKeywords.filter(Boolean);
 }
