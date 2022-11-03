@@ -6,13 +6,12 @@ import { getSearchedPostsData } from "src/lib/posts";
 export default function Search({ searchedPostsData }) {
   const results = JSON.parse(searchedPostsData);
 
-  // console.log(results);
+  console.log(results);
   return (
     <div>
       {results.length > 0 ? (
         <div>
-          検索結果あり
-          {/* {results.map((result) => (
+          {results.map((result) => (
             <div key={result.id}>
               <div>{result.id}</div>
               <div>{result.title}</div>
@@ -27,34 +26,19 @@ export default function Search({ searchedPostsData }) {
               <div>{result.businessHour}</div>
               <div>{result.others}</div>
             </div>
-          ))} */}
+          ))}
         </div>
       ) : (
         <div>検索結果なし</div>
       )}
-      {/* {results.map((result) => (
-        <div key={result.id}>
-          <div>{result.id}</div>
-          <div>{result.title}</div>
-          <div>{result.contents}</div>
-          <div>{result.date}</div>
-          <div>{result.category}</div>
-          <div>{result.area}</div>
-          <div>{result.address}</div>
-          <div>{result.map}</div>
-          <div>{result.telephone}</div>
-          <div>{result.url}</div>
-          <div>{result.businessHour}</div>
-          <div>{result.others}</div>
-        </div>
-      ))} */}
     </div>
   );
 }
 
-export function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   const keyword = context.query.keyword;
-  let searchedPostsData = getSearchedPostsData(keyword);
+  let searchedPostsData = await getSearchedPostsData(keyword);
+  // console.log(searchedPostsData);
   searchedPostsData = JSON.stringify(searchedPostsData);
   // console.log(searchedPostsData);
   // console.log(searchedPostsData);

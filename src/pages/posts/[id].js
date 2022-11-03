@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfo from "/src/components/ShopInfo";
+import Slider from "/src/components/utils/Slider";
 
 export default function Post({ postData }) {
   // console.log({ postData });
@@ -16,6 +17,37 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <Container maxWidth="md" sx={{ marginTop: "30px" }}>
+        <Box sx={{ display: "flex" }}>
+          <Box sx={{ width: "60%" }}>
+            <Slider />
+          </Box>
+          <Box sx={{ width: "40%", maxHeight: "341.45px", overflowY: "auto" }}>
+            <p>
+              Importantly, Next.js lets you **choose** which pre-rendering form
+              to use for each page. You can create a "hybrid" Next.js app by
+              using Static Generation for most pages and using Server-side
+              Rendering for others.
+            </p>
+            <p>
+              Importantly, Next.js lets you **choose** which pre-rendering form
+              to use for each page. You can create a "hybrid" Next.js app by
+              using Static Generation for most pages and using Server-side
+              Rendering for others.
+            </p>
+            <p>
+              Importantly, Next.js lets you **choose** which pre-rendering form
+              to use for each page. You can create a "hybrid" Next.js app by
+              using Static Generation for most pages and using Server-side
+              Rendering for others.
+            </p>
+            <p>
+              Importantly, Next.js lets you **choose** which pre-rendering form
+              to use for each page. You can create a "hybrid" Next.js app by
+              using Static Generation for most pages and using Server-side
+              Rendering for others.
+            </p>
+          </Box>
+        </Box>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <article>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
