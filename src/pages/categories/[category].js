@@ -128,28 +128,3 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-
-// export async function getStaticPaths() {
-//   // id としてとりうる値のリストを返す
-//   // const paths = getAllCategories();
-//   // const pathss = ["accomodation", "eat-drink"];
-//   const paths = [
-//     { paths: { category: "accommodation" } },
-//     { paths: { category: "eat-drink" } },
-//   ];
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-// export async function getStaticProps({ params }) {
-//   console.log("params: " + JSON.stringify(params));
-
-//   // params.id を使用して、ブログの投稿に必要なデータを取得する
-//   const postData = await getPostData(params.id);
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }

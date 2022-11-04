@@ -17,7 +17,8 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <Container maxWidth="md" sx={{ marginTop: "30px" }}>
-        <Box sx={{ display: "flex" }}>
+        {/* スマホサイズ */}
+        <Box sx={{ display: "flex", display: { xs: "none", md: "flex" } }}>
           <Box sx={{ width: "60%" }}>
             <Slider />
           </Box>
@@ -48,7 +49,15 @@ export default function Post({ postData }) {
             </p>
           </Box>
         </Box>
-        <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
+        {/* pcサイズ */}
+        <Box
+          sx={{
+            width: "100%",
+            maxWidth: "768px",
+            margin: "0 auto",
+            display: { xs: "flex", md: "none" },
+          }}
+        >
           <article>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
             <br />
