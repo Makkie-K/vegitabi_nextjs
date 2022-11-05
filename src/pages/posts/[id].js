@@ -8,48 +8,63 @@ import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfo from "/src/components/ShopInfo";
 import Slider from "/src/components/utils/Slider";
+import Splider from "/src/components/utils/Splider";
+import Image from "next/image";
 
 export default function Post({ postData }) {
   // console.log({ postData });
+  // const src = `/images/menus/${id}/${num}.webp`;
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>
       <Container maxWidth="md" sx={{ marginTop: "30px" }}>
-        {/* スマホサイズ */}
+        {/* pcサイズ */}
         <Box sx={{ display: "flex", display: { xs: "none", md: "flex" } }}>
           <Box sx={{ width: "60%" }}>
-            <Slider />
+            {/* <Slider /> */}
+            <Splider id={postData.id} length={postData.fileCount} />
           </Box>
-          <Box sx={{ width: "40%", maxHeight: "341.45px", overflowY: "auto" }}>
-            <p>
-              Importantly, Next.js lets you **choose** which pre-rendering form
-              to use for each page. You can create a "hybrid" Next.js app by
-              using Static Generation for most pages and using Server-side
-              Rendering for others.
-            </p>
-            <p>
-              Importantly, Next.js lets you **choose** which pre-rendering form
-              to use for each page. You can create a "hybrid" Next.js app by
-              using Static Generation for most pages and using Server-side
-              Rendering for others.
-            </p>
-            <p>
-              Importantly, Next.js lets you **choose** which pre-rendering form
-              to use for each page. You can create a "hybrid" Next.js app by
-              using Static Generation for most pages and using Server-side
-              Rendering for others.
-            </p>
-            <p>
-              Importantly, Next.js lets you **choose** which pre-rendering form
-              to use for each page. You can create a "hybrid" Next.js app by
-              using Static Generation for most pages and using Server-side
-              Rendering for others.
-            </p>
+          <Box
+            sx={{
+              width: "40%",
+              // maxHeight: "341.45px",
+              maxHeight: "597.45px",
+              overflowY: "auto",
+              marginLeft: "28px",
+              lineHeight: "24px",
+              marginTop: "1px",
+            }}
+          >
+            <Box>
+              <h1>{postData.title}</h1>
+            </Box>
+            <Markdown className={utilStyles.text}>
+              {postData.contentHtml}
+            </Markdown>
+            <Box>
+              <p>店舗名 {postData.title}</p>
+              <p>住所 {postData.address}</p>
+              <p>ウェブサイト {postData.url}</p>
+              <p>営業時間 {postData.businessHour}</p>
+              <p>電話番号 {postData.telephone}</p>
+              <p>備考 {postData.others}</p>
+            </Box>
           </Box>
+          {/* <GoogleMap map={postData.map} /> */}
         </Box>
-        {/* pcサイズ */}
+        <Box sx={{ marginTop: "10px", display: { xs: "none", md: "flex" } }}>
+          <iframe
+            src={postData.map}
+            width="100%"
+            // style="border:0;"
+            // allowfullscreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </Box>
+        {/* スマホサイズ */}
         <Box
           sx={{
             width: "100%",
@@ -67,7 +82,18 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+            {postData.filesPosts.map((f) => {
+              return (
+                <Image
+                  src={`/images/posts/1/${f}`}
+                  width={768}
+                  height={1133}
+                  alt="alt"
+                  layout="intrinsic"
+                  quality={85}
+                />
+              );
+            })}
             <ShopInfo
               address={postData.address}
               map={postData.map}
