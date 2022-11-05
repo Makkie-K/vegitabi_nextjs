@@ -20,12 +20,12 @@ export function ImageMenu({ id, num }) {
   );
 }
 
-const menus = [
-  { id: 1, num: 1 },
-  { id: 1, num: 2 },
-  { id: 1, num: 3 },
-  { id: 1, num: 4 },
-];
+// const menus = [
+//   { id: 1, num: 1 },
+//   { id: 1, num: 2 },
+//   { id: 1, num: 3 },
+//   { id: 1, num: 4 },
+// ];
 
 export default function BasicModal({ id, fileCount }) {
   const [open, setOpen] = React.useState(false);
