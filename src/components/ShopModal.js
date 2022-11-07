@@ -20,12 +20,20 @@ export function ImageMenu({ id, num }) {
   );
 }
 
-// const menus = [
-//   { id: 1, num: 1 },
-//   { id: 1, num: 2 },
-//   { id: 1, num: 3 },
-//   { id: 1, num: 4 },
-// ];
+// export function ImageMenu({ id, num }) {
+//   const alt = `menu-${num}`;
+//   const src = `/images/menus/${id}/${num}.webp`;
+//   return (
+//     <Image
+//       src={src}
+//       width={768}
+//       height={1133}
+//       alt={alt}
+//       layout="intrinsic"
+//       quality={85}
+//     />
+//   );
+// }
 
 export default function BasicModal({ id, fileCount }) {
   const [open, setOpen] = React.useState(false);

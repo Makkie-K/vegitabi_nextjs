@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react*/
+
 import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 import Image from "next/image";
