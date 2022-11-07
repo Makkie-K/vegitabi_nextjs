@@ -110,6 +110,7 @@ export async function getPostData(id) {
   // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
+  console.log(files);
   const filesPosts = fs.readdirSync(
     process.cwd() + `/public/images/posts/${id}`
   );
