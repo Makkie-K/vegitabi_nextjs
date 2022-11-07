@@ -12,16 +12,24 @@ import Splider from "/src/components/utils/Splider";
 import Image from "next/image";
 
 export default function Post({ postData }) {
-  // console.log({ postData });
-  // const src = `/images/menus/${id}/${num}.webp`;
+  const src = `/images/posts/${postData.id}/`;
+  const filePostsRemoved = postData.filesPosts.filter(function (item) {
+    return item !== ".DS_Store";
+  });
+  console.log(filePostsRemoved);
   return (
     <Layout>
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <Container maxWidth="md" sx={{ marginTop: "30px" }}>
+      <Container maxWidth="md" sx={{ marginTop: "30px", marginBottom: "10px" }}>
         {/* pcサイズ */}
-        <Box sx={{ display: "flex", display: { xs: "none", md: "flex" } }}>
+        <Box
+          sx={{
+            display: "flex",
+            display: { xs: "none", md: "flex", marginBottom: "10px" },
+          }}
+        >
           <Box sx={{ width: "60%" }}>
             {/* <Slider /> */}
             <Splider id={postData.id} length={postData.fileCount} />
@@ -43,18 +51,33 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            <Box>
+            {/* <Box>
               <p>店舗名 {postData.title}</p>
               <p>住所 {postData.address}</p>
               <p>ウェブサイト {postData.url}</p>
               <p>営業時間 {postData.businessHour}</p>
               <p>電話番号 {postData.telephone}</p>
               <p>備考 {postData.others}</p>
-            </Box>
+            </Box> */}
           </Box>
-          {/* <GoogleMap map={postData.map} /> */}
         </Box>
-        <Box sx={{ marginTop: "10px", display: { xs: "none", md: "flex" } }}>
+        {/* {console.log(postData.filesPosts)} */}
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <ShopInfo
+            address={postData.address}
+            map={postData.map}
+            title={postData.title}
+            url={postData.url}
+            businessHour={postData.businessHour}
+            telephone={postData.telephone}
+            others={postData.others}
+            files={postData.files}
+            fileCount={postData.fileCount}
+            // id={postData.id}
+            id={Number(postData.id)}
+          />
+        </Box>
+        {/* <Box sx={{ marginTop: "10px", display: { xs: "none", md: "flex" } }}>
           <iframe
             src={postData.map}
             width="100%"
@@ -63,7 +86,7 @@ export default function Post({ postData }) {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
-        </Box>
+        </Box> */}
         {/* スマホサイズ */}
         <Box
           sx={{
@@ -82,10 +105,10 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {postData.filesPosts.map((f) => {
+            {filePostsRemoved.map((f) => {
               return (
                 <Image
-                  src={`/images/posts/1/${f}`}
+                  src={src + f}
                   width={768}
                   height={1133}
                   alt="alt"
@@ -94,6 +117,18 @@ export default function Post({ postData }) {
                 />
               );
             })}
+            {/* {postData.filesPosts.map((f) => {
+              return (
+                <Image
+                  src={src + f}
+                  width={768}
+                  height={1133}
+                  alt="alt"
+                  layout="intrinsic"
+                  quality={85}
+                />
+              );
+            })} */}
             <ShopInfo
               address={postData.address}
               map={postData.map}

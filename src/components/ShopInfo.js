@@ -46,8 +46,25 @@ export default function ShopInfo({
     // createData("ウェブサイト", url),
     createData("その他", others),
     createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
-    // <ShopModal fileCount={fileCount} />,
   ];
+
+  // const rows = [
+  //   createData("店名", title),
+  //   createData("住所", address),
+  //   // <GoogleMap map={map} />,
+  //   createData("地図", <GoogleMap map={map} />),
+  //   createData("電話番号", telephone),
+  //   createData("営業時間", businessHour),
+  //   createData(
+  //     "ウェブサイト",
+  //     <Link target="_blank" rel="noopener noreferrer" href={url}>
+  //       {url}
+  //     </Link>
+  //   ),
+  //   // createData("ウェブサイト", url),
+  //   createData("その他", others),
+  //   createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
+  // ];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
