@@ -16,7 +16,8 @@ export default function Post({ postData }) {
   const filePostsRemoved = postData.filesPosts.filter(function (item) {
     return item !== ".DS_Store";
   });
-  console.log(filePostsRemoved);
+  // console.log(filePostsRemoved);
+  // console.log(postData.id);
   return (
     <Layout>
       <Head>
@@ -32,7 +33,8 @@ export default function Post({ postData }) {
         >
           <Box sx={{ width: "60%" }}>
             {/* <Slider /> */}
-            <Splider id={postData.id} length={postData.fileCount} />
+            <Splider id={postData.id} length={postData.filesPosts.length} />
+            {/* <Splider id={postData.id} length={postData.fileCount} /> */}
           </Box>
           <Box
             sx={{
