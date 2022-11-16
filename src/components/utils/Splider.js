@@ -59,7 +59,7 @@ export default function Slider({ id, length }) {
                 alt={slide.alt}
                 css={img}
                 width={513}
-                // width={768}
+                // width={513}
                 height={513}
               />
             </SplideSlide>
@@ -90,7 +90,7 @@ export default function Slider({ id, length }) {
 }
 
 const img = css`
-  width: 100%;
+  width: 101%;
   height: 100%;
   object-fit: contain;
 `;
@@ -98,6 +98,11 @@ const img = css`
 const bgColor = css`
   /* background-color: black; */
   background: rgba(220, 220, 220, 0.2);
+`;
+
+const width = css`
+  /* background-color: black; */
+  width: 10%;
 `;
 
 // /** @jsxImportSource @emotion/react*/
