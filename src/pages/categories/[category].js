@@ -106,7 +106,7 @@ export default function CategoryIndex({ postData }) {
 
 export async function getStaticPaths() {
   const paths = getAllCategories();
-  // console.log(paths);
+  console.log(paths);
 
   return {
     paths,

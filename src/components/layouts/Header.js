@@ -19,7 +19,7 @@ import HeaderMenu1 from "./HeaderMenu1";
 import HeaderMenu2 from "./HeaderMenu2";
 // const pages = ["Products", "Pricing", "Blog"];
 const indexes = [
-  ["記事一覧", "/posts"],
+  // ["記事一覧", "/posts"],
   ["コラム一覧", "/columns"],
 ];
 

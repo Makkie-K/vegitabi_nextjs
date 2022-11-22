@@ -29,7 +29,6 @@ export default function BasicModal({ id, fileCount }) {
     menus[i] = { id: id, num: i };
   }
   if (fileCount > 0) {
-    // console.log(menus);
     return (
       <div>
         <Button onClick={handleOpen}>MENU</Button>

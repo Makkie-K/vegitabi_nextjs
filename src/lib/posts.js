@@ -54,8 +54,7 @@ export function getAllPostIds() {
 // getAllPostIds()
 export function getAllCategories() {
   const fileNames = fs.readdirSync(postsDirectory);
-  // const categories = [];
-  // ***********************
+  // console.log(postDirectory);
   const categories = fileNames.map((fileName) => {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -109,13 +108,13 @@ export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  // const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
+  const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
 
   const filesPosts = fs.readdirSync(
     process.cwd() + `/public/images/posts/${id}`
   );
   // console.log("files:" + files);
-  // const fileCount = files.length;
+  const fileCount = files.length;
   const fileCountPosts = filesPosts.length;
   // 投稿のメタデータ部分を解析するために gray-matter を使う
   // console.log("メタデータ: " + matter(fileContents).data.category.toString());
@@ -126,8 +125,8 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    // files,
-    // fileCount,
+    files,
+    fileCount,
     filesPosts,
     fileCountPosts,
     ...matterResult.data,

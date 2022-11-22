@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfo from "/src/components/ShopInfo";
-import Slider from "/src/components/utils/Slider";
+// import Slider from "/src/components/utils/Slider";
 import Splider from "/src/components/utils/Splider";
 import Image from "next/image";
 
@@ -17,7 +17,7 @@ export default function Post({ postData }) {
     return item !== ".DS_Store";
   });
   // console.log(filePostsRemoved);
-  // console.log(postData.id);
+  // console.log(postData.fileCount);
   return (
     <Layout>
       <Head>
@@ -53,14 +53,6 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {/* <Box>
-              <p>店舗名 {postData.title}</p>
-              <p>住所 {postData.address}</p>
-              <p>ウェブサイト {postData.url}</p>
-              <p>営業時間 {postData.businessHour}</p>
-              <p>電話番号 {postData.telephone}</p>
-              <p>備考 {postData.others}</p>
-            </Box> */}
           </Box>
         </Box>
         {/* {console.log(postData.filesPosts)} */}
@@ -75,7 +67,6 @@ export default function Post({ postData }) {
             others={postData.others}
             files={postData.files}
             fileCount={postData.fileCount}
-            // id={postData.id}
             id={Number(postData.id)}
           />
         </Box>
