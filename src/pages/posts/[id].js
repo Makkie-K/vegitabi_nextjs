@@ -63,7 +63,7 @@ export default function Post({ postData }) {
             </Box> */}
           </Box>
         </Box>
-        {/* {console.log(postData.filesPosts)} */}
+        {/* {console.log(postData.fileCount)} */}
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ShopInfo
             address={postData.address}
