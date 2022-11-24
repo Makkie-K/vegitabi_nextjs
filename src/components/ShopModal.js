@@ -25,41 +25,40 @@ export default function BasicModal({ id, fileCount }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   let menus = [];
-  for (let i = 1; i < fileCount; i++) {
+  for (let i = 1; i <= fileCount; i++) {
     menus[i] = { id: id, num: i };
   }
-  if (fileCount > 0) {
-    // console.log(menus);
-    return (
-      <div>
-        <Button onClick={handleOpen}>MENU</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>MENU</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box
+          sx={{
+            margin: "20px auto",
+            padding: { xs: 0, md: "20px" },
+            width: { xs: "89%", md: "768px" },
+            height: { xs: "93%", md: "93%" },
+            overflow: "scroll",
+            bgcolor: "#fff",
+          }}
         >
-          <Box
-            sx={{
-              margin: "20px auto",
-              padding: { xs: 0, md: "20px" },
-              width: { xs: "89%", md: "768px" },
-              height: { xs: "93%", md: "93%" },
-              overflow: "scroll",
-              bgcolor: "#fff",
-            }}
-          >
-            {menus.length > 0 &&
-              menus.map((menu) => (
-                <ImageMenu key={menu.num} id={menu.id} num={menu.num} />
-              ))}
-          </Box>
-        </Modal>
-      </div>
-    );
-  } else {
-    return <div></div>;
-  }
+          {menus.length > 0 &&
+            menus.map((menu) => (
+              <ImageMenu key={menu.num} id={menu.id} num={menu.num} />
+            ))}
+        </Box>
+      </Modal>
+    </div>
+  );
+  // } else {
+  //   return <div></div>;
+  // }
 }
 
 // import * as React from "react";
