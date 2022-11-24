@@ -53,14 +53,6 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {/* <Box>
-              <p>店舗名 {postData.title}</p>
-              <p>住所 {postData.address}</p>
-              <p>ウェブサイト {postData.url}</p>
-              <p>営業時間 {postData.businessHour}</p>
-              <p>電話番号 {postData.telephone}</p>
-              <p>備考 {postData.others}</p>
-            </Box> */}
           </Box>
         </Box>
         {/* {console.log(postData.fileCount)} */}
@@ -79,16 +71,7 @@ export default function Post({ postData }) {
             id={Number(postData.id)}
           />
         </Box>
-        {/* <Box sx={{ marginTop: "10px", display: { xs: "none", md: "flex" } }}>
-          <iframe
-            src={postData.map}
-            width="100%"
-            // style="border:0;"
-            // allowfullscreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </Box> */}
+
         {/* スマホサイズ */}
         <Box
           sx={{
@@ -98,7 +81,7 @@ export default function Post({ postData }) {
             display: { xs: "flex", md: "none" },
           }}
         >
-          <article>
+          <article style={{ width: "100%" }}>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
             <br />
             <div className={utilStyles.lightText}>
@@ -132,6 +115,7 @@ export default function Post({ postData }) {
               );
             })} */}
             <ShopInfo
+              style={{ width: "100%" }}
               address={postData.address}
               map={postData.map}
               title={postData.title}
