@@ -25,7 +25,7 @@ export default function BasicModal({ id, fileCount }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   let menus = [];
-  for (let i = 1; i <= fileCount; i++) {
+  for (let i = 1; i < fileCount; i++) {
     menus[i] = { id: id, num: i };
   }
 
