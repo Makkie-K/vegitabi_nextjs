@@ -14,6 +14,13 @@ function generateSlides(id, length) {
       alt: `Image-${index + 1}`,
     };
   });
+
+  // return Array.from({ length }).map((value, index) => {
+  //   return {
+  //     src: `/images/posts/${id}/${index + 1}.webp`,
+  //     alt: `Image-${index + 1}`,
+  //   };
+  // });
 }
 
 export default function Slider({ id, length }) {
