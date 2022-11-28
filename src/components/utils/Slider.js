@@ -15,7 +15,7 @@ function generateSlides(id, length) {
   });
 }
 
-export default function Solider({ id, length }) {
+export default function Slider({ id, length }) {
   const slider1 = useRef();
   const slider2 = useRef();
   useEffect(() => {
@@ -43,6 +43,7 @@ export default function Solider({ id, length }) {
   return (
     <section id="postSlides">
       <Splide
+        id="postSlidesMain"
         options={mainOptions}
         ref={(slider) => (slider1.current = slider)}
       >
