@@ -1,63 +1,118 @@
+/** @jsxImportSource @emotion/react */
+import { useEffect, useRef } from "react";
+import { css } from "@emotion/react";
+import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/css"; // デフォルトのテーマを読み込んでいます（コアスタイルのみ読み込む設定も可能）
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
-export default function Slider() {
+//写真数をカウントしてスライドのsrcを生成
+function generateSlides(id, length) {
+  return Array.from({ length }).map((value, index) => {
+    return {
+      src: `/images/posts/${id}/${index + 1}.webp`,
+      alt: `Image-${index + 1}`,
+    };
+  });
+}
+
+export default function Solider({ id, length }) {
+  const slider1 = useRef();
+  const slider2 = useRef();
+  useEffect(() => {
+    slider1.current.sync(slider2.current.splide);
+  }, [slider1, slider2]);
+  const slides = generateSlides(id, length);
+  const mainOptions = {
+    type: "loop",
+    width: 513,
+    height: 513,
+  };
+  const thumbsOptions = {
+    type: "slide",
+    rewind: true,
+    pagination: false,
+    width: 513,
+    fixedWidth: 123,
+    fixedHeight: 86,
+    cover: true,
+    isNavigation: true,
+    // arrows: false,
+    focus: "center",
+  };
+
   return (
-    <>
+    <section id="postSlides">
       <Splide
-        aria-label="私のお気に入りの画像集"
-        options={{
-          autoplay: false, // 自動再生を有効
-          interval: 3000, // 自動再生の間隔を3秒に設定
-          type: "loop",
-        }}
+        options={mainOptions}
+        ref={(slider) => (slider1.current = slider)}
       >
-        <SplideSlide>
-          <img
-            className="slide-img"
-            src="https://www.vegitabi.com/images/posts/1/2.webp"
-            alt="vegitabi1"
-          />
-        </SplideSlide>
-        <SplideSlide>
-          <img
-            className="slide-img"
-            src="https://www.vegitabi.com/images/posts/1/2.webp"
-            alt="vegitabi2"
-          />
-        </SplideSlide>
-        <SplideSlide>
-          <img
-            className="slide-img"
-            src="https://www.vegitabi.com/images/posts/1/3.webp"
-            alt="vegitabi3"
-          />
-        </SplideSlide>
-        <SplideSlide>
-          <img
-            className="slide-img"
-            src="https://www.vegitabi.com/images/posts/1/4.webp"
-            alt="vegitabi4"
-          />
-        </SplideSlide>
-        <SplideSlide>
-          <img
-            className="slide-img"
-            src="https://www.vegitabi.com/images/posts/1/5.webp"
-            alt="vegitabi5"
-          />
-        </SplideSlide>
+        {slides.map((slide) => {
+          return (
+            <SplideSlide key={slide.src} css={bgColor}>
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                css={img}
+                width={513}
+                height={513}
+              />
+            </SplideSlide>
+          );
+        })}
       </Splide>
-
-      {/* 画像の高さを揃えて表示させるために以下スタイルを適用 */}
-      <style jsx>{`
-        .slide-img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      `}</style>
-    </>
+      <Splide
+        options={thumbsOptions}
+        ref={(slider) => (slider2.current = slider)}
+        // css={thumbs}
+      >
+        {slides.map((slide) => {
+          return (
+            <SplideSlide key={slide.src}>
+              <img src={slide.src} alt={slide.alt} />
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                css={img}
+                width={123}
+                height={86}
+              />
+            </SplideSlide>
+          );
+        })}
+      </Splide>
+    </section>
   );
 }
+
+const container = css`
+  display: flex;
+`;
+
+const img = css`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+const bgColor = css`
+  /* background-color: black; */
+  background-color: rgba(220, 220, 220, 0.2);
+`;
+
+const thumbs = css`
+  ul {
+    flex-wrap: wrap;
+  }
+  li {
+    border: 0px solid !important;
+    margin-top: 6px;
+    margin-right: 6px;
+    opacity: 0.7;
+  }
+  li:nth-of-type(6n) {
+    margin-right: 0;
+  }
+  li.is-active {
+    opacity: 1;
+  }
+`;
