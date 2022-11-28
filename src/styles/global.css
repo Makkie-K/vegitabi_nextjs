@@ -1,6 +1,3 @@
-/* .splide__slide.mui-style-rmdpd4-Solider {
-  width: calc(101%) !important;
-} */
-.splide__slide.mui-style-bqqgd2-Solider {
+#postSlidesMain .splide__track .splide__list .splide__slide {
   width: calc(101%) !important;
 }
