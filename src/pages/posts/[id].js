@@ -33,8 +33,8 @@ export default function Post({ postData }) {
         >
           <Box sx={{ width: "60%" }}>
             {/* <Slider /> */}
-            <Splider id={postData.id} length={postData.filesPosts.length} />
-            {/* <Splider id={postData.id} length={postData.fileCount} /> */}
+            <Slider id={postData.id} length={postData.filesPosts.length} />
+            {/* <Splider id={postData.id} length={postData.filesPosts.length} /> */}
           </Box>
           <Box
             sx={{
@@ -90,30 +90,20 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {filePostsRemoved.map((f) => {
+            {/* {filePostsRemoved.map((f) => {
               return (
                 <Image
+                  key={f}
                   src={src + f}
                   width={768}
                   height={1133}
                   alt="alt"
-                  layout="intrinsic"
-                  quality={85}
-                />
-              );
-            })}
-            {/* {postData.filesPosts.map((f) => {
-              return (
-                <Image
-                  src={src + f}
-                  width={768}
-                  height={1133}
-                  alt="alt"
-                  layout="intrinsic"
+                  // layout="intrinsic"
                   quality={85}
                 />
               );
             })} */}
+
             <ShopInfo
               style={{ width: "100%" }}
               address={postData.address}
