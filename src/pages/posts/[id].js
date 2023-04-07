@@ -16,8 +16,8 @@ export default function Post({ postData }) {
   const filePostsRemoved = postData.filesPosts.filter(function (item) {
     return item !== ".DS_Store";
   });
-  // console.log(filePostsRemoved);
-  // console.log(postData.id);
+  // cconsole.log(filePostsRemoved);
+  // onsole.log(postData.id);
   return (
     <Layout>
       <Head>
@@ -48,14 +48,13 @@ export default function Post({ postData }) {
             }}
           >
             <Box>
-              <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+              <h1 className={utilStyles.headingXl}>{postData.title}テスト</h1>
             </Box>
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
           </Box>
         </Box>
-        {/* {console.log(postData.fileCount)} */}
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ShopInfo
             address={postData.address}
@@ -90,7 +89,7 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            {/* {filePostsRemoved.map((f) => {
+            {filePostsRemoved.map((f) => {
               return (
                 <Image
                   key={f}
@@ -98,11 +97,11 @@ export default function Post({ postData }) {
                   width={768}
                   height={1133}
                   alt="alt"
-                  // layout="intrinsic"
+                  layout="intrinsic"
                   quality={85}
                 />
               );
-            })} */}
+            })}
 
             <ShopInfo
               style={{ width: "100%" }}
