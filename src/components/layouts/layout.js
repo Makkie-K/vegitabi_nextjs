@@ -13,7 +13,6 @@ function Layout({ children }) {
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>{children}</main>
-      {/* <main>{children}</main> */}
       <Footer />
     </div>
   );

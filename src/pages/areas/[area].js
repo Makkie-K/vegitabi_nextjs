@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 export default function AreaIndex({ postData }) {
   return (
     <Layout>
-      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+      <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
         <Box
           sx={{
             textAlign: "center",
@@ -57,7 +57,8 @@ export default function AreaIndex({ postData }) {
                     href={`/posts/${id}`}
                     sx={{
                       // display: "flex",
-                      display: "-webkit-box",
+                      // display: "-webkit-box",
+                      display: "-webkitBox",
                       textDecoration: "none",
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
@@ -78,7 +79,8 @@ export default function AreaIndex({ postData }) {
                     height: "60px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    display: "-webkit-box",
+                    // display: "-webkit-box",
+                    display: "-webkitBox",
                     "-webkitBoxOrient": "vertical",
                     "-webkitLineClamp": "2",
                   }}

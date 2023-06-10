@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar";
 export default function Search({ searchedPostsData, keyword }) {
   const results = JSON.parse(searchedPostsData);
 
-  console.log(results);
+  // console.log(results);
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
@@ -65,7 +65,8 @@ export default function Search({ searchedPostsData, keyword }) {
                         href={`/posts/${result.id}`}
                         sx={{
                           // display: "flex",
-                          display: "-webkit-box",
+                          //
+                          display: "-webkitBox",
                           textDecoration: "none",
                           color: "rgba(0, 0, 0, 0.55)",
                           overflow: "hidden",
@@ -80,28 +81,6 @@ export default function Search({ searchedPostsData, keyword }) {
                         <Date dateString={result.date} />
                       </small>
                     </Box>
-                    {/* <Box
-                      sx={{
-                        margin: "9px",
-                        height: "60px",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        "-webkitBoxOrient": "vertical",
-                        "-webkitLineClamp": "2",
-                      }}
-                    > */}
-                    {/* <Link
-                        href={`/posts/${result.id}`}
-                        sx={{
-                          color: "rgba(0, 0, 0, 0.55)",
-                          textDecoration: "none",
-                          fontSize: "85%",
-                        }}
-                      >
-                        {result.contents}
-                      </Link> */}
-                    {/* </Box> */}
                   </Box>
                 </Box>
               ))}

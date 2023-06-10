@@ -6,16 +6,15 @@ import utilStyles from "/src/styles/utils.module.css";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
-import ShopInfo from "/src/components/ShopInfo";
 
 export default function Column({ columnData }) {
   // console.log({ postData });
   return (
     <Layout>
       <Head>
-        <title>{columnData.title}</title>
+        <title>{columnData.titleJ}</title>
       </Head>
-      <Container maxWidth="md" sx={{ marginTop: "30px" }}>
+      <Container maxWidth="md" className="columns" sx={{ marginTop: "90px" }}>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <article>
             <h1 className={utilStyles.headingXl}>{columnData.title}</h1>

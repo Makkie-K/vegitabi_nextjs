@@ -10,7 +10,7 @@ import Avatar from "@mui/material/Avatar";
 export default function CategoryIndex({ postData }) {
   return (
     <Layout>
-      <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+      <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
         <Box
           sx={{
             textAlign: "center",
@@ -56,8 +56,7 @@ export default function CategoryIndex({ postData }) {
                   <Link
                     href={`/posts/${id}`}
                     sx={{
-                      // display: "flex",
-                      display: "-webkit-box",
+                      display: "-webkitBox",
                       textDecoration: "none",
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
@@ -78,9 +77,10 @@ export default function CategoryIndex({ postData }) {
                     height: "60px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    display: "-webkit-box",
-                    "-webkitBoxOrient": "vertical",
-                    "-webkitLineClamp": "2",
+                    // display: "-webkit-box",
+                    display: "-webkitBox",
+                    // "-webkitBoxOrient": "vertical",
+                    // "-webkitLineClamp": "2",
                   }}
                 >
                   <Link
