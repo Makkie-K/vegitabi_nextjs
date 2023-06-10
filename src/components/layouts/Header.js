@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react*/
+import { css } from "@emotion/react";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,7 +14,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import SearchBar from "/src/components/layouts/SearchBar";
-
+import HeaderPc from "./HeaderPc";
+import HeaderMo from "./HeaderMo";
 // import Link from "/src/components/utils/Link";
 import Link from "@mui/material/Link";
 import HeaderMenu1 from "./HeaderMenu1";
@@ -43,144 +46,23 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" color="default">
+    // <AppBar position="static" color="default">
+    <AppBar position="fixed" color="default">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
-              // color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Vegitabi.com
-          </Typography>
+        {/* <Toolbar disableGutters> */}
+        <div>
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <HeaderPc />
+          </Box>
           <Box
             sx={{
-              flexGrow: 1,
               display: { xs: "flex", md: "none" },
             }}
           >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              // color="inherit"
-              color="default"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              <HeaderMenu1 />
-              <HeaderMenu2 />
-              {indexes.map((index) => (
-                <MenuItem key={index[0]} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link href={index[1]} color="inherit" underline="none">
-                      {index[0]}
-                    </Link>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <HeaderMo />
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "black",
-              // color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Vegitabi.com
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-            }}
-          >
-            <HeaderMenu1 />
-            <HeaderMenu2 />
-
-            {indexes.map((index) => (
-              <Button
-                key={index[0]}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
-                // sx={{ my: 2, color: "white", display: "block" }}
-              >
-                <Link href={index[1]} color="inherit" underline="none">
-                  {index[0]}
-                </Link>
-              </Button>
-            ))}
-            <SearchBar />
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
-              ></IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            ></Menu>
-          </Box>
-        </Toolbar>
+          {/* </Toolbar> */}
+        </div>
       </Container>
     </AppBar>
   );
@@ -189,4 +71,50 @@ export default ResponsiveAppBar;
 
 // export default function Header() {
 //   return <p>Header2</p>;
+// }
+const container = css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: solid 1px #ebebeb;
+`;
+const headerBoxLeft = css`
+  display: flex;
+`;
+const headerBoxRight = css`
+  @media (min-width: 600px) {
+    display: none;
+  } ;
+`;
+const headerMenuPc = css`
+  @media (max-width: 600px) {
+    display: none;
+  }
+  @media (min-width: 600px) {
+    display: flex;
+  } ;
+`;
+const headerLogo = css`
+  display: flex;
+  /* align-items: center; */
+`;
+const headerLogoInner = css`
+  text-transform: lowercase;
+  margin-top: -3px;
+`;
+const headerMenu = css`
+  text-decoration: none;
+`;
+// /** @jsxImportSource @emotion/react*/
+// import { css } from "@emotion/react";
+
+// export default function Header() {
+//   return <h1>Hello SHOさん</h1>;
 // }

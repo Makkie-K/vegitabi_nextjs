@@ -19,7 +19,7 @@ export default function Areas() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <Link href="/areas/インドネシア" underline="none">
+          <Link href="/areas/indonesia" underline="none">
             <AreasCard
               name="インドネシア"
               image="/images/homes/indonesia.jpg"
@@ -27,7 +27,7 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/オーストラリア" underline="none">
+          <Link href="/areas/australia" underline="none">
             <AreasCard
               name="オーストラリア"
               image="/images/homes/australia.jpeg"
@@ -35,12 +35,22 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/オマーン" underline="none">
+          <Link href="/areas/oman" underline="none">
             <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/クック諸島" underline="none">
+          <Link href="/areas/uae" underline="none">
+            <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/qatar" underline="none">
+            <AreasCard name="カタール" image="/images/homes/qatar.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/cook-islands" underline="none">
             <AreasCard
               name="クック諸島"
               image="/images/homes/cookislands.jpeg"
@@ -48,8 +58,39 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/U.A.E" underline="none">
-            <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
+          <Link href="/areas/vanuatu" underline="none">
+            <AreasCard name="バヌアツ" image="/images/homes/vanuatu.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/madagascar" underline="none">
+            <AreasCard
+              name="マダガスカル"
+              image="/images/homes/madagascar.webp"
+            />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/maldives" underline="none">
+            <AreasCard name="モルディブ" image="/images/homes/maldives.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/lesotho" underline="none">
+            <AreasCard name="レソト" image="/images/homes/lesotho.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/japan" underline="none">
+            <AreasCard name="日本" image="/images/homes/japan.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/south-africa" underline="none">
+            <AreasCard
+              name="南アフリカ"
+              image="/images/homes/south-africa.webp"
+            />
           </Link>
         </Grid>
       </Grid>
