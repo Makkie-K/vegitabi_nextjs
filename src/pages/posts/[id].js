@@ -61,7 +61,7 @@ export default function Post({ postData }) {
           > */}
           {/* <Box> */}
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
+          {/* <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2> */}
           {/* </Box> */}
           <Markdown className={utilStyles.text}>
             {postData.contentHtml}
