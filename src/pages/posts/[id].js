@@ -14,6 +14,7 @@ import Image from "next/image";
 
 export default function Post({ postData }) {
   const src = `/images/posts/${postData.id}/`;
+
   // const filePostsRemoved = postData.filesPosts.filter(function (item) {
   //   return item !== ".DS_Store";
   // });
