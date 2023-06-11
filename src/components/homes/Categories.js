@@ -19,7 +19,7 @@ export default function Categories() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={6}>
-          <Link href="/categories/宿泊施設">
+          <Link href="/categories/accomodation">
             <CategoriesCard
               name="宿泊施設"
               text="Accomodations"
@@ -28,7 +28,7 @@ export default function Categories() {
           </Link>
         </Grid>
         <Grid xs={12} md={6}>
-          <Link href="/categories/飲食店">
+          <Link href="/categories/eat-drink">
             <CategoriesCard
               name="飲食店"
               text="Eat & Drink"
@@ -37,7 +37,7 @@ export default function Categories() {
           </Link>
         </Grid>
         <Grid xs={12} md={6}>
-          <Link href="/categories/空港・機内食">
+          <Link href="/categories/airport">
             <CategoriesCard
               name="空港・機内食"
               text="Airport & Airplane"
@@ -46,7 +46,7 @@ export default function Categories() {
           </Link>
         </Grid>
         <Grid xs={12} md={6}>
-          <Link href="/categories/その他">
+          <Link href="/categories/other">
             <CategoriesCard
               name="その他"
               text="Others"
