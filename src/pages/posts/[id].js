@@ -14,9 +14,7 @@ import Image from "next/image";
 
 export default function Post({ postData }) {
   const src = `/images/posts/${postData.id}/`;
-  // const filePostsRemoved = postData.filesPosts.filter(function (item) {
-  //   return item !== ".DS_Store";
-  // });
+
   return (
     <Layout>
       <Head>
@@ -46,17 +44,30 @@ export default function Post({ postData }) {
             {postData.contentHtml}
           </Markdown>
           <ShopInfoPc
-            address={postData.address}
-            map={postData.map}
-            title={postData.title}
-            url={postData.url}
-            businessHour={postData.businessHour}
-            telephone={postData.telephone}
-            others={postData.others}
-            files={postData.files}
-            fileCount={postData.fileCount}
-            id={Number(postData.id)}
-          />
+
+          <Box sx={{ width: "60%" }}>
+            {/* <Slider /> */}
+            <Slider id={postData.id} length={postData.filesPosts.length} />
+            {/* <Splider id={postData.id} length={postData.filesPosts.length} /> */}
+          </Box>
+          <Box
+            sx={{
+              width: "40%",
+              // maxHeight: "341.45px",
+              maxHeight: "597.45px",
+              overflowY: "auto",
+              marginLeft: "28px",
+              lineHeight: "24px",
+              marginTop: "1px",
+            }}
+          >
+            <Box>
+              <h1 className={utilStyles.headingXl}>{postData.title}テスト</h1>
+            </Box>
+            <Markdown className={utilStyles.text}>
+              {postData.contentHtml}
+            </Markdown>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -83,7 +94,7 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
-            <ShopInfoMo
+            <ShopInfo
               style={{ width: "100%" }}
               address={postData.address}
               map={postData.map}
