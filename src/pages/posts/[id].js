@@ -8,16 +8,8 @@ import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfoPc from "/src/components/ShopInfoPc";
 import ShopInfoMo from "/src/components/ShopInfoMo";
-import Slider from "/src/components/utils/Slider";
-import Splider from "/src/components/utils/Splider";
-import Image from "next/image";
 
 export default function Post({ postData }) {
-  const src = `/images/posts/${postData.id}/`;
-
-  // const filePostsRemoved = postData.filesPosts.filter(function (item) {
-  //   return item !== ".DS_Store";
-  // });
   return (
     <Layout>
       <Head>
@@ -43,6 +35,7 @@ export default function Post({ postData }) {
           }}
         >
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+          <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
           <Markdown className={utilStyles.text}>
             {postData.contentHtml}
           </Markdown>
