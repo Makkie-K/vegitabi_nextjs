@@ -19,7 +19,7 @@ function createData(key, value) {
   };
 }
 
-export default function ShopInfo({
+export default function ShopInfoMo({
   map,
   address,
   title,
@@ -55,8 +55,8 @@ export default function ShopInfo({
         border: "solid 1px lightgrey",
       }}
     >
-      {rows.map((row) => (
-        <Box>
+      {rows.map((row, index) => (
+        <Box key={index}>
           <Box
             sx={{
               borderBottom: "solid 1px lightgrey",

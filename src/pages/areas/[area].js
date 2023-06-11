@@ -63,8 +63,8 @@ export default function AreaIndex({ postData }) {
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
-                      "-webkitBoxOrient": "vertical",
-                      "-webkitLineClamp": "2",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: "2",
                     }}
                   >
                     {title}
@@ -81,8 +81,8 @@ export default function AreaIndex({ postData }) {
                     textOverflow: "ellipsis",
                     // display: "-webkit-box",
                     display: "-webkitBox",
-                    "-webkitBoxOrient": "vertical",
-                    "-webkitLineClamp": "2",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: "2",
                   }}
                 >
                   <Link

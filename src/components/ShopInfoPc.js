@@ -18,7 +18,7 @@ function createData(key, value) {
   };
 }
 
-export default function ShopInfo({
+export default function ShopInfoPc({
   map,
   address,
   title,

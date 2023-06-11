@@ -61,8 +61,8 @@ export default function CategoryIndex({ postData }) {
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
-                      "-webkitBoxOrient": "vertical",
-                      "-webkitLineClamp": "2",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: "2",
                     }}
                   >
                     {title}
