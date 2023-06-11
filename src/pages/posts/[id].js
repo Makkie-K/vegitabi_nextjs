@@ -17,8 +17,8 @@ export default function Post({ postData }) {
   const filePostsRemoved = postData.filesPosts.filter(function (item) {
     return item !== ".DS_Store";
   });
-  // console.log(filePostsRemoved);
-  // console.log(postData.id);
+  // cconsole.log(filePostsRemoved);
+  // onsole.log(postData.id);
   return (
     <Layout>
       <Head>
@@ -43,30 +43,13 @@ export default function Post({ postData }) {
             margin: "auto",
           }}
         >
-          {/* <Box sx={{ width: "60%" }}> */}
-          {/* <Slider /> */}
-          {/* <Slider id={postData.id} length={postData.filesPosts.length} /> */}
-          {/* <Splider id={postData.id} length={postData.filesPosts.length} /> */}
-          {/* </Box> */}
-          {/* <Box
-            sx={{
-              width: "40%",
-              // maxHeight: "341.45px",
-              maxHeight: "597.45px",
-              overflowY: "auto",
-              marginLeft: "28px",
-              lineHeight: "24px",
-              marginTop: "1px",
-            }}
-          > */}
-          {/* <Box> */}
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          {/* <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2> */}
-          {/* </Box> */}
-          <Markdown className={utilStyles.text}>
-            {postData.contentHtml}
-          </Markdown>
-          <ShopInfoPc
+              <h1 className={utilStyles.headingXl}>{postData.title}テスト</h1>
+            <Markdown className={utilStyles.text}>
+              {postData.contentHtml}
+            </Markdown>
+        </Box>
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <ShopInfoMo
             address={postData.address}
             map={postData.map}
             title={postData.title}
@@ -80,8 +63,6 @@ export default function Post({ postData }) {
             id={Number(postData.id)}
           />
         </Box>
-        {/* </Box> */}
-        {/* {console.log(postData.fileCount)} */}
         <Box
           sx={{
             display: { xs: "none", md: "flex" },
@@ -107,20 +88,21 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
+
             <ShopInfoMo
-              style={{ width: "100%" }}
-              address={postData.address}
-              map={postData.map}
-              title={postData.title}
-              url={postData.url}
-              businessHour={postData.businessHour}
-              telephone={postData.telephone}
-              others={postData.others}
-              files={postData.files}
-              fileCount={postData.fileCount}
-              // id={postData.id}
-              id={Number(postData.id)}
-            />
+            {filePostsRemoved.map((f) => {
+              return (
+                <Image
+                  key={f}
+                  src={src + f}
+                  width={768}
+                  height={1133}
+                  alt="alt"
+                  layout="intrinsic"
+                  quality={85}
+                />
+              );
+            })}
           </article>
         </Box>
       </Container>
