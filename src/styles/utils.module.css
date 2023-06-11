@@ -7,11 +7,18 @@
 }
 
 .headingXl {
-  padding-top: 2.25rem;
+  padding-top: 6.25rem;
   text-align: center;
   letter-spacing: -0.05em;
   font-size: 2.5rem;
   line-height: 1;
+  margin-bottom: 0;
+}
+
+.headingJp {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0;
 }
 
 .headingLg {
@@ -51,6 +58,7 @@
   margin: 1rem 0 1rem;
   text-align: center;
   color: #696969;
+  display: flex;
 }
 
 .text p {
@@ -65,23 +73,23 @@
   max-width: 768px;
 }
 
-.text table tr td:nth-of-type(1) {
+/* .text table tr td:nth-of-type(1) {
   border-top: 1px solid #bbe4a3;
   border-bottom: 1px solid #bbe4a3;
   padding: 5px 8px;
   background-color: #e6f5e0;
   width: 146px;
   font-size: 14px;
-}
+} */
 
 .h1 {
   font-size: 23px;
   color: grey;
 }
 
-.text table tr td:nth-of-type(2) {
+/* .text table tr td:nth-of-type(2) {
   border-top: 1px solid #bbe4a3;
   border-bottom: 1px solid #bbe4a3;
   padding: 5px 8px;
   font-size: 14px;
-}
+} */

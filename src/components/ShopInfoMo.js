@@ -10,6 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Link from "/src/components/utils/Link";
+import Box from "@mui/material/Box";
 
 function createData(key, value) {
   return {
@@ -18,7 +19,7 @@ function createData(key, value) {
   };
 }
 
-export default function ShopInfo({
+export default function ShopInfoMo({
   map,
   address,
   title,
@@ -49,25 +50,27 @@ export default function ShopInfo({
   ];
 
   return (
-    <TableContainer
-      component={Paper}
-      style={{ background: "rgba(220,220,220, 0.3)" }}
+    <Box
+      sx={{
+        border: "solid 1px lightgrey",
+      }}
     >
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.key}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row" align="left">
-                {row.key}
-              </TableCell>
-              <TableCell>{row.value}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+      {rows.map((row, index) => (
+        <Box key={index}>
+          <Box
+            sx={{
+              borderBottom: "solid 1px lightgrey",
+              padding: "8px",
+              backgroundColor: "rgb(245, 245, 245)",
+            }}
+          >
+            <Box>{row.key}</Box>
+          </Box>
+          <Box sx={{ borderBottom: "solid 1px lightgrey", padding: "8px" }}>
+            {row.value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
   );
 }

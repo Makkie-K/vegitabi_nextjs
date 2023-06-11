@@ -1,3 +1,11 @@
 #postSlidesMain .splide__track .splide__list .splide__slide {
   width: calc(101%) !important;
 }
+
+#headerMoMenu .Mui-expanded {
+  margin: 0 !important;
+}
+
+.columns .info {
+  display: flex;
+}
