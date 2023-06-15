@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { getAllAreas, getPostDataByArea } from "/src/lib/posts";
 import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
@@ -6,8 +7,29 @@ import Box from "@mui/material/Box";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+import Pagination from "@mui/material/Pagination";
 
 export default function AreaIndex({ postData }) {
+  const [page, setPage] = useState(1);
+  const [start, setStart] = useState(0);
+  const displayNum = 2;
+  const [end, setEnd] = useState(displayNum);
+
+  const handleChange = (e, page) => {
+    const start = (page - 1) * displayNum;
+    const end = start + displayNum;
+    setStart(start);
+    setEnd(end);
+    setPage(page);
+  };
+  console.log(postData);
+  useEffect(() => {
+    setStart(0);
+    setEnd(displayNum);
+    setPage(1);
+  }, [postData]);
+
+  const pageCount = Math.ceil(postData.length / displayNum);
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
@@ -21,7 +43,7 @@ export default function AreaIndex({ postData }) {
           {postData[0].area}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          {postData.map(({ id, date, title, contents }) => (
+          {postData.slice(start, end).map(({ id, date, title, contents }) => (
             <Box
               className={utilStyles.listItem}
               key={id}
@@ -57,14 +79,9 @@ export default function AreaIndex({ postData }) {
                     href={`/posts/${id}`}
                     sx={{
                       // display: "flex",
-                      // display: "-webkit-box",
-                      display: "-webkitBox",
                       textDecoration: "none",
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: "2",
                     }}
                   >
                     {title}
@@ -79,10 +96,6 @@ export default function AreaIndex({ postData }) {
                     height: "60px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    // display: "-webkit-box",
-                    display: "-webkitBox",
-                    WebkitBoxOrient: "vertical",
-                    WebkitLineClamp: "2",
                   }}
                 >
                   <Link
@@ -101,6 +114,22 @@ export default function AreaIndex({ postData }) {
           ))}
           {/* </ul> */}
         </section>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "30px",
+          }}
+        >
+          <Box>
+            <Pagination
+              // count={Math.ceil(postData.length / 2)}
+              count={pageCount}
+              page={page}
+              onChange={handleChange}
+            />
+          </Box>
+        </Box>
       </Container>
     </Layout>
   );
