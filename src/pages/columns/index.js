@@ -66,15 +66,10 @@ export default function Index({ allColumnsData }) {
                   <Link
                     href={`/columns/${id}`}
                     sx={{
-                      // display: "flex",
-                      // display: "-webkit-box",
-                      display: "-webkitBox",
                       textDecoration: "none",
                       color: "rgba(0, 0, 0, 0.55)",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
-                      "-webkitBoxOrient": "vertical",
-                      "-webkitLineClamp": "2",
                     }}
                   >
                     {title}
@@ -89,10 +84,6 @@ export default function Index({ allColumnsData }) {
                     height: "60px",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    // display: "-webkit-box",
-                    display: "-webkitBox",
-                    "-webkitBoxOrient": "vertical",
-                    "-webkitLineClamp": "2",
                   }}
                 >
                   <Link
