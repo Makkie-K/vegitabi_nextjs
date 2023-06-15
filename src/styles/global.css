@@ -9,3 +9,7 @@
 .columns .info {
   display: flex;
 }
+
+.mobile-header-menu .MuiAccordion-root {
+  box-shadow: none;
+}
