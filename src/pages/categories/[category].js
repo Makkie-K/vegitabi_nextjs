@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getAllCategories, getPostDataByCategory } from "/src/lib/posts";
 import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
@@ -12,16 +12,23 @@ import Pagination from "@mui/material/Pagination";
 export default function CategoryIndex({ postData }) {
   const [page, setPage] = useState(1);
   const [start, setStart] = useState(0);
-  const [end, setEnd] = useState(2);
   const displayNum = 2;
+  const [end, setEnd] = useState(displayNum);
 
-  const handleChange = (e, index) => {
-    const start = (index - 1) * displayNum;
-    const end = (index - 1) * 2 + displayNum;
+  const handleChange = (e, page) => {
+    const start = (page - 1) * displayNum;
+    const end = start + displayNum;
     setStart(start);
     setEnd(end);
-    setPage(index);
+    setPage(page);
   };
+  console.log(postData);
+  useEffect(() => {
+    setStart(0);
+    setEnd(displayNum);
+    setPage(1);
+  }, [postData]);
+
   const pageCount = Math.ceil(postData.length / displayNum);
   return (
     <Layout>
@@ -39,7 +46,7 @@ export default function CategoryIndex({ postData }) {
           {postData
             .slice(start, end)
             // .slice(start, postData.length - (page - 1) * 2)
-            .map(({ id, date, title, contents, index }) => (
+            .map(({ id, date, title, contents }) => (
               // {postData.map(({ id, date, title, contents }) => (
               <Box
                 className={utilStyles.listItem}
@@ -75,13 +82,10 @@ export default function CategoryIndex({ postData }) {
                     <Link
                       href={`/posts/${id}`}
                       sx={{
-                        display: "-webkitBox",
                         textDecoration: "none",
                         color: "rgba(0, 0, 0, 0.55)",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: "2",
                       }}
                     >
                       {title}
@@ -96,10 +100,6 @@ export default function CategoryIndex({ postData }) {
                       height: "60px",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
-                      // display: "-webkit-box",
-                      display: "-webkitBox",
-                      // "-webkitBoxOrient": "vertical",
-                      // "-webkitLineClamp": "2",
                     }}
                   >
                     <Link
@@ -152,11 +152,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // console.log(params);
   const postData = getPostDataByCategory(params.category);
-  // const pData = getPostDataByCategory(params.category);
-  // const postData = pData.filter((val) => Boolean(val));
-  // const postData = getPostDataByCategory(params.category);
-  // console.log("In getStaticProps" + JSON.stringify(postData));
-  // console.log(postData);
+
   return {
     props: {
       postData,
