@@ -8,6 +8,7 @@ import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Pagination from "@mui/material/Pagination";
+import { rgbToHex } from "@mui/material";
 
 export default function CategoryIndex({ postData }) {
   const [page, setPage] = useState(1);
@@ -40,13 +41,13 @@ export default function CategoryIndex({ postData }) {
             marginBottom: "30px",
           }}
         >
-          {postData[0].category}の記事一覧
+          {postData[0].categoryJp}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           {postData
             .slice(start, end)
             // .slice(start, postData.length - (page - 1) * 2)
-            .map(({ id, date, title, contents }) => (
+            .map(({ id, date, title, titlejp, contents }) => (
               // {postData.map(({ id, date, title, contents }) => (
               <Box
                 className={utilStyles.listItem}
@@ -79,17 +80,28 @@ export default function CategoryIndex({ postData }) {
                   }}
                 >
                   <Box sx={{ margin: "9px" }}>
-                    <Link
-                      href={`/posts/${id}`}
-                      sx={{
-                        textDecoration: "none",
-                        color: "rgba(0, 0, 0, 0.55)",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      {title}
-                    </Link>
+                    <Box>
+                      <Link
+                        href={`/posts/${id}`}
+                        sx={{
+                          textDecoration: "none",
+                          color: "rgba(0, 0, 0, 0.55)",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {title}
+                      </Link>
+                      <Box
+                        sx={{
+                          // paddingLeft: "6px",
+                          fontSize: "14px",
+                          color: "rgba(0, 0, 0, 0.55)",
+                        }}
+                      >
+                        ({titlejp})
+                      </Box>
+                    </Box>
                     <small className={utilStyles.lightText}>
                       <Date dateString={date} />
                     </small>
