@@ -30,6 +30,9 @@ export default function AreaIndex({ postData }) {
   }, [postData]);
 
   const pageCount = Math.ceil(postData.length / displayNum);
+
+  const maxLength = 36;
+
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
@@ -40,78 +43,98 @@ export default function AreaIndex({ postData }) {
             marginBottom: "30px",
           }}
         >
-          {postData[0].area}の記事一覧
+          {postData[0].areaJp}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          {postData.slice(start, end).map(({ id, date, title, contents }) => (
-            <Box
-              className={utilStyles.listItem}
-              key={id}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                border: "solid 1px lightgrey",
-                padding: "5px",
-              }}
-            >
-              <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                <Link href={`/posts/${id}`}>
-                  <Avatar
-                    alt={title}
-                    src={`/images/posts/${id}/1.webp`}
-                    variant="square"
-                    // sx={{ width: "100%", height: 135 }}
-                    sx={{ width: "100%", height: 180 }}
-                  />
-                </Link>
-              </Box>
+          {postData
+            .slice(start, end)
+            .map(({ id, date, title, contents, titlejp, avator }) => (
               <Box
+                className={utilStyles.listItem}
+                key={id}
                 sx={{
-                  paddingLeft: "5px",
-                  width: { xs: "100%", md: "50%" },
                   display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "column",
+                  flexDirection: { xs: "column", md: "row" },
+                  border: "solid 1px lightgrey",
+                  padding: "5px",
                 }}
               >
-                <Box sx={{ margin: "9px" }}>
-                  <Link
-                    href={`/posts/${id}`}
-                    sx={{
-                      // display: "flex",
-                      textDecoration: "none",
-                      color: "rgba(0, 0, 0, 0.55)",
-                      overflow: "hidden",
-                    }}
-                  >
-                    {title}
+                <Box sx={{ width: { xs: "100%", md: "36%" } }}>
+                  <Link href={`/posts/${id}`}>
+                    <Avatar
+                      alt={title}
+                      src={`/images/posts/${id}/${avator}`}
+                      // src={`/images/posts/${id}/1.webp`}
+                      variant="square"
+                      // sx={{ width: "100%", height: 135 }}
+                      sx={{
+                        width: "100%",
+                        height: { xs: "300px", md: "180px" },
+                      }}
+                    />
                   </Link>
-                  <small className={utilStyles.lightText}>
-                    <Date dateString={date} />
-                  </small>
                 </Box>
                 <Box
                   sx={{
-                    margin: "9px",
-                    height: "60px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
+                    paddingLeft: "5px",
+                    width: { xs: "100%", md: "50%" },
+                    display: "flex",
+                    justifyContent: "space-between",
+                    flexDirection: "column",
                   }}
                 >
-                  <Link
-                    href={`/posts/${id}`}
+                  <Box sx={{ margin: "9px" }}>
+                    <Link
+                      href={`/posts/${id}`}
+                      sx={{
+                        // display: "flex",
+                        textDecoration: "none",
+                        color: "rgba(0, 0, 0, 0.55)",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {title}
+                    </Link>
+                    <Box
+                      sx={{
+                        // paddingLeft: "6px",
+                        fontSize: "14px",
+                        color: "rgba(0, 0, 0, 0.55)",
+                      }}
+                    >
+                      ({titlejp})
+                    </Box>
+                    <small className={utilStyles.lightText}>
+                      <Date dateString={date} />
+                    </small>
+                  </Box>
+                  <Box
                     sx={{
-                      color: "rgba(0, 0, 0, 0.55)",
-                      textDecoration: "none",
-                      fontSize: "85%",
+                      margin: "9px",
+                      height: "60px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                     }}
                   >
-                    {contents}
-                  </Link>
+                    <Link
+                      href={`/posts/${id}`}
+                      sx={{
+                        color: "rgba(0, 0, 0, 0.55)",
+                        textDecoration: "none",
+                        fontSize: "85%",
+                      }}
+                    >
+                      <a className="truncate">
+                        {contents.length > maxLength
+                          ? `${contents.slice(0, maxLength)}...[続きを読む]`
+                          : contents}
+                      </a>
+                      {/* <a className="truncate">{contents}</a> */}
+                    </Link>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-          ))}
+            ))}
           {/* </ul> */}
         </section>
         <Box
