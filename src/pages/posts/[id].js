@@ -36,6 +36,9 @@ export default function Post({ postData }) {
         >
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
+          <div className={utilStyles.lightText}>
+            <Date dateString={postData.date} />
+          </div>
           <Markdown className={utilStyles.text}>
             {postData.contentHtml}
           </Markdown>
@@ -70,6 +73,7 @@ export default function Post({ postData }) {
         >
           <article style={{ width: "100%" }}>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+            <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
             <br />
             <div className={utilStyles.lightText}>
               <Date dateString={postData.date} />
