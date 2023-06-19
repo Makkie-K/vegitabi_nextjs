@@ -26,12 +26,7 @@ export default function BasicModal({ id, fileCount }) {
   const handleClose = () => setOpen(false);
   let menus = [];
   for (let i = 1; i < fileCount + 1; i++) {
-    if (fileCount === 0) {
-      return null; // ファイルが存在しない場合は null を返して終了
-    } else {
-      menus.push({ id: id, num: i });
-      // menus[i] = { id: id, num: i };
-    }
+    menus[i] = { id: id, num: i };
   }
 
   return (
