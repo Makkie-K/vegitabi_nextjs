@@ -21,16 +21,17 @@ export function ImageMenu({ id, num }) {
 }
 
 export default function BasicModal({ id, fileCount }) {
-  if (fileCount === 0) {
-    return null; // ファイルが存在しない場合は null を返して終了
-  }
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   let menus = [];
   for (let i = 1; i < fileCount + 1; i++) {
-    menus.push({ id: id, num: i });
-    // menus[i] = { id: id, num: i };
+    if (fileCount === 0) {
+      return null; // ファイルが存在しない場合は null を返して終了
+    } else {
+      menus.push({ id: id, num: i });
+      // menus[i] = { id: id, num: i };
+    }
   }
 
   return (
