@@ -66,7 +66,13 @@ export default function ShopInfoMo({
           >
             <Box>{row.key}</Box>
           </Box>
-          <Box sx={{ borderBottom: "solid 1px lightgrey", padding: "8px" }}>
+          <Box
+            sx={{
+              borderBottom: "solid 1px lightgrey",
+              padding: "8px",
+              minHeight: "40px",
+            }}
+          >
             {row.value}
           </Box>
         </Box>
