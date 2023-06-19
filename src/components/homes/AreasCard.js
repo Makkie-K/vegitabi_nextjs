@@ -18,13 +18,6 @@ export default function AreasCard(props) {
         />
         <CardContent
           sx={{
-            // position: "absolute",
-            // width: "80%",
-            // backgroundColor: "#fff",
-            // opacity: "0.8",
-            // left: "46px",
-            // bottom: "5%",
-            // height: "25%",
             textAlign: "center",
           }}
         >

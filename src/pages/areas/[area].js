@@ -124,12 +124,9 @@ export default function AreaIndex({ postData }) {
                         fontSize: "85%",
                       }}
                     >
-                      <a className="truncate">
-                        {contents.length > maxLength
-                          ? `${contents.slice(0, maxLength)}...[続きを読む]`
-                          : contents}
-                      </a>
-                      {/* <a className="truncate">{contents}</a> */}
+                      {contents.length > maxLength
+                        ? `${contents.slice(0, maxLength)}...[続きを読む]`
+                        : contents}
                     </Link>
                   </Box>
                 </Box>
