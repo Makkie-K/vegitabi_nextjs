@@ -45,7 +45,9 @@ export default function ShopInfoPc({
     ),
     // createData("ウェブサイト", url),
     createData("その他", others),
-    createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
+    fileCount > 0
+      ? createData("メニュー", <ShopModal fileCount={fileCount} id={id} />)
+      : createData("メニュー"),
   ];
 
   return (
