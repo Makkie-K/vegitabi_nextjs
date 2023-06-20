@@ -31,6 +31,7 @@ export default function CategoryIndex({ postData }) {
   }, [postData]);
 
   const pageCount = Math.ceil(postData.length / displayNum);
+  const maxLength = 36;
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
@@ -122,7 +123,10 @@ export default function CategoryIndex({ postData }) {
                         fontSize: "85%",
                       }}
                     >
-                      {contents}
+                      {contents.length > maxLength
+                        ? `${contents.slice(0, maxLength)}...[続きを読む]`
+                        : contents}
+                      {/* {contents} */}
                     </Link>
                   </Box>
                 </Box>
