@@ -27,7 +27,6 @@ export default function ShopInfoPc({
   url,
   businessHour,
   others,
-  menu,
   fileCount,
   id,
 }) {
