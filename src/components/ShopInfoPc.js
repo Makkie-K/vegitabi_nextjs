@@ -28,9 +28,10 @@ export default function ShopInfoPc({
   businessHour,
   others,
   fileCount,
+  filesExist,
   id,
 }) {
-  const [showModal, setShowModal] = useState(fileCount > 0);
+  console.log(filesExist);
   const rows = [
     createData("店名", title),
     createData("住所", address),
@@ -46,11 +47,11 @@ export default function ShopInfoPc({
     ),
     // createData("ウェブサイト", url),
     createData("その他", others),
-
     createData(
       "メニュー",
-      showModal ? <ShopModal fileCount={fileCount} id={id} /> : null
+      filesExist ? null : <ShopModal fileCount={fileCount} id={id} />
     ),
+    // createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
   ];
 
   return (
