@@ -29,8 +29,10 @@ export default function ShopInfoMo({
   others,
   menu,
   fileCount,
+  filesExist,
   id,
 }) {
+  console.log(filesExist);
   const rows = [
     createData("店名", title),
     createData("住所", address),
@@ -46,7 +48,10 @@ export default function ShopInfoMo({
     ),
     // createData("ウェブサイト", url),
     createData("その他", others),
-    createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
+    createData(
+      "メニュー",
+      filesExist ? null : <ShopModal fileCount={fileCount} id={id} />
+    ),
   ];
 
   return (
