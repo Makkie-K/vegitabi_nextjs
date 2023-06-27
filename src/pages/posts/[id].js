@@ -95,6 +95,7 @@ export default function Post({ postData }) {
               others={postData.others}
               files={postData.files}
               fileCount={postData.fileCount}
+              filesExist={postData.filesExist}
               id={Number(postData.id)}
             />
           </article>
