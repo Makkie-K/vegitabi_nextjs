@@ -107,7 +107,6 @@ export function getPostDataByCategory(category) {
 
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
-  const filesExist = checkIfNoImageExists(id);
   // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
@@ -131,10 +130,38 @@ export async function getPostData(id) {
     fileCount,
     filesPosts,
     fileCountPosts,
-    filesExist,
     ...matterResult.data,
   };
 }
+
+// export async function getPostData(id) {
+//   const fullPath = path.join(postsDirectory, `${id}.md`);
+//   // console.log("fullPath: " + fullPath);
+//   const fileContents = fs.readFileSync(fullPath, "utf8");
+//   const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
+
+//   const filesPosts = fs.readdirSync(
+//     process.cwd() + `/public/images/posts/${id}`
+//   );
+//   // console.log("files:" + files);
+//   const fileCount = files.length;
+//   const fileCountPosts = filesPosts.length;
+//   // 投稿のメタデータ部分を解析するために gray-matter を使う
+//   // console.log("メタデータ: " + matter(fileContents).data.category.toString());
+//   const matterResult = matter(fileContents);
+//   const contentHtml = matterResult.content.toString();
+
+//   // データを id と組み合わせる
+//   return {
+//     id,
+//     contentHtml,
+//     files,
+//     fileCount,
+//     filesPosts,
+//     fileCountPosts,
+//     ...matterResult.data,
+//   };
+// }
 
 export function getAllAreas() {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -225,16 +252,4 @@ export function handleKeyword(keyword) {
 
   const handledKeywords = handledKeyword.split(/\s/);
   return handledKeywords.filter(Boolean);
-}
-
-export function checkIfNoImageExists(id) {
-  const directoryPath = path.join(process.cwd(), "public/images/menus", id);
-  const filePath = path.join(directoryPath, "no-image.jpeg");
-
-  try {
-    fs.accessSync(filePath);
-    return true; // ファイルが存在する場合はtrueを返す
-  } catch (error) {
-    return false; // ファイルが存在しない場合はfalseを返す
-  }
 }

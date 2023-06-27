@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react*/ import { GoogleMap } from "/src/components/GoogleMap";
+import React, { useState } from "react";
 import ShopModal from "/src/components/ShopModal";
 import utilStyles from "/src/styles/utils.module.css";
-import * as React from "react";
+// import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -26,10 +27,11 @@ export default function ShopInfoPc({
   url,
   businessHour,
   others,
-  menu,
   fileCount,
+  filesExist,
   id,
 }) {
+  console.log(filesExist);
   const rows = [
     createData("店名", title),
     createData("住所", address),
@@ -45,7 +47,11 @@ export default function ShopInfoPc({
     ),
     // createData("ウェブサイト", url),
     createData("その他", others),
-    createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
+    createData(
+      "メニュー",
+      filesExist ? null : <ShopModal fileCount={fileCount} id={id} />
+    ),
+    // createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
   ];
 
   return (
