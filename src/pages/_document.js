@@ -22,15 +22,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-RD2LCP04W9"
-          ></script>
-          <script>
-            window.dataLayer = window.dataLayer || []; function gtag()
-            {dataLayer.push(arguments)}
-            gtag('js', new Date()); gtag('config', 'G-RD2LCP04W9');
-          </script>
           {/* <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-TVYKCWDR1H"
