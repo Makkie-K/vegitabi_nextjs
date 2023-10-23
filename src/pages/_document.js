@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script
+          {/* <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-TVYKCWDR1H"
           ></script>
@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
               gtag('config', 'G-TVYKCWDR1H');
               `,
             }}
-          />
+          /> */}
         </body>
       </Html>
     );
