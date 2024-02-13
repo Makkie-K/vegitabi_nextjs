@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfoPc from "/src/components/ShopInfoPc";
 import ShopInfoMo from "/src/components/ShopInfoMo";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 export default function Post({ postData }) {
   return (
@@ -41,6 +42,14 @@ export default function Post({ postData }) {
               <Date dateString={postData.date} />
             </div>
           </div>
+          <Splide aria-label="お気に入りの写真">
+            <SplideSlide>
+              <img src="" alt="Image 1" />
+            </SplideSlide>
+            <SplideSlide>
+              <img src="" alt="Image 2" />
+            </SplideSlide>
+          </Splide>
           <Markdown className={utilStyles.text}>
             {postData.contentHtml}
           </Markdown>

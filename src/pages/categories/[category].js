@@ -13,7 +13,7 @@ import { rgbToHex } from "@mui/material";
 export default function CategoryIndex({ postData }) {
   const [page, setPage] = useState(1);
   const [start, setStart] = useState(0);
-  const displayNum = 2;
+  const displayNum = 10;
   const [end, setEnd] = useState(displayNum);
 
   const handleChange = (e, page) => {
@@ -38,7 +38,7 @@ export default function CategoryIndex({ postData }) {
         <Box
           sx={{
             textAlign: "center",
-            backgroundColor: "lightgrey",
+            backgroundColor: "",
             marginBottom: "30px",
           }}
         >
@@ -48,90 +48,141 @@ export default function CategoryIndex({ postData }) {
           {postData
             .slice(start, end)
             // .slice(start, postData.length - (page - 1) * 2)
-            .map(({ id, date, title, titlejp, contents, avator }) => (
-              // {postData.map(({ id, date, title, contents }) => (
-              <Box
-                className={utilStyles.listItem}
-                key={id}
-                sx={{
-                  display: "flex",
-                  flexDirection: { xs: "column", md: "row" },
-                  border: "solid 1px lightgrey",
-                  padding: "5px",
-                }}
-              >
-                <Box sx={{ width: { xs: "100%", md: "36%" } }}>
-                  <Link href={`/posts/${id}`}>
-                    <Avatar
-                      alt={title}
-                      src={`/images/posts/${id}/${avator}`}
-                      variant="square"
-                      // sx={{ width: "100%", height: 135 }}
-                      sx={{ width: "100%", height: 180 }}
-                    />
-                  </Link>
-                </Box>
+            .map(
+              ({
+                id,
+                date,
+                title,
+                titlejp,
+                contents,
+                avator,
+                address,
+                telephone,
+                businessHour,
+              }) => (
+                // {postData.map(({ id, date, title, contents }) => (
                 <Box
+                  className={utilStyles.listItem}
+                  key={id}
                   sx={{
-                    paddingLeft: "5px",
-                    width: { xs: "100%", md: "50%" },
                     display: "flex",
-                    justifyContent: "space-between",
-                    flexDirection: "column",
+                    flexDirection: { xs: "column", md: "row" },
+                    // border: "solid 1px lightgrey",
+                    // padding: "5px",
                   }}
                 >
-                  <Box sx={{ margin: "9px" }}>
-                    <Box>
-                      <Link
-                        href={`/posts/${id}`}
+                  <Box sx={{ width: { xs: "100%", md: "36%" } }}>
+                    <Link href={`/posts/${id}`}>
+                      <Avatar
+                        alt={title}
+                        src={`/images/posts/${id}/${avator}`}
+                        variant="square"
+                        // sx={{ width: "100%", height: 135 }}
                         sx={{
-                          textDecoration: "none",
-                          color: "rgba(0, 0, 0, 0.55)",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
+                          width: "100%",
+                          height: 222,
                         }}
-                      >
-                        {title}
-                      </Link>
-                      <Box
-                        sx={{
-                          // paddingLeft: "6px",
-                          fontSize: "14px",
-                          color: "rgba(0, 0, 0, 0.55)",
-                        }}
-                      >
-                        ({titlejp})
-                      </Box>
-                    </Box>
-                    <small className={utilStyles.lightText}>
-                      <Date dateString={date} />
-                    </small>
+                      />
+                    </Link>
                   </Box>
                   <Box
                     sx={{
-                      margin: "9px",
-                      height: "60px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
+                      width: { xs: "100%", md: "64%" },
+                      display: "flex",
+                      justifyContent: "space-between",
+                      flexDirection: "column",
                     }}
                   >
-                    <Link
-                      href={`/posts/${id}`}
+                    <Box
                       sx={{
-                        color: "rgba(0, 0, 0, 0.55)",
-                        textDecoration: "none",
-                        fontSize: "85%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        borderBottom: "1px solid lightgrey",
+                        marginLeft: { xs: "0", md: "9px" },
+                        marginBottom: "8px",
                       }}
                     >
-                      {contents.length > maxLength
+                      <Box
+                        sx={{
+                          // backgroundColor: "red",
+                          display: "flex", // 横並びにする
+                          alignItems: "center", // 縦方向の中央揃え
+                          justifyContent: "space-between", // 要素の間隔を均等にする
+                          marginLeft: { xs: "0", md: "9px" },
+                          marginBottom: "8px", // 下の余白を設定
+                        }}
+                      >
+                        <Box>
+                          <Link
+                            href={`/posts/${id}`}
+                            sx={{
+                              textDecoration: "none",
+                              color: "rgba(0, 0, 0, 0.55)",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }}
+                          >
+                            {title}
+                          </Link>
+                          <Box
+                            sx={{
+                              // paddingLeft: "6px",
+                              fontSize: "14px",
+                              color: "rgba(0, 0, 0, 0.55)",
+                            }}
+                          >
+                            ({titlejp})
+                          </Box>
+                        </Box>
+                      </Box>
+                      <Box
+                        sx={{
+                          marginBottom: "-28px",
+                          // backgroundColor: "yellow",
+                        }}
+                      >
+                        <small className={utilStyles.lightText}>
+                          <Date dateString={date} />
+                        </small>
+                      </Box>
+                    </Box>
+                    <Box
+                      sx={{
+                        height: "auto",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        backgroundColor: "#fffcf9",
+                        marginLeft: { xs: "0", md: "9px" },
+                      }}
+                    >
+                      <div className={utilStyles.table}>
+                        <div>
+                          <div>住所</div>
+                          <div>{address}</div>
+                        </div>
+                        <div>
+                          <div>電話番号</div>
+                          <div> {telephone}</div>
+                        </div>
+                        <div>
+                          <div>営業時間</div>
+                          <div>{businessHour}</div>
+                        </div>
+
+                        {/* <div>住所: {address}</div>
+                        <div>電話番号: {telephone}</div>
+                        <div>営業時間: {businessHour}</div> */}
+                      </div>
+                      {/* {contents.length > maxLength
                         ? `${contents.slice(0, maxLength)}...[続きを読む]`
-                        : contents}
-                      {/* {contents} */}
-                    </Link>
+                        : contents} */}
+                      {/* </Link> */}
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            ))}
+              )
+            )}
           {/* </ul> */}
         </section>
         <Box
