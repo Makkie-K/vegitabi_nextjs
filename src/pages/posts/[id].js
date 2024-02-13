@@ -8,7 +8,8 @@ import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 import ShopInfoPc from "/src/components/ShopInfoPc";
 import ShopInfoMo from "/src/components/ShopInfoMo";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.css";
 
 export default function Post({ postData }) {
   return (
@@ -42,14 +43,22 @@ export default function Post({ postData }) {
               <Date dateString={postData.date} />
             </div>
           </div>
-          <Splide aria-label="お気に入りの写真">
-            <SplideSlide>
-              <img src="" alt="Image 1" />
-            </SplideSlide>
-            <SplideSlide>
-              <img src="" alt="Image 2" />
-            </SplideSlide>
-          </Splide>
+
+          <Carousel>
+            {[...Array(postData.fileCount)].map((_, index) => (
+              <div key={index}>
+                <img src={`/images/posts/${postData.id}/${index + 1}.webp`} />
+              </div>
+            ))}
+          </Carousel>
+          {/* <Carousel>
+            <div>
+              <img src={"/images/posts/14/1.webp"} />
+            </div>
+            <div>
+              <img src={"/images/posts/14/2.webp"} />
+            </div>
+          </Carousel> */}
           <Markdown className={utilStyles.text}>
             {postData.contentHtml}
           </Markdown>
