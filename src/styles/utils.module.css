@@ -82,6 +82,21 @@
   max-width: 768px;
 }
 
+.table {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.table > div {
+  display: table-row;
+}
+.table > div > div {
+  display: table-cell;
+  /* border: 1px solid #999; */
+  /* padding: 5px; */
+}
+
 /* .text table tr td:nth-of-type(1) {
   border-top: 1px solid #bbe4a3;
   border-bottom: 1px solid #bbe4a3;
