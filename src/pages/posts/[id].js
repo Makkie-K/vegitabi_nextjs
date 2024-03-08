@@ -44,9 +44,9 @@ export default function Post({ postData }) {
             </div>
           </div>
 
-          <Carousel>
+          <Carousel showThumbs={true}>
             {[...Array(postData.fileCount)].map((_, index) => (
-              <div key={index}>
+              <div key={index} style={{ width: "768px" }}>
                 <img src={`/images/posts/${postData.id}/${index + 1}.webp`} />
               </div>
             ))}
@@ -59,9 +59,9 @@ export default function Post({ postData }) {
               <img src={"/images/posts/14/2.webp"} />
             </div>
           </Carousel> */}
-          <Markdown className={utilStyles.text}>
+          {/* <Markdown className={utilStyles.text}>
             {postData.contentHtml}
-          </Markdown>
+          </Markdown> */}
           <ShopInfoPc
             address={postData.address}
             map={postData.map}
