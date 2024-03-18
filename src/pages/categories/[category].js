@@ -8,12 +8,25 @@ import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Pagination from "@mui/material/Pagination";
-import { rgbToHex } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { red } from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Grid from "@mui/material/Grid";
 
 export default function CategoryIndex({ postData }) {
   const [page, setPage] = useState(1);
   const [start, setStart] = useState(0);
-  const displayNum = 10;
+  const displayNum = 12; // Change displayNum to 12 for 4 cards per row
   const [end, setEnd] = useState(displayNum);
 
   const handleChange = (e, page) => {
@@ -23,7 +36,7 @@ export default function CategoryIndex({ postData }) {
     setEnd(end);
     setPage(page);
   };
-  console.log(postData);
+
   useEffect(() => {
     setStart(0);
     setEnd(displayNum);
@@ -34,7 +47,7 @@ export default function CategoryIndex({ postData }) {
   const maxLength = 36;
   return (
     <Layout>
-      <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
+      <Container sx={{ marginTop: 20 }}>
         <Box
           sx={{
             textAlign: "center",
@@ -45,145 +58,70 @@ export default function CategoryIndex({ postData }) {
           {postData[0].categoryJp}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          {postData
-            .slice(start, end)
-            // .slice(start, postData.length - (page - 1) * 2)
-            .map(
-              ({
-                id,
-                date,
-                title,
-                titlejp,
-                contents,
-                avator,
-                address,
-                telephone,
-                businessHour,
-              }) => (
-                // {postData.map(({ id, date, title, contents }) => (
-                <Box
-                  className={utilStyles.listItem}
-                  key={id}
-                  sx={{
-                    display: "flex",
-                    flexDirection: { xs: "column", md: "row" },
-                    // border: "solid 1px lightgrey",
-                    // padding: "5px",
-                  }}
-                >
-                  <Box sx={{ width: { xs: "100%", md: "36%" } }}>
+          <Grid container spacing={2}>
+            {postData
+              .slice(start, end)
+              .map(
+                ({
+                  id,
+                  date,
+                  title,
+                  titlejp,
+                  contents,
+                  avator,
+                  address,
+                  telephone,
+                  businessHour,
+                  areaJp,
+                }) => (
+                  <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
                     <Link href={`/posts/${id}`}>
-                      <Avatar
-                        alt={title}
-                        src={`/images/posts/${id}/${avator}`}
-                        variant="square"
-                        // sx={{ width: "100%", height: 135 }}
-                        sx={{
-                          width: "100%",
-                          height: 222,
-                        }}
-                      />
+                      <Card sx={{ height: "100%" }}>
+                        <CardMedia
+                          component="img"
+                          image={`/images/posts/${id}/${avator}`}
+                          alt="Paella dish"
+                          sx={{ aspectRatio: "1/1" }} // Set aspectRatio to maintain image's aspect ratio
+                        />
+                        <CardHeader
+                          action={
+                            <IconButton aria-label="settings">
+                              <MoreVertIcon />
+                            </IconButton>
+                          }
+                          title={title} // 英語版タイトルを表示
+                          titleTypographyProps={{ variant: "h6" }} // 英語版タイトル用にvariantを'h6'に設定
+                          subheader={
+                            <div>
+                              <Typography
+                                variant="subtitle1"
+                                style={{ fontSize: "0.8rem" }}
+                              >
+                                ({titlejp})
+                              </Typography>{" "}
+                              {/* 日本語版タイトルを表示 */}
+                              <br />
+                            </div>
+                          }
+                        />
+                        <CardContent>
+                          <Typography variant="body2" color="text.secondary">
+                            最終更新日: <Date dateString={date} />{" "}
+                            {/* 日付を表示 */}
+                          </Typography>
+                        </CardContent>
+                        <CardActions disableSpacing></CardActions>
+                        <Collapse
+                          in={true}
+                          timeout="auto"
+                          unmountOnExit
+                        ></Collapse>
+                      </Card>
                     </Link>
-                  </Box>
-                  <Box
-                    sx={{
-                      width: { xs: "100%", md: "64%" },
-                      display: "flex",
-                      justifyContent: "space-between",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        borderBottom: "1px solid lightgrey",
-                        marginLeft: { xs: "0", md: "9px" },
-                        marginBottom: "8px",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          // backgroundColor: "red",
-                          display: "flex", // 横並びにする
-                          alignItems: "center", // 縦方向の中央揃え
-                          justifyContent: "space-between", // 要素の間隔を均等にする
-                          marginLeft: { xs: "0", md: "9px" },
-                          marginBottom: "8px", // 下の余白を設定
-                        }}
-                      >
-                        <Box>
-                          <Link
-                            href={`/posts/${id}`}
-                            sx={{
-                              textDecoration: "none",
-                              color: "rgba(0, 0, 0, 0.55)",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                            }}
-                          >
-                            {title}
-                          </Link>
-                          <Box
-                            sx={{
-                              // paddingLeft: "6px",
-                              fontSize: "14px",
-                              color: "rgba(0, 0, 0, 0.55)",
-                            }}
-                          >
-                            ({titlejp})
-                          </Box>
-                        </Box>
-                      </Box>
-                      <Box
-                        sx={{
-                          marginBottom: "-28px",
-                          // backgroundColor: "yellow",
-                        }}
-                      >
-                        <small className={utilStyles.lightText}>
-                          <Date dateString={date} />
-                        </small>
-                      </Box>
-                    </Box>
-                    <Box
-                      sx={{
-                        height: "auto",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        backgroundColor: "#fffcf9",
-                        marginLeft: { xs: "0", md: "9px" },
-                      }}
-                    >
-                      <div className={utilStyles.table}>
-                        <div>
-                          <div>住所</div>
-                          <div>{address}</div>
-                        </div>
-                        <div>
-                          <div>電話番号</div>
-                          <div> {telephone}</div>
-                        </div>
-                        <div>
-                          <div>営業時間</div>
-                          <div>{businessHour}</div>
-                        </div>
-
-                        {/* <div>住所: {address}</div>
-                        <div>電話番号: {telephone}</div>
-                        <div>営業時間: {businessHour}</div> */}
-                      </div>
-                      {/* {contents.length > maxLength
-                        ? `${contents.slice(0, maxLength)}...[続きを読む]`
-                        : contents} */}
-                      {/* </Link> */}
-                    </Box>
-                  </Box>
-                </Box>
-              )
-            )}
-          {/* </ul> */}
+                  </Grid>
+                )
+              )}
+          </Grid>
         </section>
         <Box
           sx={{
@@ -193,12 +131,7 @@ export default function CategoryIndex({ postData }) {
           }}
         >
           <Box>
-            <Pagination
-              // count={Math.ceil(postData.length / 2)}
-              count={pageCount}
-              page={page}
-              onChange={handleChange}
-            />
+            <Pagination count={pageCount} page={page} onChange={handleChange} />
           </Box>
         </Box>
       </Container>
@@ -208,7 +141,6 @@ export default function CategoryIndex({ postData }) {
 
 export async function getStaticPaths() {
   const paths = getAllCategories();
-  // console.log(paths);
 
   return {
     paths,
@@ -217,7 +149,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // console.log(params);
   const postData = getPostDataByCategory(params.category);
 
   return {

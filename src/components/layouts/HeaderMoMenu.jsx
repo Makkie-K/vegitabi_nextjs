@@ -60,7 +60,7 @@ export default function HeaderMoMenu() {
             maxHeight: "calc(100vh - 64px)",
           }}
         >
-          <Box component="form" onSubmit={handleSubmit}>
+          {/* <Box component="form" onSubmit={handleSubmit}>
             <TextField
               id="outlined-basic"
               placeholder="検索"
@@ -71,7 +71,7 @@ export default function HeaderMoMenu() {
               onChange={handleChange}
               value={keyword}
             />
-          </Box>
+          </Box> */}
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
