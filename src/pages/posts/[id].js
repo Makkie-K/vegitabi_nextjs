@@ -51,17 +51,7 @@ export default function Post({ postData }) {
               </div>
             ))}
           </Carousel>
-          {/* <Carousel>
-            <div>
-              <img src={"/images/posts/14/1.webp"} />
-            </div>
-            <div>
-              <img src={"/images/posts/14/2.webp"} />
-            </div>
-          </Carousel> */}
-          {/* <Markdown className={utilStyles.text}>
-            {postData.contentHtml}
-          </Markdown> */}
+
           <ShopInfoPc
             address={postData.address}
             map={postData.map}
