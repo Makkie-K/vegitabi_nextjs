@@ -1,25 +1,31 @@
 import * as React from "react";
 import Head from "next/head";
 import Container from "@mui/material/Container";
-// import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ProTip from "/src/components/utils/ProTip";
 import Link from "/src/components/utils/Link";
-// import Copyright from "/src/components/utils/Copyright";
 import Layout from "/src/components/layouts/layout";
 import utilStyles from "/src/styles/utils.module.css";
 import { getSortedColumnsData } from "/src/lib/columns";
 import Date from "/src/components/date";
-// import Categories from "/src/components/homes/Categories";
-// import Areas from "/src/components/homes/Areas";
 import Avatar from "@mui/material/Avatar";
-// import Header from "/src/components/layouts/Header";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function Index({ allColumnsData }) {
   return (
     <Layout>
-      {/* <Header /> */}
-      <Container maxWidth="md" sx={{ marginTop: "90px}" }}>
+      <Head>
+        <title>コラム一覧</title>
+      </Head>
+      <Container sx={{ marginTop: "90px" }}>
         <Box
           sx={{
             textAlign: "center",
@@ -30,81 +36,50 @@ export default function Index({ allColumnsData }) {
           コラム一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          {/* <ul className={utilStyles.list}> */}
-          {allColumnsData.map(({ id, date, title, contents }) => (
-            <Box
-              className={utilStyles.listItem}
-              key={id}
-              sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                border: "solid 1px lightgrey",
-                padding: "5px",
-              }}
-            >
-              <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+          <Grid container spacing={2}>
+            {allColumnsData.map(({ id, date, title, titleJp, avatar }) => (
+              <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
                 <Link href={`/columns/${id}`}>
-                  <Avatar
-                    alt={title}
-                    src={`/images/columns/${id}/1.webp`}
-                    variant="square"
-                    // sx={{ width: "100%", height: 135 }}
-                    sx={{ width: "100%", height: 180 }}
-                  />
+                  <Card sx={{ height: "100%" }}>
+                    <CardMedia
+                      component="img"
+                      image={`/images/columns/${id}/1.webp`}
+                      alt={titleJp}
+                      sx={{ aspectRatio: "1/1" }}
+                    />
+                    <CardHeader
+                      action={
+                        <IconButton aria-label="settings">
+                          <MoreVertIcon />
+                        </IconButton>
+                      }
+                      title={title}
+                      titleTypographyProps={{ variant: "h6" }}
+                      subheader={
+                        <Typography
+                          variant="subtitle1"
+                          style={{ fontSize: "0.8rem" }}
+                        ></Typography>
+                      }
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        最終更新日: <Date dateString={date} />
+                      </Typography>
+                    </CardContent>
+                    <CardActions disableSpacing></CardActions>
+                    <Collapse in={true} timeout="auto" unmountOnExit></Collapse>
+                  </Card>
                 </Link>
-              </Box>
-              <Box
-                sx={{
-                  paddingLeft: "5px",
-                  width: { xs: "100%", md: "50%" },
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "column",
-                }}
-              >
-                <Box sx={{ margin: "9px" }}>
-                  <Link
-                    href={`/columns/${id}`}
-                    sx={{
-                      textDecoration: "none",
-                      color: "rgba(0, 0, 0, 0.55)",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    {title}
-                  </Link>
-                  <small className={utilStyles.lightText}>
-                    <Date dateString={date} />
-                  </small>
-                </Box>
-                <Box
-                  sx={{
-                    margin: "9px",
-                    height: "60px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  <Link
-                    href={`/columns/${id}`}
-                    sx={{
-                      color: "rgba(0, 0, 0, 0.55)",
-                      textDecoration: "none",
-                      fontSize: "85%",
-                    }}
-                  >
-                    {contents}
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-          ))}
+              </Grid>
+            ))}
+          </Grid>
         </section>
       </Container>
     </Layout>
   );
 }
+
 export async function getStaticProps() {
   const allColumnsData = getSortedColumnsData();
   return {
