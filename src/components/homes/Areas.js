@@ -93,6 +93,11 @@ export default function Areas() {
             />
           </Link>
         </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/taiwan" underline="none">
+            <AreasCard name="台湾" image="/images/homes/taiwan.webp" />
+          </Link>
+        </Grid>
       </Grid>
     </Box>
   );
