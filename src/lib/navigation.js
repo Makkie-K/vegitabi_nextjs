@@ -11,7 +11,6 @@ export const menusArea = [
   { text: "レソト", url: "lesotho" },
   { text: "日本", url: "japan" },
   { text: "南アフリカ", url: "south-africa" },
-  { text: "マダガスカル", url: "madagascar" },
 ];
 
 export const menusCategory = [
