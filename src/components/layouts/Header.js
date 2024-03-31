@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import SearchBar from "/src/components/layouts/SearchBar";
+// import SearchBar from "/src/components/layouts/SearchBar";
 import HeaderPc from "./HeaderPc";
 import HeaderMo from "./HeaderMo";
 // import Link from "/src/components/utils/Link";
@@ -91,7 +91,7 @@ const headerBoxLeft = css`
 const headerBoxRight = css`
   @media (min-width: 600px) {
     display: none;
-  } ;
+  }
 `;
 const headerMenuPc = css`
   @media (max-width: 600px) {
@@ -99,7 +99,7 @@ const headerMenuPc = css`
   }
   @media (min-width: 600px) {
     display: flex;
-  } ;
+  }
 `;
 const headerLogo = css`
   display: flex;
