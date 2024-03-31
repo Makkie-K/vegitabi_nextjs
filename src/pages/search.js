@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 // import { getResultBySearch } from "/src/lib/getResultBySearch";
-import { getSearchedPostsData } from "src/lib/posts";
+// import { getSearchedPostsData } from "src/lib/posts";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Date from "/src/components/date";
@@ -10,8 +10,9 @@ import Box from "@mui/material/Box";
 import Link from "/src/components/utils/Link";
 import Avatar from "@mui/material/Avatar";
 
-export default function Search({ searchedPostsData, keyword }) {
-  const results = JSON.parse(searchedPostsData);
+// export default function Search({ searchedPostsData, keyword }) {
+export default function Search({ keyword }) {
+  // const results = JSON.parse(searchedPostsData);
 
   // console.log(results);
   return (
@@ -26,7 +27,7 @@ export default function Search({ searchedPostsData, keyword }) {
         >
           「<span>{keyword}</span>」を含む記事一覧
         </Box>
-        <section>
+        {/* <section>
           {results.length > 0 ? (
             <div>
               {results.map((result) => (
@@ -88,23 +89,23 @@ export default function Search({ searchedPostsData, keyword }) {
           ) : (
             <div>検索結果なし</div>
           )}
-        </section>
+        </section> */}
       </Container>
     </Layout>
   );
 }
 
-export async function getServerSideProps(context) {
-  const keyword = context.query.keyword;
-  let searchedPostsData = await getSearchedPostsData(keyword);
-  // console.log(searchedPostsData);
-  searchedPostsData = JSON.stringify(searchedPostsData);
-  // console.log(searchedPostsData);
-  // console.log(searchedPostsData);
-  return {
-    props: {
-      keyword,
-      searchedPostsData,
-    },
-  };
-}
+// export async function getServerSideProps(context) {
+//   const keyword = context.query.keyword;
+//   let searchedPostsData = await getSearchedPostsData(keyword);
+//   // console.log(searchedPostsData);
+//   searchedPostsData = JSON.stringify(searchedPostsData);
+//   // console.log(searchedPostsData);
+//   // console.log(searchedPostsData);
+//   return {
+//     props: {
+//       keyword,
+//       searchedPostsData,
+//     },
+//   };
+// }
