@@ -20,40 +20,45 @@ export function ImageMenu({ id, num }) {
   );
 }
 
-export default function BasicModal({ id, fileCount }) {
+export default function BasicModal({ id, menuCount }) {
+  console.log(menuCount);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   let menus = [];
-  for (let i = 1; i < fileCount + 1; i++) {
+  for (let i = 1; i < menuCount + 1; i++) {
     menus[i] = { id: id, num: i };
   }
 
   return (
     <div>
-      <Button onClick={handleOpen}>MENU</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box
-          sx={{
-            margin: "20px auto",
-            padding: { xs: 0, md: "20px" },
-            width: { xs: "89%", md: "768px" },
-            height: { xs: "93%", md: "93%" },
-            overflow: "scroll",
-            bgcolor: "#fff",
-          }}
-        >
-          {menus.length > 0 &&
-            menus.map((menu) => (
-              <ImageMenu key={menu.num} id={menu.id} num={menu.num} />
-            ))}
-        </Box>
-      </Modal>
+      {menuCount > 0 && (
+        <>
+          <Button onClick={handleOpen}>MENU</Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box
+              sx={{
+                margin: "20px auto",
+                padding: { xs: 0, md: "20px" },
+                width: { xs: "89%", md: "768px" },
+                height: { xs: "93%", md: "93%" },
+                overflow: "scroll",
+                bgcolor: "#fff",
+              }}
+            >
+              {menus.length > 0 &&
+                menus.map((menu) => (
+                  <ImageMenu key={menu.num} id={menu.id} num={menu.num} />
+                ))}
+            </Box>
+          </Modal>
+        </>
+      )}
     </div>
   );
 }

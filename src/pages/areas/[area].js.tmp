@@ -22,7 +22,7 @@ export default function AreaIndex({ postData }) {
     setEnd(end);
     setPage(page);
   };
-  console.log(postData);
+  
   useEffect(() => {
     setStart(0);
     setEnd(displayNum);
@@ -160,7 +160,7 @@ export default function AreaIndex({ postData }) {
 
 export async function getStaticPaths() {
   const paths = getAllAreas();
-  // console.log(paths);
+  
 
   return {
     paths,
@@ -169,13 +169,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // console.log(params);
+  
   const postData = getPostDataByArea(params.area);
   // const pData = getPostDataByCategory(params.category);
   // const postData = pData.filter((val) => Boolean(val));
   // const postData = getPostDataByCategory(params.category);
-  // console.log("In getStaticProps" + JSON.stringify(postData));
-  // console.log(postData);
+  
   return {
     props: {
       postData,

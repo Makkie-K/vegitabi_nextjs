@@ -1,7 +1,6 @@
 import { getSortedPostsData } from "/src/lib/posts";
 
 export function getResultBySearch(keyword) {
-  // console.log(keyword);
   const results = [
     { id: 1, title: "result_1" },
     { id: 2, title: "result_2" },
@@ -19,7 +18,7 @@ export async function getStaticProps() {
 }
 
 // export function getResultBySearch(keyword) {
-//   console.log(keyword);
+
 //   const results = [
 //     { id: 1, title: "result_1" },
 //     { id: 2, title: "result_2" },

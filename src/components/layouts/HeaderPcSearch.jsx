@@ -17,7 +17,6 @@ export default function HeaderPcSearch() {
     // enterを押したときに改行するのを防ぐため
     e.preventDefault();
 
-    console.log(e.target.value);
     router.push({
       pathname: "/search",
       query: { keyword: keyword },
