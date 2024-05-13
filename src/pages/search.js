@@ -14,7 +14,6 @@ import Avatar from "@mui/material/Avatar";
 export default function Search({ keyword }) {
   // const results = JSON.parse(searchedPostsData);
 
-  // console.log(results);
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
@@ -98,10 +97,8 @@ export default function Search({ keyword }) {
 // export async function getServerSideProps(context) {
 //   const keyword = context.query.keyword;
 //   let searchedPostsData = await getSearchedPostsData(keyword);
-//   // console.log(searchedPostsData);
+
 //   searchedPostsData = JSON.stringify(searchedPostsData);
-//   // console.log(searchedPostsData);
-//   // console.log(searchedPostsData);
 //   return {
 //     props: {
 //       keyword,

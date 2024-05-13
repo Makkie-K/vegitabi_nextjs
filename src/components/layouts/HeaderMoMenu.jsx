@@ -25,8 +25,6 @@ export default function HeaderMoMenu() {
   };
   const handleOpenMenu = (e) => {
     setOpen(!open);
-    console.log(e);
-    // alert(open);
   };
 
   const handleCloseMenu = (e) => {

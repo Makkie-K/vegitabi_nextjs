@@ -8,7 +8,6 @@ import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
 
 export default function Column({ columnData }) {
-  // console.log({ postData });
   return (
     <Layout>
       <Head>
@@ -40,15 +39,13 @@ export default function Column({ columnData }) {
 export async function getStaticPaths() {
   // id としてとりうる値のリストを返す
   const paths = getAllColumnIds();
-  // console.log(paths[0].params);
+
   return {
     paths,
     fallback: false,
   };
 }
 export async function getStaticProps({ params }) {
-  // console.log("params: " + JSON.stringify(params));
-
   // params.id を使用して、ブログの投稿に必要なデータを取得する
   const columnData = await getColumnData(params.id);
   return {

@@ -27,11 +27,10 @@ export default function ShopInfoPc({
   url,
   businessHour,
   others,
-  fileCount,
+  menuCount,
   filesExist,
   id,
 }) {
-  console.log(filesExist);
   const rows = [
     createData("店名", title),
     createData("住所", address),
@@ -49,7 +48,7 @@ export default function ShopInfoPc({
     createData("その他", others),
     createData(
       "メニュー",
-      filesExist ? null : <ShopModal fileCount={fileCount} id={id} />
+      filesExist ? null : <ShopModal menuCount={menuCount} id={id} />
     ),
     // createData("メニュー", <ShopModal fileCount={fileCount} id={id} />),
   ];

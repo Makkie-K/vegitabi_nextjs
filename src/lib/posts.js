@@ -7,24 +7,23 @@ import { log } from "console";
 import { id } from "date-fns/locale";
 
 const postsDirectory = path.join(process.cwd(), "posts");
-// console.log(postsDirectory);
-// console.log("process.cwd:" + process.cwd());
+
 export function getSortedPostsData() {
   // /posts　配下のファイル名を取得する
   const fileNames = fs.readdirSync(postsDirectory);
-  // console.log("fileNames:" + fileNames);
+
   const allPostsData = fileNames.map((fileName) => {
     // id を取得するためにファイル名から ".md" を削除する
     const id = fileName.replace(/\.md$/, "");
 
     // マークダウンファイルを文字列として読み取る
     const fullPath = path.join(postsDirectory, fileName);
-    // console.log("**************" + fullPath);
+
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    // console.log("**************" + fileContents);
+
     // 投稿のメタデータ部分を解析するために gray-matter を使う
     const matterResult = matter(fileContents);
-    // console.log(matterResult.data);
+
     const contents = matterResult.content.slice(0, 200);
     return {
       id,
@@ -82,7 +81,7 @@ export function getPostDataByCategory(category) {
     const fullPath = path.join(postsDirectory, fileName);
 
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    // console.log(fileContents);
+
     const matterResult = matter(fileContents);
     // const contentHtml = matterResult.content.toString();
     const contents = matterResult.content.slice(0, 200);
@@ -108,19 +107,19 @@ export function getPostDataByCategory(category) {
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const filesExist = checkIfNoImageExists(id);
-  // console.log("fullPath: " + fullPath);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const files = fs.readdirSync(process.cwd() + `/public/images/posts/${id}`);
-  // const files = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
+  const menus = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
   const filesPosts = fs.readdirSync(
     process.cwd() + `/public/images/posts/${id}`
   );
-  // console.log("files:" + files);
+
   const fileCount = files.length;
-  console.log(fileCount);
+  const menuCount = menus.length;
+
   const fileCountPosts = filesPosts.length;
   // 投稿のメタデータ部分を解析するために gray-matter を使う
-  // console.log("メタデータ: " + matter(fileContents).data.category.toString());
+
   const matterResult = matter(fileContents);
   const contentHtml = matterResult.content.toString();
 
@@ -130,6 +129,7 @@ export async function getPostData(id) {
     contentHtml,
     files,
     fileCount,
+    menuCount,
     filesPosts,
     fileCountPosts,
     filesExist,
@@ -191,15 +191,13 @@ export async function getSearchedPostsData(keyword) {
   const keywords = handleKeyword(keyword);
   let results = [];
   let hitIDs = [];
-  // console.log(keywords);
+
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
 
     for (let i = 0; i < allPostsData.length; i++) {
       let count = 0;
-      // console.log(results[i].contents);
       for (let j = 0; j < keywords.length; j++) {
-        // console.log(keywords[j]);
         if (allPostsData[i].contents.indexOf(keywords[j]) > -1) {
           count = count + 1;
         }
@@ -215,7 +213,7 @@ export async function getSearchedPostsData(keyword) {
     const data = await getPostData(id);
     results.push(data);
   }
-  // console.log({ results });
+
   return results;
 }
 
