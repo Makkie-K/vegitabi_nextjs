@@ -12,6 +12,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.css";
 
 export default function Post({ postData }) {
+  console.log(postData);
   return (
     <Layout>
       <Head>
@@ -61,7 +62,7 @@ export default function Post({ postData }) {
             telephone={postData.telephone}
             others={postData.others}
             files={postData.files}
-            fileCount={postData.fileCount}
+            menuCount={postData.menuCount}
             filesExist={postData.filesExist}
             id={Number(postData.id)}
           />
@@ -102,7 +103,7 @@ export default function Post({ postData }) {
               telephone={postData.telephone}
               others={postData.others}
               files={postData.files}
-              fileCount={postData.fileCount}
+              menuCount={postData.menuCount}
               filesExist={postData.filesExist}
               id={Number(postData.id)}
             />
@@ -121,8 +122,6 @@ export async function getStaticPaths() {
   };
 }
 export async function getStaticProps({ params }) {
-  // console.log("params: " + JSON.stringify(params));
-
   // params.id を使用して、ブログの投稿に必要なデータを取得する
   const postData = await getPostData(params.id);
   return {
