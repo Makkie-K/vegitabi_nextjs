@@ -41,7 +41,7 @@ export default function Areas() {
         </Grid>
         <Grid xs={12} md={3}>
           <Link href="/areas/uae" underline="none">
-            <AreasCard name="U.A.E" image="/images/homes/uae.jpeg" />
+            <AreasCard name="U.A.E" image="/images/homes/uae.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
@@ -58,8 +58,13 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/vanuatu" underline="none">
-            <AreasCard name="バヌアツ" image="/images/homes/vanuatu.webp" />
+          <Link href="/areas/taiwan" underline="none">
+            <AreasCard name="台湾" image="/images/homes/taiwan.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/thailand" underline="none">
+            <AreasCard name="タイ" image="/images/homes/thailand.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
@@ -73,6 +78,11 @@ export default function Areas() {
         <Grid xs={12} md={3}>
           <Link href="/areas/maldives" underline="none">
             <AreasCard name="モルディブ" image="/images/homes/maldives.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/laos" underline="none">
+            <AreasCard name="ラオス" image="/images/homes/laos.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
