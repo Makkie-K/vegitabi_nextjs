@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 export default function AreasCard(props) {
-  // console.log(props.name);
   return (
     <Card>
       <CardActionArea>
