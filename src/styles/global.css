@@ -1,3 +1,7 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+}
+
 #postSlidesMain .splide__track .splide__list .splide__slide {
   width: calc(101%) !important;
 }
@@ -12,4 +16,81 @@
 
 .mobile-header-menu .MuiAccordion-root {
   box-shadow: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-inline: auto;
+  margin-top: 4px;
+  max-inline-size: max-content;
+}
+
+h1 {
+  margin-top: 25px;
+  margin-bottom: 6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.625rem;
+  line-height: 2.25rem;
+  margin: 7.5rem 0 2.5rem 0;
+}
+
+h3 {
+  font-size: 1.625rem;
+  line-height: 2.25rem;
+  margin: 7.5rem 0 2.5rem 0;
+}
+
+#columns p {
+  margin-bottom: 28.8px;
+}
+#columns table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  min-width: 600px; /* 必要に応じて最小幅を設定 */
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  white-space: nowrap; /* 改行を禁止 */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+th {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+td {
+  font-size: 14px;
+  color: #495057;
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
 }
