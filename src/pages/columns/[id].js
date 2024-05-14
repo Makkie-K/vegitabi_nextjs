@@ -13,10 +13,15 @@ export default function Column({ columnData }) {
       <Head>
         <title>{columnData.titleJ}</title>
       </Head>
-      <Container maxWidth="md" className="columns" sx={{ marginTop: "90px" }}>
+      <Container
+        maxWidth="md"
+        className="columns"
+        id="columns"
+        sx={{ marginTop: "90px" }}
+      >
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <article>
-            <h1 className={utilStyles.headingXl}>{columnData.title}</h1>
+            <h1>{columnData.title}</h1>
             <br />
             <div className={utilStyles.lightText}>
               <Date dateString={columnData.date} />

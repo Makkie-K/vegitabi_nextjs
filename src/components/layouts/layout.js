@@ -1,6 +1,5 @@
 import styles from "./layout.module.css";
 import Head from "next/head";
-import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,11 +9,26 @@ export const siteTitle = "Vegitabi";
 
 function Layout({ children }) {
   return (
-    <div className={styles.container}>
-      <Header />
-      <main className={styles.main}>{children}</main>
-      <Footer />
-    </div>
+    <>
+      <Head>
+        {/* 他のメタデータ */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className={styles.container}>
+        <Header />
+        <main className={styles.main}>{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 }
 
