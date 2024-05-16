@@ -114,7 +114,3 @@ const headerMenu = css`
 `;
 // /** @jsxImportSource @emotion/react*/
 // import { css } from "@emotion/react";
-
-// export default function Header() {
-//   return <h1>Hello SHOさん</h1>;
-// }
