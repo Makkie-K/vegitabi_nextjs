@@ -187,8 +187,8 @@ export function getPostDataByArea(area) {
 }
 
 // keywordを含んだ記事をreturnする
-export async function getSearchedPostsData(keyword) {
-  console.log(keyword);
+export function getSearchedPostsData(keyword) {
+  // console.log(keyword);
   const keywords = handleKeyword(keyword);
   let results = [];
   let hitIDs = [];
@@ -229,6 +229,7 @@ export async function getSearchedPostsData(keyword) {
     // console.log(hitObjects);
     return hitObjects;
   }
+  return [];
 }
 
 export function handleKeyword(keyword) {

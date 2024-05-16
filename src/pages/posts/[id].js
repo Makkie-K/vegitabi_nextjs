@@ -12,7 +12,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.css";
 
 export default function Post({ postData }) {
-  console.log(postData);
+  // console.log(postData);
   return (
     <Layout>
       <Head>
