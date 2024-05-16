@@ -21,9 +21,9 @@ export default function HeaderPc() {
         <HeaderPcLogo />
         <HeaderPcMenu />
       </Box>
-      {/* <Box>
+      <Box>
         <HeaderPcSearch />
-      </Box> */}
+      </Box>
     </Box>
   );
 }

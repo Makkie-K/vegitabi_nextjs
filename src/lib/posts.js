@@ -188,33 +188,47 @@ export function getPostDataByArea(area) {
 
 // keywordを含んだ記事をreturnする
 export async function getSearchedPostsData(keyword) {
+  console.log(keyword);
   const keywords = handleKeyword(keyword);
   let results = [];
   let hitIDs = [];
 
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
+    // console.log(allPostsData);
 
-    for (let i = 0; i < allPostsData.length; i++) {
-      let count = 0;
-      for (let j = 0; j < keywords.length; j++) {
-        if (allPostsData[i].contents.indexOf(keywords[j]) > -1) {
-          count = count + 1;
-        }
+    // title
+    // titlejp
+    // category
+    // categoryJp
+    // area
+    // areaJp
+    // address
+    // others
+    // 検索結果を格納する配列
+    const hitObjects = [];
+    // AND検索処理
+    const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+
+    allPostsData.forEach((obj) => {
+      const isMatch = lowercasedKeywords.every(
+        (keyword) =>
+          obj.title.toLowerCase().includes(keyword) ||
+          obj.titlejp.includes(keyword) ||
+          obj.category.toLowerCase().includes(keyword) ||
+          obj.categoryJp.includes(keyword) ||
+          obj.area.toLowerCase().includes(keyword) ||
+          obj.areaJp.includes(keyword) ||
+          obj.address.includes(keyword) ||
+          obj.others.includes(keyword)
+      );
+      if (isMatch) {
+        hitObjects.push(obj);
       }
-      if (count === keywords.length) {
-        hitIDs.push(allPostsData[i].id);
-      }
-    }
+    });
+    // console.log(hitObjects);
+    return hitObjects;
   }
-
-  for (let i = 0; i < hitIDs.length; i++) {
-    const id = hitIDs[i];
-    const data = await getPostData(id);
-    results.push(data);
-  }
-
-  return results;
 }
 
 export function handleKeyword(keyword) {
@@ -223,6 +237,7 @@ export function handleKeyword(keyword) {
   handledKeyword = handledKeyword.replace(/　/g, " ");
 
   const handledKeywords = handledKeyword.split(/\s/);
+
   return handledKeywords.filter(Boolean);
 }
 
