@@ -16,12 +16,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-// export function getResultBySearch(keyword) {
-
-//   const results = [
-//     { id: 1, title: "result_1" },
-//     { id: 2, title: "result_2" },
-//   ];
-//   return results;
-// }

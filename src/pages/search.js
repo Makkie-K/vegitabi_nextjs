@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 // import { getResultBySearch } from "/src/lib/getResultBySearch";
-// import { getSearchedPostsData } from "src/lib/posts";
+import { getSearchedPostsData } from "/src/lib/posts";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Date from "/src/components/date";
@@ -10,9 +10,9 @@ import Box from "@mui/material/Box";
 import Link from "/src/components/utils/Link";
 import Avatar from "@mui/material/Avatar";
 
-// export default function Search({ searchedPostsData, keyword }) {
-export default function Search({ keyword }) {
-  // const results = JSON.parse(searchedPostsData);
+export default function Search({ searchedPostsData, keyword }) {
+  // export default function Search({ keyword }) {
+  const results = JSON.parse(searchedPostsData);
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ export default function Search({ keyword }) {
         >
           「<span>{keyword}</span>」を含む記事一覧
         </Box>
-        {/* <section>
+        <section>
           {results.length > 0 ? (
             <div>
               {results.map((result) => (
@@ -88,21 +88,22 @@ export default function Search({ keyword }) {
           ) : (
             <div>検索結果なし</div>
           )}
-        </section> */}
+        </section>
       </Container>
     </Layout>
   );
 }
 
-// export async function getServerSideProps(context) {
-//   const keyword = context.query.keyword;
-//   let searchedPostsData = await getSearchedPostsData(keyword);
+export async function getServerSideProps(context) {
+  const keyword = context.query.keyword;
 
-//   searchedPostsData = JSON.stringify(searchedPostsData);
-//   return {
-//     props: {
-//       keyword,
-//       searchedPostsData,
-//     },
-//   };
-// }
+  let searchedPostsData = await getSearchedPostsData(keyword);
+
+  searchedPostsData = JSON.stringify(searchedPostsData);
+  return {
+    props: {
+      keyword,
+      searchedPostsData,
+    },
+  };
+}
