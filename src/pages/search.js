@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar";
 export default function Search({ searchedPostsData, keyword }) {
   // export default function Search({ keyword }) {
   const results = JSON.parse(searchedPostsData);
-
+  console.log(results);
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>

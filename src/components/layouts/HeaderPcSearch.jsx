@@ -11,11 +11,9 @@ export default function HeaderPcSearch() {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
   const handleChange = (e) => {
-    console.log(e.target.value);
     setKeyword(e.target.value);
   };
   const handleSubmit = (e) => {
-    console.log(e);
     // enterを押したときに改行するのを防ぐため
     e.preventDefault();
 
