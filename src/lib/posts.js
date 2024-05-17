@@ -231,22 +231,54 @@ export function getPostDataByArea(area) {
 //   }
 //   return [];
 // }
+// export function getSearchedPostsData(keyword) {
+//   const keywords = keyword ? handleKeyword(keyword) : [];
+//   const hitObjects = [];
+
+//   if (keywords.length !== 0) {
+//     const allPostsData = getSortedPostsData();
+//     const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+
+//     allPostsData.forEach((obj) => {
+//       const isMatch = lowercasedKeywords.every(
+//         (keyword) =>
+//           obj.title.toLowerCase().includes(keyword) ||
+//           obj.titlejp.includes(keyword) ||
+//           obj.category.toLowerCase().includes(keyword) ||
+//           obj.categoryJp.includes(keyword) ||
+//           obj.area.toLowerCase().includes(keyword) ||
+//           obj.areaJp.includes(keyword) ||
+//           obj.address.includes(keyword) ||
+//           obj.others.includes(keyword)
+//       );
+//       if (isMatch) {
+//         hitObjects.push(obj);
+//       }
+//     });
+//   }
+//   return hitObjects;
+// }
+
 export function getSearchedPostsData(keyword) {
   const keywords = keyword ? handleKeyword(keyword) : [];
-  const hitObjects = [];
 
-  if (keywords.length !== 0) {
+  if (keywords.length > 0) {
     const allPostsData = getSortedPostsData();
-    const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+    // const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+    const hitObjects = [];
 
     allPostsData.forEach((obj) => {
-      const isMatch = lowercasedKeywords.every(
+      const isMatch = keywords.every(
+        // const isMatch = lowercasedKeywords.every(
         (keyword) =>
-          obj.title.toLowerCase().includes(keyword) ||
+          // obj.title.toLowerCase().includes(keyword) ||
+          obj.title.includes(keyword) ||
           obj.titlejp.includes(keyword) ||
-          obj.category.toLowerCase().includes(keyword) ||
+          // obj.category.toLowerCase().includes(keyword) ||
+          obj.category.includes(keyword) ||
           obj.categoryJp.includes(keyword) ||
-          obj.area.toLowerCase().includes(keyword) ||
+          // obj.area.toLowerCase().includes(keyword) ||
+          obj.area.includes(keyword) ||
           obj.areaJp.includes(keyword) ||
           obj.address.includes(keyword) ||
           obj.others.includes(keyword)
@@ -255,8 +287,12 @@ export function getSearchedPostsData(keyword) {
         hitObjects.push(obj);
       }
     });
+    console.log(hitObjects);
+    return hitObjects;
+  } else {
+    console.log("no keyword");
+    return [];
   }
-  return hitObjects;
 }
 
 export function handleKeyword(keyword) {
