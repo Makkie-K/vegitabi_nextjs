@@ -10,21 +10,96 @@ import Box from "@mui/material/Box";
 import Link from "/src/components/utils/Link";
 import Avatar from "@mui/material/Avatar";
 
+// export default function Search({ searchedPostsData, keyword }) {
+//   const results = JSON.parse(searchedPostsData);
+//   console.log(results);
+//   return (
+//     <Layout>
+//       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+//         <section>キーワード: 「{keyword}」</section>
+//         <section>検索結果: {searchedPostsData}</section>
+//       </Container>
+//     </Layout>
+//   );
+// }
+
+// export default function Search({ searchedPostsData, keyword }) {
+//   const results = JSON.parse(searchedPostsData);
+//   return (
+//     <Layout>
+//       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
+//         <Box
+//           sx={{
+//             textAlign: "center",
+//             backgroundColor: "lightgrey",
+//             marginBottom: "30px",
+//           }}
+//         >
+//           「<span>{keyword}</span>」を含む記事一覧
+//         </Box>
+//         <section>
+//           {results.length > 0 ? (
+//             <div>
+//               {results.map((result) => (
+//                 <div key={result.id}>{result.title}</div>
+//               ))}
+//             </div>
+//           ) : (
+//             <div>検索結果なし</div>
+//           )}
+//         </section>
+//       </Container>
+//     </Layout>
+//   );
+// }
+
 export default function Search({ searchedPostsData, keyword }) {
   const results = JSON.parse(searchedPostsData);
-  console.log(results);
+
   return (
     <Layout>
       <Container maxWidth="md" sx={{ marginTop: "30px}" }}>
-        <section>キーワード: 「{keyword}」</section>
-        <section>検索結果: {searchedPostsData}</section>
+        {!keyword || keyword === "" ? (
+          <Box
+            sx={{
+              textAlign: "center",
+              backgroundColor: "lightgrey",
+              marginBottom: "30px",
+            }}
+          >
+            検索画面
+          </Box>
+        ) : (
+          <>
+            <Box
+              sx={{
+                textAlign: "center",
+                backgroundColor: "lightgrey",
+                marginBottom: "30px",
+              }}
+            >
+              「<span>{keyword}</span>」を含む記事一覧
+            </Box>
+            <section>
+              {results.length > 0 ? (
+                <div>
+                  {results.map((result) => (
+                    <div key={result.id}>{result.title}</div>
+                  ))}
+                </div>
+              ) : (
+                <div>検索結果なし</div>
+              )}
+            </section>
+          </>
+        )}
       </Container>
     </Layout>
   );
 }
 
 export async function getServerSideProps(context) {
-  const keyword = context.query.keyword;
+  const keyword = context.query.keyword || null;
   try {
     let searchedPostsData = await getSearchedPostsData(keyword);
     searchedPostsData = JSON.stringify(searchedPostsData);
