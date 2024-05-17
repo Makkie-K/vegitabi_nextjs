@@ -288,8 +288,7 @@ export function getSearchedPostsData(keyword) {
       }
     });
     console.log(hitObjects);
-    // return hitObjects;
-    return allPostsData;
+    return hitObjects;
   } else {
     console.log("no keyword");
     return [];
