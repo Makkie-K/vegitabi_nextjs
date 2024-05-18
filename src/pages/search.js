@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import { getResultsBySearch } from "/src/lib/getResultsBySearch";
 
 export default function Search({ keyword, results }) {
+  // console.log(results);
   return (
     <Layout>
       <Container>
@@ -18,7 +19,7 @@ export default function Search({ keyword, results }) {
 }
 
 export async function getServerSideProps(context) {
-  console.log(context.query.keyword);
+  // console.log(context.query.keyword);
   const keyword = context.query.keyword || "";
   const results = await getResultsBySearch();
   return { props: { keyword, results } };
