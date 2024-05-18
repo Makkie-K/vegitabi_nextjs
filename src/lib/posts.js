@@ -186,7 +186,6 @@ export function getPostDataByArea(area) {
   });
 }
 
-// keywordを含んだ記事をreturnする
 export function getSearchedPostsData(keyword) {
   // console.log(keyword);
   const keywords = handleKeyword(keyword);
