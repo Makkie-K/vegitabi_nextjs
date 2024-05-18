@@ -12,16 +12,16 @@ function Layout({ children }) {
     <>
       <Head>
         {/* 他のメタデータ */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="true"
-        />
-        <link
+        /> */}
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
           rel="stylesheet"
-        />
+        /> */}
       </Head>
       <div className={styles.container}>
         <Header />

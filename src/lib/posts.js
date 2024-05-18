@@ -186,99 +186,29 @@ export function getPostDataByArea(area) {
   });
 }
 
-// keywordを含んだ記事をreturnする
-// export function getSearchedPostsData(keyword) {
-//   // console.log(keyword);
-//   const keywords = handleKeyword(keyword);
-//   let results = [];
-//   let hitIDs = [];
-
-//   if (keywords.length !== 0) {
-//     const allPostsData = getSortedPostsData();
-//     // console.log(allPostsData);
-
-//     // title
-//     // titlejp
-//     // category
-//     // categoryJp
-//     // area
-//     // areaJp
-//     // address
-//     // others
-//     // 検索結果を格納する配列
-//     const hitObjects = [];
-//     // AND検索処理
-//     const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
-
-//     allPostsData.forEach((obj) => {
-//       const isMatch = lowercasedKeywords.every(
-//         (keyword) =>
-//           obj.title.toLowerCase().includes(keyword) ||
-//           obj.titlejp.includes(keyword) ||
-//           obj.category.toLowerCase().includes(keyword) ||
-//           obj.categoryJp.includes(keyword) ||
-//           obj.area.toLowerCase().includes(keyword) ||
-//           obj.areaJp.includes(keyword) ||
-//           obj.address.includes(keyword) ||
-//           obj.others.includes(keyword)
-//       );
-//       if (isMatch) {
-//         hitObjects.push(obj);
-//       }
-//     });
-//     // console.log(hitObjects);
-//     return hitObjects;
-//   }
-//   return [];
-// }
-// export function getSearchedPostsData(keyword) {
-//   const keywords = keyword ? handleKeyword(keyword) : [];
-//   const hitObjects = [];
-
-//   if (keywords.length !== 0) {
-//     const allPostsData = getSortedPostsData();
-//     const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
-
-//     allPostsData.forEach((obj) => {
-//       const isMatch = lowercasedKeywords.every(
-//         (keyword) =>
-//           obj.title.toLowerCase().includes(keyword) ||
-//           obj.titlejp.includes(keyword) ||
-//           obj.category.toLowerCase().includes(keyword) ||
-//           obj.categoryJp.includes(keyword) ||
-//           obj.area.toLowerCase().includes(keyword) ||
-//           obj.areaJp.includes(keyword) ||
-//           obj.address.includes(keyword) ||
-//           obj.others.includes(keyword)
-//       );
-//       if (isMatch) {
-//         hitObjects.push(obj);
-//       }
-//     });
-//   }
-//   return hitObjects;
-// }
-
 export function getSearchedPostsData(keyword) {
-  const keywords = keyword ? handleKeyword(keyword) : [];
+  // console.log(keyword);
+  const keywords = handleKeyword(keyword);
+  let results = [];
+  let hitIDs = [];
 
-  if (keywords.length > 0) {
+  if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
-    // const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+    // console.log(allPostsData);
+
+    // 検索結果を格納する配列
     const hitObjects = [];
+    // AND検索処理
+    const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
 
     allPostsData.forEach((obj) => {
-      const isMatch = keywords.every(
-        // const isMatch = lowercasedKeywords.every(
+      const isMatch = lowercasedKeywords.every(
         (keyword) =>
-          // obj.title.toLowerCase().includes(keyword) ||
-          obj.title.includes(keyword) ||
+          obj.title.toLowerCase().includes(keyword) ||
           obj.titlejp.includes(keyword) ||
-          // obj.category.toLowerCase().includes(keyword) ||
-          obj.category.includes(keyword) ||
+          obj.category.toLowerCase().includes(keyword) ||
           obj.categoryJp.includes(keyword) ||
-          // obj.area.toLowerCase().includes(keyword) ||
-          obj.area.includes(keyword) ||
+          obj.area.toLowerCase().includes(keyword) ||
           obj.areaJp.includes(keyword) ||
           obj.address.includes(keyword) ||
           obj.others.includes(keyword)
@@ -287,12 +217,10 @@ export function getSearchedPostsData(keyword) {
         hitObjects.push(obj);
       }
     });
-    console.log(hitObjects);
+    // console.log(hitObjects);
     return hitObjects;
-  } else {
-    console.log("no keyword");
-    return [];
   }
+  return [];
 }
 
 export function handleKeyword(keyword) {
