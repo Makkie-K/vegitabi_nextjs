@@ -194,7 +194,6 @@ export function getSearchedPostsData(keyword) {
 
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
-    // console.log(allPostsData);
 
     // 検索結果を格納する配列
     const hitObjects = [];
