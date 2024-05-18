@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import { getResultsBySearch } from "/src/lib/getResultsBySearch";
 
 export default function Search({ keyword, results }) {
   return (
@@ -18,13 +19,7 @@ export default function Search({ keyword, results }) {
 
 export async function getServerSideProps(context) {
   console.log(context.query.keyword);
-  const keyword = context.query.keyword;
-  const results = [
-    { id: 1, title: "りんご" },
-    { id: 2, title: "みかん" },
-    { id: 3, title: "バナナ" },
-    { id: 4, title: "メロン" },
-    { id: 5, title: "苺" },
-  ];
+  const keyword = context.query.keyword || "";
+  const results = await getResultsBySearch();
   return { props: { keyword, results } };
 }
