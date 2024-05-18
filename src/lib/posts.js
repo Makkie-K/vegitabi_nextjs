@@ -186,45 +186,45 @@ export function getPostDataByArea(area) {
   });
 }
 
-export function getSearchedPostsData(keyword) {
-  // console.log(keyword);
-  const keywords = handleKeyword(keyword);
-  let results = [];
-  let hitIDs = [];
+// export function getSearchedPostsData(keyword) {
+//   // console.log(keyword);
+//   const keywords = handleKeyword(keyword);
+//   let results = [];
+//   let hitIDs = [];
 
-  if (keywords.length !== 0) {
-    const allPostsData = getSortedPostsData();
+//   if (keywords.length !== 0) {
+//     const allPostsData = getSortedPostsData();
 
-    // 検索結果を格納する配列
-    const hitObjects = [];
-    // AND検索処理
-    const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
+//     // 検索結果を格納する配列
+//     const hitObjects = [];
+//     // AND検索処理
+//     const lowercasedKeywords = keywords.map((keyword) => keyword.toLowerCase());
 
-    allPostsData.forEach((obj) => {
-      const isMatch = lowercasedKeywords.every(
-        (keyword) =>
-          obj.title.toLowerCase().includes(keyword) ||
-          obj.titlejp.includes(keyword)
-      );
-      if (isMatch) {
-        hitObjects.push(obj);
-      }
-    });
-    // console.log(hitObjects);
-    return hitObjects;
-  }
-  return [];
-}
+//     allPostsData.forEach((obj) => {
+//       const isMatch = lowercasedKeywords.every(
+//         (keyword) =>
+//           obj.title.toLowerCase().includes(keyword) ||
+//           obj.titlejp.includes(keyword)
+//       );
+//       if (isMatch) {
+//         hitObjects.push(obj);
+//       }
+//     });
+//     // console.log(hitObjects);
+//     return hitObjects;
+//   }
+//   return [];
+// }
 
-export function handleKeyword(keyword) {
-  let handledKeyword = keyword.trim();
+// export function handleKeyword(keyword) {
+//   let handledKeyword = keyword.trim();
 
-  handledKeyword = handledKeyword.replace(/　/g, " ");
+//   handledKeyword = handledKeyword.replace(/　/g, " ");
 
-  const handledKeywords = handledKeyword.split(/\s/);
+//   const handledKeywords = handledKeyword.split(/\s/);
 
-  return handledKeywords.filter(Boolean);
-}
+//   return handledKeywords.filter(Boolean);
+// }
 
 export function checkIfNoImageExists(id) {
   const directoryPath = path.join(process.cwd(), "public/images/menus", id);
