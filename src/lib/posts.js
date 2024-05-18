@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
-import { log } from "console";
+// import { log } from "console";
 import { id } from "date-fns/locale";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -196,14 +196,6 @@ export function getSearchedPostsData(keyword) {
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
 
-    // title
-    // titlejp
-    // category
-    // categoryJp
-    // area
-    // areaJp
-    // address
-    // others
     // 検索結果を格納する配列
     const hitObjects = [];
     // AND検索処理
@@ -213,13 +205,7 @@ export function getSearchedPostsData(keyword) {
       const isMatch = lowercasedKeywords.every(
         (keyword) =>
           obj.title.toLowerCase().includes(keyword) ||
-          obj.titlejp.includes(keyword) ||
-          obj.category.toLowerCase().includes(keyword) ||
-          obj.categoryJp.includes(keyword) ||
-          obj.area.toLowerCase().includes(keyword) ||
-          obj.areaJp.includes(keyword) ||
-          obj.address.includes(keyword) ||
-          obj.others.includes(keyword)
+          obj.titlejp.includes(keyword)
       );
       if (isMatch) {
         hitObjects.push(obj);

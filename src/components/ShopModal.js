@@ -21,7 +21,7 @@ export function ImageMenu({ id, num }) {
 }
 
 export default function BasicModal({ id, menuCount }) {
-  console.log(menuCount);
+  // console.log(menuCount);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
