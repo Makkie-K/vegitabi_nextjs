@@ -53,9 +53,8 @@ import Avatar from "@mui/material/Avatar";
 //   );
 // }
 
-export default function Search({ searchedPostsData, keyword, hardData }) {
+export default function Search({ searchedPostsData, keyword }) {
   const results = JSON.parse(searchedPostsData);
-  const hardResults = JSON.parse(hardData);
   console.log(results);
   return (
     <Layout>
@@ -92,17 +91,6 @@ export default function Search({ searchedPostsData, keyword, hardData }) {
                 <div>検索結果なし</div>
               )}
             </section>
-            <section>
-              {hardResults.length > 0 ? (
-                <div>
-                  {hardResults.map((result) => (
-                    <div key={result.id}>{result.title}</div>
-                  ))}
-                </div>
-              ) : (
-                <div>hardResults　データなし</div>
-              )}
-            </section>
           </>
         )}
       </Container>
@@ -115,18 +103,11 @@ export async function getServerSideProps(context) {
   try {
     let searchedPostsData = await getSearchedPostsData(keyword);
     searchedPostsData = JSON.stringify(searchedPostsData);
-    let hardData = [
-      { id: "1", title: "title-1" },
-      { id: "2", title: "title-2" },
-      { id: "3", title: "title-3" },
-      { id: "4", title: "title-4" },
-    ];
-    hardData = JSON.stringify(hardData);
+
     return {
       props: {
         keyword,
         searchedPostsData,
-        hardData,
       },
     };
   } catch (error) {
