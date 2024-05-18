@@ -195,7 +195,6 @@ export function getSearchedPostsData(keyword) {
 
   if (keywords.length !== 0) {
     const allPostsData = getSortedPostsData();
-    // console.log(allPostsData);
 
     // title
     // titlejp
