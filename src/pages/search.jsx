@@ -1,7 +1,11 @@
 // import { useState, useEffect } from "react";
 import React from "react";
+import Layout from "/src/components/layouts/layout";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const keyword = context.query.keyword || "";
   let apiUrl;
   if (process.env.NODE_ENV === "production") {
     apiUrl = process.env.NEXT_PUBLIC_API_URL_PROD;
@@ -10,59 +14,70 @@ export async function getServerSideProps() {
   }
   try {
     const res = await fetch(apiUrl);
-
     const allPostsData = await res.json();
-    return { props: { allPostsData } };
+
+    // キーワードに基づいてデータをフィルタリング
+    const filteredPostsData = allPostsData.filter(
+      (postData) =>
+        postData.title.includes(keyword) ||
+        postData.titlejp.includes(keyword) ||
+        postData.category.includes(keyword) ||
+        postData.categoryJp.includes(keyword) ||
+        postData.area.includes(keyword) ||
+        postData.areaJp.includes(keyword) ||
+        postData.others.includes(keyword)
+    );
+
+    return { props: { allPostsData: filteredPostsData, keyword } };
   } catch (err) {
     console.error(err);
-    return { props: { allPostsData: null } };
+    return { props: { allPostsData: null, keyword } };
   }
 }
 
-export default function Search({ allPostsData }) {
+export default function Search({ allPostsData, keyword }) {
   return (
-    <>
-      <ul>
-        {allPostsData ? (
+    <Layout>
+      <Container maxWidth="md" sx={{ marginTop: "100px" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "lightgrey",
+            marginBottom: "30px",
+          }}
+        >
+          「<span>{keyword}</span>」を含む記事一覧
+        </Box>
+        {allPostsData > 0 ? (
           allPostsData.map((postData) => (
-            <li key={postData.id}>
-              <p>
-                id: {postData.id}
-                <br />
-                title: {postData.title}
-                <br />
-                titlejp: {postData.titlejp}
-                <br />
-                date: {postData.date}
-                <br />
-                category: {postData.category}
-                <br />
-                categoryJp: {postData.categoryJp}
-                <br />
-                area: {postData.area}
-                <br />
-                areaJp: {postData.areaJp}
-                <br />
-                avator: {postData.avator}
-                <br />
-                address: {postData.address}
-                <br />
-                map: {postData.map}
-                <br />
-                telephone: {postData.telephone}
-                <br />
-                url: {postData.url}
-                <br />
-                businessHour: {postData.businessHour}
-                <br />
-                others: {postData.others}
-              </p>
-            </li>
+            <p>
+              id: {postData.id}
+              <br />
+              title: {postData.title}
+              <br />
+              titlejp: {postData.titlejp}
+              <br />
+              date: {postData.date}
+              <br />
+              category: {postData.category}
+              <br />
+              categoryJp: {postData.categoryJp}
+              <br />
+              area: {postData.area}
+              <br />
+              areaJp: {postData.areaJp}
+              <br />
+              avator: {postData.avator}
+              <br />
+              address: {postData.address}
+              <br />
+              map: {postData.map}
+            </p>
           ))
         ) : (
-          <p>データなし</p>
+          <p>「{keyword}」を含む記事はありません。</p>
         )}
-      </ul>
-    </>
+      </Container>
+    </Layout>
   );
 }
