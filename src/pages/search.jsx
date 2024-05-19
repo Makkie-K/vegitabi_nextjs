@@ -2,7 +2,6 @@
 import React from "react";
 
 export async function getServerSideProps() {
-  console.log(process.env.NODE_ENV);
   let apiUrl;
   if (process.env.NODE_ENV === "production") {
     apiUrl = process.env.NEXT_PUBLIC_API_URL_PROD;
@@ -11,7 +10,7 @@ export async function getServerSideProps() {
   }
   try {
     const res = await fetch(apiUrl);
-    // const res = await fetch("http://localhost:3000/api/allPostsData");
+
     const allPostsData = await res.json();
     return { props: { allPostsData } };
   } catch (err) {
@@ -20,7 +19,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Search2({ allPostsData }) {
+export default function Search({ allPostsData }) {
   return (
     <>
       <ul>
