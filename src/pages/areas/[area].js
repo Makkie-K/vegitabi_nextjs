@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import { getAllAreas, getPostDataByArea } from "/src/lib/posts";
 import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
@@ -42,6 +43,30 @@ export default function AreaIndex({ postData }) {
 
   return (
     <Layout>
+      <Head>
+        <title>{postData[0].areaJp}の記事一覧</title>
+        <meta name="description" content={`${postData[0].areaJp}の記事一覧`} />
+        <meta
+          name="keywords"
+          content={`ベジタリアン,ヴィーガン,${postData[0].areaJp},${postData[0].categoryJp}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://vegitabi.com/areas/${postData[0].area}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${postData[0].areaJp}の記事一覧`} />
+        <meta
+          property="og:description"
+          content={`${postData[0].areaJp}の記事一覧`}
+        />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <Container sx={{ marginTop: "90px" }}>
         <Box
           sx={{
