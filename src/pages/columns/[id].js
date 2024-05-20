@@ -11,7 +11,21 @@ export default function Column({ columnData }) {
   return (
     <Layout>
       <Head>
-        <title>{columnData.titleJ}</title>
+        <title>{columnData.title}</title>
+        <meta name="description" content={`${columnData.description}`} />
+        <meta
+          name="keywords"
+          content={`${columnData.keyword1}, ${columnData.keyword2}, ${columnData.keyword3}, ${columnData.keyword4}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${columnData.title}`} />
+        <meta property="og:description" content={`${columnData.description}`} />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Container
         maxWidth="md"
@@ -34,11 +48,6 @@ export default function Column({ columnData }) {
         </Box>
       </Container>
     </Layout>
-    // <>
-    //   <div>{postData.title}</div>
-    //   <div>{postData.id}</div>
-    //   <div>{postData.date}</div>
-    // </>
   );
 }
 export async function getStaticPaths() {
@@ -53,6 +62,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params.id を使用して、ブログの投稿に必要なデータを取得する
   const columnData = await getColumnData(params.id);
+
   return {
     props: {
       columnData,
