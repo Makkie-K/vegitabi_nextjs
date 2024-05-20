@@ -14,8 +14,8 @@ export const menusArea = [
 ];
 
 export const menusCategory = [
-  { text: "宿泊施設", url: "accomodation" },
-  { text: "飲食店", url: "eat-drink" },
-  { text: "空港・機内食", url: "airport" },
-  { text: "その他", url: "other" },
+  { id: 1, text: "宿泊施設", url: "accomodation" },
+  { id: 2, text: "飲食店", url: "eat-drink" },
+  { id: 3, text: "空港・機内食", url: "airport" },
+  { id: 4, text: "その他", url: "other" },
 ];
