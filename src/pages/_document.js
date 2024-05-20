@@ -18,25 +18,26 @@ export default class MyDocument extends Document {
           />
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-          {/* <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-TVYKCWDR1H"
-          ></script>
           <script
             async
+            src="https://www.googletagmanager.com/gtag/js?id=G-RD2LCP04W9"
+          ></script>
+          <script
             dangerouslySetInnerHTML={{
               __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-TVYKCWDR1H');
-              `,
+              gtag('config', 'G-RD2LCP04W9', {
+                page_path: window.location.pathname,
+              });
+            `,
             }}
-          /> */}
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
