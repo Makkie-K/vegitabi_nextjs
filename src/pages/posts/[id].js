@@ -17,6 +17,24 @@ export default function Post({ postData }) {
     <Layout>
       <Head>
         <title>{postData.title}</title>
+        <meta name="description" content={postData.description} />
+        <meta
+          name="keywords"
+          content={`ベジタリアン,ヴィーガン,${postData.areaJp},${postData.categoryJp}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://vegitabi.com/posts/${postData.id}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${postData.titlejp}`} />
+        <meta property="og:description" content={`${postData.description}`} />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Container
         maxWidth="md"
