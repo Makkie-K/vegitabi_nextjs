@@ -16,7 +16,11 @@ export default function HeaderPcSearch() {
   const handleSubmit = (e) => {
     // enterを押したときに改行するのを防ぐため
     e.preventDefault();
-
+    if (keyword.trim() === "") {
+      // キーワードが空の場合、アラートを表示するか、単に何もしない
+      alert("検索キーワードを入力してください");
+      return;
+    }
     router.push({
       pathname: "/search",
       query: { keyword: keyword },
