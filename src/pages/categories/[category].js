@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllCategories, getPostDataByCategory } from "/src/lib/posts";
+import Head from "next/head";
 import utilStyles from "/src/styles/utils.module.css";
 import Link from "/src/components/utils/Link";
 import Date from "/src/components/date";
@@ -47,6 +48,37 @@ export default function CategoryIndex({ postData }) {
   const maxLength = 36;
   return (
     <Layout>
+      <Head>
+        <title>{postData[0].categoryJp}の記事一覧</title>
+        {/* <title>{postData[0].categoryJp}の記事一覧</title> */}
+        <meta
+          name="description"
+          content={`${postData[0].categoryJp}の記事一覧`}
+        />
+        <meta
+          name="keywords"
+          content={`ベジタリアン,ヴィーガン,${postData[0].areaJp},${postData[0].categoryJp}`}
+        />
+        <meta
+          property="og:url"
+          content={`https://vegitabi.com/categories/${postData[0].category}`}
+        />
+        <meta property="og:type" content="index" />
+        <meta
+          property="og:title"
+          content={`${postData[0].categoryJp}の記事一覧`}
+        />
+        <meta
+          property="og:description"
+          content={`${postData[0].categoryJp}の記事一覧`}
+        />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <Container sx={{ marginTop: 20 }}>
         <Box
           sx={{
