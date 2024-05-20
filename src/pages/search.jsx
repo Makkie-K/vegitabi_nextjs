@@ -1,9 +1,18 @@
 // import { useState, useEffect } from "react";
 import React from "react";
+import Layout from "/src/components/layouts/layout";
+import Container from "@mui/material/Container";
+import Date from "/src/components/date";
+import Box from "@mui/material/Box";
+import Link from "/src/components/utils/Link";
+import Avatar from "@mui/material/Avatar";
 
 export async function getServerSideProps({ query }) {
   const keyword = query.keyword || "";
   console.log(keyword);
+  if (!keyword) {
+    return { props: { filteredPostsData: [], keyword } };
+  }
   let apiUrl;
   if (process.env.NODE_ENV === "production") {
     apiUrl = process.env.NEXT_PUBLIC_API_URL_PROD;
@@ -26,57 +35,41 @@ export async function getServerSideProps({ query }) {
         postData.others.includes(keyword)
     );
 
-    return { props: { allPostsData: filteredPostsData, keyword } };
+    return { props: { filteredPostsData, keyword } };
   } catch (err) {
     console.error(err);
-    return { props: { allPostsData: null } };
+    return { props: { filteredPostsData: null } };
   }
 }
 
-export default function Search({ allPostsData }) {
+export default function Search({ filteredPostsData }) {
+  const results = filteredPostsData;
+  // const results = JSON.parse(allPostsData);
+  console.log(results.length);
   return (
-    <>
-      <ul>
-        {allPostsData ? (
-          allPostsData.map((postData) => (
-            <li key={postData.id}>
-              <p>
-                id: {postData.id}
-                <br />
-                title: {postData.title}
-                <br />
-                titlejp: {postData.titlejp}
-                <br />
-                date: {postData.date}
-                <br />
-                category: {postData.category}
-                <br />
-                categoryJp: {postData.categoryJp}
-                <br />
-                area: {postData.area}
-                <br />
-                areaJp: {postData.areaJp}
-                <br />
-                avator: {postData.avator}
-                <br />
-                address: {postData.address}
-                <br />
-                map: {postData.map}
-                <br />
-                telephone: {postData.telephone}
-                <br />
-                url: {postData.url}
-                <br />
-                businessHour: {postData.businessHour}
-                <br />
-                others: {postData.others}
-              </p>
-            </li>
-          ))
-        ) : (
-          <p>データなし</p>
-        )}
-      </ul>
-    </>
+    <Layout>
+      <Container maxWidth="md" sx={{ marginTop: "100px" }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            backgroundColor: "lightgrey",
+            marginBottom: "30px",
+          }}
+        >
+          「<span>keyword</span>」を含む記事一覧
+        </Box>
+        <section>
+          {results.length > 0 ? (
+            <div>
+              {results.map((result) => (
+                <div key={result.id}>{result.title}</div>
+              ))}
+            </div>
+          ) : (
+            <p>データなし</p>
+          )}
+        </section>
+      </Container>
+    </Layout>
   );
 }
