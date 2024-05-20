@@ -63,7 +63,7 @@ export default function CategoryIndex({ postData }) {
           property="og:url"
           content={`https://vegitabi.com/categories/${postData[0].category}`}
         />
-        <meta property="og:type" content="index" />
+        <meta property="og:type" content="website" />
         <meta
           property="og:title"
           content={`${postData[0].categoryJp}の記事一覧`}
