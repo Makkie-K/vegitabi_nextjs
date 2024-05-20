@@ -9,7 +9,7 @@ import Avatar from "@mui/material/Avatar";
 
 export async function getServerSideProps({ query }) {
   const keyword = query.keyword || "";
-  console.log(keyword);
+
   if (!keyword) {
     return { props: { filteredPostsData: [], keyword } };
   }
@@ -42,9 +42,10 @@ export async function getServerSideProps({ query }) {
   }
 }
 
-export default function Search({ filteredPostsData }) {
+export default function Search({ filteredPostsData, keyword }) {
   const results = filteredPostsData;
   // const results = JSON.parse(allPostsData);
+  console.log(keyword);
   console.log(results.length);
   return (
     <Layout>
@@ -56,7 +57,7 @@ export default function Search({ filteredPostsData }) {
             marginBottom: "30px",
           }}
         >
-          「<span>keyword</span>」を含む記事一覧
+          「<span>{keyword}</span>」を含む記事一覧
         </Box>
         <section>
           {results.length > 0 ? (
@@ -66,7 +67,7 @@ export default function Search({ filteredPostsData }) {
               ))}
             </div>
           ) : (
-            <p>データなし</p>
+            <p>「{keyword}」を含む記事はありません。</p>
           )}
         </section>
       </Container>
