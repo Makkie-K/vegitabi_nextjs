@@ -80,7 +80,7 @@ export default function CategoryIndex({ postData }) {
                         <CardMedia
                           component="img"
                           image={`/images/posts/${id}/${avator}`}
-                          alt="Paella dish"
+                          alt=""
                           sx={{ aspectRatio: "1/1" }} // Set aspectRatio to maintain image's aspect ratio
                         />
                         <CardHeader
