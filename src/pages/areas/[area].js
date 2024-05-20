@@ -54,7 +54,7 @@ export default function AreaIndex({ postData }) {
           property="og:url"
           content={`https://vegitabi.com/areas/${postData[0].area}`}
         />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={`${postData[0].areaJp}の記事一覧`} />
         <meta
           property="og:description"

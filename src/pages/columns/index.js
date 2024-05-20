@@ -30,7 +30,7 @@ export default function Index({ allColumnsData }) {
         />
         <meta name="keywords" content="旅行, 体験記, レビュー, ベジタリアン" />
         <meta property="og:url" content="https://vegitabi.com/columns" />
-        <meta property="og:type" content="index" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="コラム一覧" />
         <meta
           property="og:description"
