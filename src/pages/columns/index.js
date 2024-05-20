@@ -24,6 +24,24 @@ export default function Index({ allColumnsData }) {
     <Layout>
       <Head>
         <title>コラム一覧</title>
+        <meta
+          name="description"
+          content="国内外の旅行に役立つ情報が満載のコラム一覧"
+        />
+        <meta name="keywords" content="旅行, 体験記, レビュー, ベジタリアン" />
+        <meta property="og:url" content="https://vegitabi.com/columns" />
+        <meta property="og:type" content="index" />
+        <meta property="og:title" content="コラム一覧" />
+        <meta
+          property="og:description"
+          content="国内外の旅行に役立つ情報が満載のコラム一覧"
+        />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Container sx={{ marginTop: "90px" }}>
         <Box
