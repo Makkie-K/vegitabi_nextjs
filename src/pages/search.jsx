@@ -1,5 +1,6 @@
 // import { useState, useEffect } from "react";
 import React from "react";
+import Head from "next/head";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
 import Date from "/src/components/date";
@@ -63,6 +64,27 @@ export default function Search({ filteredPostsData, keyword }) {
 
   return (
     <Layout>
+      <Head>
+        <title>「{keyword}」を含む記事一覧</title>
+        <meta name="description" content={`「${keyword}」を含む記事一覧`} />
+        <meta
+          name="keywords"
+          content={`ベジタリアン, ヴィーガン, ビーガン, ${keyword}`}
+        />
+        <meta property="og:url" content="https://vegitabi.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="home" />
+        <meta
+          property="og:description"
+          content="ベジタリアン＆ヴィーアンの方が快適に旅行するための情報が満載のウェブサイト"
+        />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp1.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <Container sx={{ marginTop: 20 }}>
         <Box
           sx={{

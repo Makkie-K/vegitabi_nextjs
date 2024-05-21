@@ -18,6 +18,30 @@ export default function Index() {
   return (
     <Layout>
       {/* <Header /> */}
+      <Head>
+        <title>vegitabi.com</title>
+        <meta
+          name="description"
+          content="ベジタリアン＆ヴィーアンの方が快適に旅行するための情報が満載のウェブサイト"
+        />
+        <meta
+          name="keywords"
+          content="ベジタリアン, ヴィーガン, ビーガン, 旅行"
+        />
+        <meta property="og:url" content="https://vegitabi.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="home" />
+        <meta
+          property="og:description"
+          content="ベジタリアン＆ヴィーアンの方が快適に旅行するための情報が満載のウェブサイト"
+        />
+        <meta property="og:site_name" content="vegitabi.com" />
+        <meta
+          property="og:image"
+          content="https://vegitabi.com/images/ogp1.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <Container>
         {/* <Container maxWidth="sm"> */}
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
