@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
         <meta property="og:title" content="プライバシーポリシー" />
         <meta
           property="og:description"
-          content="ベジタリアン＆ヴィーアンの方が快適に旅行するための情報が満載のウェブサイト"
+          content="プライバシーポリシーと利用規約"
         />
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           </p>
           <h2>著作権について</h2>
           <p>
-            当サイトに掲載されてる情報についての著作権は放棄しておりません。当サイト記事からの引用に関しましては「引用元の明治」によって無償で引用いただけます。ただし、全文転載はお断り致しております。引用許可範囲についても、事前予告なくこれを変更することがあります。
+            当サイトに掲載されてる情報についての著作権は放棄しておりません。当サイト記事からの引用に関しましては「引用元の明示」によって無償で引用いただけます。ただし、全文転載はお断り致しております。引用許可範囲についても、事前予告なくこれを変更することがあります。
           </p>
           <p>令和6年4月1日 改定</p>
         </Box>
