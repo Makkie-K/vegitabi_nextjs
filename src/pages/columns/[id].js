@@ -23,7 +23,7 @@ export default function Column({ columnData }) {
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
           property="og:image"
-          content="https://vegitabi.com/images/ogp.png"
+          content="https://vegitabi.com/images/ogp1.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
