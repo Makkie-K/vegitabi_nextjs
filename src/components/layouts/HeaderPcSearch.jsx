@@ -1,15 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 export default function HeaderPcSearch() {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    if (router.query.keyword) {
+      setKeyword(router.query.keyword);
+    }
+  }, [router.query.keyword]);
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
@@ -25,6 +30,7 @@ export default function HeaderPcSearch() {
       pathname: "/search",
       query: { keyword: keyword },
     });
+    // setKeyword("検索キーワード");
   };
   return (
     <>
