@@ -41,10 +41,9 @@ export default function ShopInfoMo({
     createData(
       "ウェブサイト",
       <Link target="_blank" rel="noopener noreferrer" href={url}>
-        {url}
+        公式サイト
       </Link>
     ),
-    // createData("ウェブサイト", url),
     createData("その他", others),
     createData(
       "メニュー",
