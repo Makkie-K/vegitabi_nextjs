@@ -11,6 +11,21 @@ import ShopInfoMo from "/src/components/ShopInfoMo";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.css";
 
+// カスタムサムネイルレンダリング関数
+const renderThumbs = (postData) => {
+  return [...Array(postData.fileCount)].map((_, index) => (
+    <div key={index} className="carousel-thumb-container">
+      {" "}
+      {/* 親要素にクラスを適用 */}
+      <img
+        className="carousel-thumb" // ここで carousel-thumb クラスを適用
+        src={`/images/posts/${postData.id}/${index + 1}.webp`}
+        alt={`Thumbnail ${index + 1}`}
+      />
+    </div>
+  ));
+};
+
 export default function Post({ postData }) {
   // console.log(postData);
   return (
@@ -63,10 +78,23 @@ export default function Post({ postData }) {
             </div>
           </div>
 
-          <Carousel showThumbs={true}>
+          <Carousel
+            showThumbs={true}
+            renderThumbs={() => renderThumbs(postData)}
+          >
             {[...Array(postData.fileCount)].map((_, index) => (
-              <div key={index} style={{ width: "768px" }}>
-                <img src={`/images/posts/${postData.id}/${index + 1}.webp`} />
+              <div
+                key={index}
+                style={{ width: "768px", backgroundColor: "#F5F5F5" }}
+              >
+                <img
+                  style={{
+                    maxWidth: "768px",
+                    objectFit: "contain",
+                    maxHeight: "513px",
+                  }}
+                  src={`/images/posts/${postData.id}/${index + 1}.webp`}
+                />
               </div>
             ))}
           </Carousel>
