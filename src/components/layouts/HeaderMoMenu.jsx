@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
@@ -20,6 +20,13 @@ export default function HeaderMoMenu() {
   const [open, setOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    if (router.query.keyword) {
+      setKeyword(router.query.keyword);
+    }
+  }, [router.query.keyword]);
+
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
