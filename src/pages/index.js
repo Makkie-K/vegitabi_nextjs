@@ -42,8 +42,7 @@ export default function Index() {
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Container>
-        {/* <Container maxWidth="sm"> */}
+      <Container sx={{ paddingTop: "100px" }}>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Categories />
           <Areas />

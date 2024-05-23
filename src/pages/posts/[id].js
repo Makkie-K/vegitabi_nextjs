@@ -81,6 +81,7 @@ export default function Post({ postData }) {
           <Carousel
             showThumbs={true}
             renderThumbs={() => renderThumbs(postData)}
+            showIndicators={false} // ここを追加
           >
             {[...Array(postData.fileCount)].map((_, index) => (
               <div

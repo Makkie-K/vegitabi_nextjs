@@ -2,15 +2,18 @@ export const menusArea = [
   { text: "インドネシア", url: "indonesia" },
   { text: "オーストラリア", url: "australia" },
   { text: "オマーン", url: "oman" },
-  { text: "U.A.E", url: "uae" },
   { text: "カタール", url: "qatar" },
   { text: "クック諸島", url: "cook-islands" },
+  { text: "タイ", url: "thailand" },
   { text: "バヌアツ", url: "vanuatu" },
   { text: "マダガスカル", url: "madagascar" },
   { text: "モルディブ", url: "maldives" },
+  { text: "ラオス", url: "laos" },
   { text: "レソト", url: "lesotho" },
   { text: "日本", url: "japan" },
   { text: "南アフリカ", url: "south-africa" },
+  { text: "台湾", url: "taiwan" },
+  { text: "U.A.E", url: "uae" },
 ];
 
 export const menusCategory = [
