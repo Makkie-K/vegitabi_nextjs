@@ -116,11 +116,11 @@ export default function CategoryIndex({ postData }) {
                           sx={{ aspectRatio: "1/1" }} // Set aspectRatio to maintain image's aspect ratio
                         />
                         <CardHeader
-                          action={
-                            <IconButton aria-label="settings">
-                              <MoreVertIcon />
-                            </IconButton>
-                          }
+                          // action={
+                          //   <IconButton aria-label="settings">
+                          //     <MoreVertIcon />
+                          //   </IconButton>
+                          // }
                           title={title} // 英語版タイトルを表示
                           titleTypographyProps={{ variant: "h6" }} // 英語版タイトル用にvariantを'h6'に設定
                           subheader={
@@ -162,7 +162,7 @@ export default function CategoryIndex({ postData }) {
             marginBottom: "30px",
           }}
         >
-          <Box>
+          <Box sx={{ paddingTop: "50px" }}>
             <Pagination count={pageCount} page={page} onChange={handleChange} />
           </Box>
         </Box>

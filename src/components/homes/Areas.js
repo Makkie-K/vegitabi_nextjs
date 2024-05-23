@@ -16,7 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Areas() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, paddingBottom: "100px" }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
           <Link href="/areas/indonesia" underline="none">
@@ -40,11 +40,6 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/uae" underline="none">
-            <AreasCard name="U.A.E" image="/images/homes/uae.webp" />
-          </Link>
-        </Grid>
-        <Grid xs={12} md={3}>
           <Link href="/areas/qatar" underline="none">
             <AreasCard name="カタール" image="/images/homes/qatar.webp" />
           </Link>
@@ -58,13 +53,13 @@ export default function Areas() {
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/taiwan" underline="none">
-            <AreasCard name="台湾" image="/images/homes/taiwan.webp" />
+          <Link href="/areas/thailand" underline="none">
+            <AreasCard name="タイ" image="/images/homes/thailand.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/thailand" underline="none">
-            <AreasCard name="タイ" image="/images/homes/thailand.webp" />
+          <Link href="/areas/vanuatu" underline="none">
+            <AreasCard name="バヌアツ" image="/images/homes/vanuatu.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
@@ -106,6 +101,11 @@ export default function Areas() {
         <Grid xs={12} md={3}>
           <Link href="/areas/taiwan" underline="none">
             <AreasCard name="台湾" image="/images/homes/taiwan.webp" />
+          </Link>
+        </Grid>
+        <Grid xs={12} md={3}>
+          <Link href="/areas/uae" underline="none">
+            <AreasCard name="U.A.E" image="/images/homes/uae.webp" />
           </Link>
         </Grid>
       </Grid>
