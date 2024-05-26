@@ -4,32 +4,17 @@
 店舗情報を、カテゴリーとエリアから記事を検索できるだけでなく、検索フォームから複合キーワードできるようにしました。<br/>
 また、レスポンシブに対応し、更にそれぞれのシーンに適したアプローチを採用することで、ユーザーエクスペリエンスを向上させました。<br /><br />
 
-<h3>トップページ<h3>
-<p style="font-size: 16px; font-weight: 400">モバイルビューではハンバーガーメニューを使用して検索フォームをスマートに隠しました。これにより、スマートフォンの小さな画面でも検索フォームを幅広く表示でき、使いやすさを向上させました。</p>
-<div style="display: flex;">
-  <div style="border: 1px solid #ccc; padding: 10px; margin-right: 10px;">
-  <p style="text-align: center;">デスクトップビュー</p>
-    <img src="https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/a2feb34d-502c-4b66-8544-ed2b219b2959" width="600" alt="screenshot-top">
-  </div>
+### トップページ
 
-  <div style="border: 1px solid #ccc; padding: 10px;">
-    <p style="text-align: center;">モバイルビュー</p>
-    <img src="https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/238a9fde-d144-4946-9137-fe6d117bc4e7" width="250" alt="screenshot-top">
-  </div>
-</div>
-<h3>個別ページ</h3>
-<p style="font-size: 16px; font-weight: 400">デスクトップビューでは画像をカルーセルで表示し、一画面に収めましたが、モバイルビューでは画像を幅いっぱいに大きく表示し、スクロールによる操作を重視しました。</p>
-<div style="display: flex;">
-  <div style="border: 1px solid #ccc; padding: 10px; margin-right: 10px;">
-  <p style="text-align: center;">デスクトップビュー</p>
-    <img src="https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/1d642083-c19f-46a7-bd0f-f86a0d38ddae" width="600" alt="screenshot-top">
-  </div>
+モバイルビューではハンバーガーメニューを使用して検索フォームをスマートに隠しました。これにより、スマートフォンの小さな画面でも検索フォームを幅広く表示でき、使いやすさを向上させました。</p>
 
-  <div style="border: 1px solid #ccc; padding: 10px;">
-    <p style="text-align: center;">モバイルビュー</p>
-    <img src="https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/20d50555-8631-42f2-b4de-f8137054e0c5" width="250" alt="screenshot-top">
-  </div>
-</div>
+![readme1](https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/6062eee8-bfef-419b-8099-6f866908db06)
+
+### 個別ページ
+
+デスクトップビューでは画像をカルーセルで表示し、一画面に収めましたが、モバイルビューでは画像を幅いっぱいに大きく表示し、スクロールによる操作を重視しました。
+
+![readme2](https://github.com/Makkie-K/vegitabi_nextjs/assets/50138371/07c9ab28-9fe5-42b3-aca2-386a661cabe2)
 
 ## URL
 
@@ -40,11 +25,8 @@ https://vegitabi.com
 - Next.js
 - React
 - Material-UI
-- HTML
-- CSS
 - Markdown
 - Vercel
-- Git
 
 ## 機能一覧
 
