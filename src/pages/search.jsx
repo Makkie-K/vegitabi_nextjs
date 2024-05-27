@@ -17,6 +17,8 @@ import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Dialog from "@mui/material/Dialog";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export async function getServerSideProps({ query }) {
   const keyword = query.keyword ? query.keyword.trim().toLowerCase() : "";
@@ -64,10 +66,17 @@ export default function Search({ filteredPostsData, keyword }) {
   const [results, setResults] = useState(filteredPostsData);
   useEffect(() => {
     if (filteredPostsData) {
-      setResults(filteredPostsData);
-      setLoading(false);
+      // 意図的に遅延を追加
+      setTimeout(() => {
+        setResults(filteredPostsData);
+        setLoading(false);
+      }, 0);
     }
   }, [filteredPostsData]);
+  // 検索キーワードが変更されたときにローディングを再開
+  useEffect(() => {
+    setLoading(true); // ローディングを再開
+  }, [keyword]);
 
   return (
     <Layout>
@@ -103,8 +112,25 @@ export default function Search({ filteredPostsData, keyword }) {
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Grid container spacing={2}>
             {loading ? (
-              <Box sx={{ textAlign: "center", width: "100%" }}>Loading...</Box>
-            ) : results.length > 0 ? (
+              <Box
+                sx={{
+                  position: "fixed",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <CircularProgress />
+                <Typography>Loading...</Typography>
+              </Box>
+            ) : // <Dialog open={loading} onClose={() => setLoading(false)}>
+            //   <Box sx={{ textAlign: "center", p: 2 }}>
+            //     <CircularProgress />
+            //     <Typography>Loading...</Typography>
+            //   </Box>
+            // </Dialog>
+            // <Box sx={{ textAlign: "center", width: "100%" }}>Loading...</Box>
+            results.length > 0 ? (
               results.map((result) => (
                 <Grid item key={result.id} xs={12} sm={6} md={4} lg={3}>
                   <Link href={`/posts/${result.id}`}>
@@ -122,7 +148,7 @@ export default function Search({ filteredPostsData, keyword }) {
                       <CardHeader
                         action={
                           <IconButton aria-label="settings">
-                            <MoreVertIcon />
+                            {/* <MoreVertIcon /> */}
                           </IconButton>
                         }
                         title={result.title} // 英語版タイトルを表示
