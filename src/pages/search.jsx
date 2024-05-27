@@ -1,5 +1,4 @@
-// import { useState, useEffect } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Layout from "/src/components/layouts/layout";
 import Container from "@mui/material/Container";
@@ -60,7 +59,15 @@ export async function getServerSideProps({ query }) {
 }
 
 export default function Search({ filteredPostsData, keyword }) {
-  const results = filteredPostsData;
+  const [loading, setLoading] = useState(true);
+  // const results = filteredPostsData;
+  const [results, setResults] = useState(filteredPostsData);
+  useEffect(() => {
+    if (filteredPostsData) {
+      setResults(filteredPostsData);
+      setLoading(false);
+    }
+  }, [filteredPostsData]);
 
   return (
     <Layout>
@@ -95,7 +102,9 @@ export default function Search({ filteredPostsData, keyword }) {
         ></Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Grid container spacing={2}>
-            {results.length > 0 ? (
+            {loading ? (
+              <Box sx={{ textAlign: "center", width: "100%" }}>Loading...</Box>
+            ) : results.length > 0 ? (
               results.map((result) => (
                 <Grid item key={result.id} xs={12} sm={6} md={4} lg={3}>
                   <Link href={`/posts/${result.id}`}>
