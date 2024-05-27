@@ -140,6 +140,26 @@ export default function Post({ postData }) {
             <Markdown className={utilStyles.text}>
               {postData.contentHtml}
             </Markdown>
+            <div>
+              {[...Array(postData.fileCount)].map((_, index) => (
+                <div
+                  key={index}
+                  style={{
+                    width: "100%",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <img
+                    style={{
+                      maxWidth: "100%",
+                      objectFit: "contain",
+                    }}
+                    src={`/images/posts/${postData.id}/${index + 1}.webp`}
+                    alt={`Image ${index + 1}`}
+                  />
+                </div>
+              ))}
+            </div>
             <ShopInfoMo
               style={{ width: "100%" }}
               address={postData.address}
