@@ -70,7 +70,7 @@ export default function Search({ filteredPostsData, keyword }) {
       setTimeout(() => {
         setResults(filteredPostsData);
         setLoading(false);
-      }, 0);
+      }, 2000);
     }
   }, [filteredPostsData]);
   // 検索キーワードが変更されたときにローディングを再開
