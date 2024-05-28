@@ -114,3 +114,15 @@ td {
   object-fit: contain;
   object-position: center center;
 }
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid #777 !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid #777 !important; /* 矢印の色を黒に変更 */
+}
+
+.carousel .thumbs-wrapper {
+  margin: 25px !important;
+}
