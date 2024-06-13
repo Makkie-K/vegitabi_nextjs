@@ -77,7 +77,9 @@ export default function Post({ postData }) {
               <Date dateString={postData.date} />
             </div>
           </div>
-
+          <Markdown className={utilStyles.text}>
+            {postData.contentHtml}
+          </Markdown>
           <Carousel
             showThumbs={true}
             renderThumbs={() => renderThumbs(postData)}
