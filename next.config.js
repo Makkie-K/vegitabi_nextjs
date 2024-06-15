@@ -1,4 +1,5 @@
 module.exports = {
+  siteUrl: "https://vegitabi.com/",
   exportPathMap: async function () {
     return {
       // 除外したい動的ページのパスを指定
