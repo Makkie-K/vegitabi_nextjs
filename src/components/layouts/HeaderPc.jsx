@@ -19,10 +19,10 @@ export default function HeaderPc() {
     >
       <Box sx={{ display: "flex" }}>
         <HeaderPcLogo />
-        <HeaderPcMenu />
+        {/* <HeaderPcSearch /> */}
       </Box>
       <Box>
-        <HeaderPcSearch />
+        <HeaderPcMenu />
       </Box>
     </Box>
   );
