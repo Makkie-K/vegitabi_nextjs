@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && next-sitemap --config sitemap.config.js",
+    "build": "next build ",
     "start": "next start",
     "lint": "next lint",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
@@ -23,7 +23,6 @@
     "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.1.7",
     "next": "^13.3.0",
-    "next-sitemap": "^4.2.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
