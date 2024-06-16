@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Container from "@mui/material/Container";
-// import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ProTip from "/src/components/utils/ProTip";
 import Link from "/src/components/utils/Link";
@@ -16,6 +15,7 @@ import AppBar from "@mui/material/AppBar";
 import { useRouter } from "next/router";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
+import TopSearch from "../components/homes/TopSearch";
 
 // import Header from "/src/components/layouts/Header";
 
@@ -82,27 +82,7 @@ export default function Index() {
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <AppBar position="relative">
-        <Box
-          component="img"
-          sx={{ width: "100%" }}
-          alt="Logo"
-          src="/images/homes/top-search.webp" // ここに画像のパスを指定します
-        />
-        <Box component="form" onSubmit={handleSubmit}>
-          <TextField
-            id="outlined-basic"
-            placeholder="検索"
-            variant="outlined"
-            size="normal"
-            fullWidth
-            InputProps={{ endAdornment: <SearchIcon /> }}
-            onChange={handleChange}
-            value={keyword}
-          />
-        </Box>
-      </AppBar>
-
+      <TopSearch />
       <Container sx={{ paddingTop: "100px" }}>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Categories />
