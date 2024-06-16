@@ -18,12 +18,35 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import SearchForm from "../components/layouts/SearchForm";
+import Pagination from "@mui/material/Pagination";
 
 export default function Search() {
   const router = useRouter();
   const { keyword } = router.query;
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [start, setStart] = useState(0);
+  const displayNum = 12; // Change displayNum to 12 for 4 cards per row
+  const [end, setEnd] = useState(displayNum);
+
+  const handleChange = (e, page) => {
+    const newStart = (page - 1) * displayNum;
+    const newEnd = newStart + displayNum;
+    setStart(newStart);
+    setEnd(newEnd);
+    setPage(page);
+  };
+
+  useEffect(() => {
+    setStart(0);
+    setEnd(displayNum);
+    setPage(1);
+  }, [results]);
+
+  const pageCount = Math.ceil(results.length / displayNum);
+  const maxLength = 36;
 
   useEffect(() => {
     if (!keyword) return; // キーワードが無い場合は何もしない
@@ -111,7 +134,6 @@ export default function Search() {
       </Layout>
     );
   }
-
   return (
     <Layout>
       <Head>
@@ -157,14 +179,17 @@ export default function Search() {
         >
           <Typography variant="h6">
             <span style={{ fontWeight: "bold" }}>{results.length}</span>件中
-            <span style={{ fontWeight: "bold" }}>1</span> ~
-            <span style={{ fontWeight: "bold" }}>{results.length}</span>件を表示
+            <span style={{ fontWeight: "bold" }}>{(page - 1) * 12 + 1}</span> ~
+            <span style={{ fontWeight: "bold" }}>
+              {Math.min(page * 12, results.length)}
+            </span>
+            件を表示
           </Typography>
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Grid container spacing={2}>
             {results.length > 0 ? (
-              results.map((result) => (
+              results.slice(start, end).map((result) => (
                 <Grid item key={result.id} xs={12} sm={6} md={4} lg={3}>
                   <Link href={`/posts/${result.id}`}>
                     <Card sx={{ height: "100%" }}>
@@ -210,6 +235,11 @@ export default function Search() {
             )}
           </Grid>
         </section>
+        <Box
+          sx={{ paddingTop: "50px", display: "flex", justifyContent: "center" }}
+        >
+          <Pagination count={pageCount} page={page} onChange={handleChange} />
+        </Box>
       </Container>
     </Layout>
   );
