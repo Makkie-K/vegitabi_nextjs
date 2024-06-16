@@ -56,7 +56,7 @@ export default function TopSearch() {
       marginTop="0px"
       sx={{
         position: "relative",
-        width: "500px",
+        width: "768px",
         marginBottom: "30px",
       }}
     >
@@ -71,7 +71,7 @@ export default function TopSearch() {
         sx={{
           width: "768px", // 幅を768pxに設定
           maxWidth: "100%",
-          height: "0px",
+          height: "39px",
           justifyContent: "center", // 水平方向（左右）の中央寄せ
         }}
       />
