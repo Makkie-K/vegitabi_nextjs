@@ -66,6 +66,9 @@ export default function Search() {
     async function fetchData() {
       try {
         const res = await fetch(apiUrl);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const allPostsData = await res.json();
         console.log("Fetched data:", allPostsData); // デバッグ用に追加
         const filteredPostsData = allPostsData.filter((postData) =>
