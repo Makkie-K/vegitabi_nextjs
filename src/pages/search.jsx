@@ -148,6 +148,19 @@ export default function Search() {
         }}
       />
       <Container sx={{ marginTop: "90px", marginBottom: "90px" }}>
+        <Box
+          sx={{
+            textAlign: "right", // 右寄せにする
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Typography variant="h6">
+            <span style={{ fontWeight: "bold" }}>{results.length}</span>件中
+            <span style={{ fontWeight: "bold" }}>1</span> ~
+            <span style={{ fontWeight: "bold" }}>{results.length}</span>件を表示
+          </Typography>
+        </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Grid container spacing={2}>
             {results.length > 0 ? (
