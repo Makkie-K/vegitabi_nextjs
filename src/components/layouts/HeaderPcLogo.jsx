@@ -9,12 +9,12 @@ export default function HeaderPcLogo() {
   return (
     <Box sx={{ display: "flex" }}>
       <Button component={Link} href="/" sx={{ color: "rgba(0, 0, 0, 0.87)" }}>
-        Vegitabi.com
+        <img
+          src="/images/homes/vegitabi-logo4.png"
+          alt="Vegitabi.com"
+          style={{ height: 40 }}
+        />
       </Button>
     </Box>
   );
 }
-
-// const container = css`
-//   display: flex;
-// `;
