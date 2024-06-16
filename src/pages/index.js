@@ -82,7 +82,9 @@ export default function Index() {
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <TopSearch />
+      <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <TopSearch />
+      </Box>
       <Container sx={{ paddingTop: "100px" }}>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Categories />
