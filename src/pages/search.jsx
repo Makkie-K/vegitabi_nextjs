@@ -175,9 +175,7 @@ export default function Search() {
       <Container sx={{ marginTop: "90px", marginBottom: "90px" }}>
         <Box
           sx={{
-            textAlign: "right", // 右寄せにする
-            display: "flex",
-            justifyContent: "flex-end",
+            marginBottom: "3px",
           }}
         >
           <Typography variant="h6">
