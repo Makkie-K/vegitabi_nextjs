@@ -55,7 +55,14 @@ export default function HeaderMoMenu() {
 
   return (
     <div>
-      <MenuIcon onClick={handleOpenMenu} />
+      <MenuIcon
+        onClick={handleOpenMenu}
+        style={{
+          fontSize: "42px",
+          color: "f39435",
+          marginTop: "6px",
+        }}
+      />
       {open && (
         <Box
           className="mobile-header-menu"
@@ -70,18 +77,6 @@ export default function HeaderMoMenu() {
             maxHeight: "calc(100vh - 64px)",
           }}
         >
-          {/* <Box component="form" onSubmit={handleSubmit}>
-            <TextField
-              id="outlined-basic"
-              placeholder="検索"
-              variant="outlined"
-              size="normal"
-              fullWidth
-              InputProps={{ endAdornment: <SearchIcon /> }}
-              onChange={handleChange}
-              value={keyword}
-            />
-          </Box> */}
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
