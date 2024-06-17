@@ -126,3 +126,7 @@ td {
 .carousel .thumbs-wrapper {
   margin: 25px !important;
 }
+
+.mui-style-41guwy {
+  width: calc(100vw - 83px);
+}
