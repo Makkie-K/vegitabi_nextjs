@@ -22,7 +22,7 @@ export default function Areas() {
           <Link href="/areas/indonesia" underline="none">
             <AreasCard
               name="インドネシア"
-              image="/images/homes/indonesia.jpg"
+              image="/images/homes/indonesia.webp"
             />
           </Link>
         </Grid>
@@ -30,13 +30,13 @@ export default function Areas() {
           <Link href="/areas/australia" underline="none">
             <AreasCard
               name="オーストラリア"
-              image="/images/homes/australia.jpeg"
+              image="/images/homes/australia.webp"
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
           <Link href="/areas/oman" underline="none">
-            <AreasCard name="オマーン" image="/images/homes/oman.jpeg" />
+            <AreasCard name="オマーン" image="/images/homes/oman.webp" />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
@@ -48,7 +48,7 @@ export default function Areas() {
           <Link href="/areas/cook-islands" underline="none">
             <AreasCard
               name="クック諸島"
-              image="/images/homes/cookislands.jpeg"
+              image="/images/homes/cookislands.webp"
             />
           </Link>
         </Grid>

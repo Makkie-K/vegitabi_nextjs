@@ -23,7 +23,7 @@ export default function Categories() {
             <CategoriesCard
               name="宿泊施設"
               text="Accomodations"
-              image="/images/homes/accomodation.jpeg"
+              image="/images/homes/accomodation.webp"
             />
           </Link>
         </Grid>
@@ -32,7 +32,7 @@ export default function Categories() {
             <CategoriesCard
               name="飲食店"
               text="Eat & Drink"
-              image="/images/homes/eat-drink.jpeg"
+              image="/images/homes/eat-drink.webp"
             />
           </Link>
         </Grid>
@@ -41,7 +41,7 @@ export default function Categories() {
             <CategoriesCard
               name="空港・機内食"
               text="Airport & Airplane"
-              image="/images/homes/airport-airplane.jpeg"
+              image="/images/homes/airport-airplane.webp"
             />
           </Link>
         </Grid>
@@ -50,7 +50,7 @@ export default function Categories() {
             <CategoriesCard
               name="その他"
               text="Others"
-              image="/images/homes/others.jpeg"
+              image="/images/homes/others.webp"
             />
           </Link>
         </Grid>
