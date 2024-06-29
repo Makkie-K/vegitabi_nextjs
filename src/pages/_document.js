@@ -16,6 +16,10 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
           />
+          <meta
+            name="google-adsense-account"
+            content="ca-pub-2974212507558755"
+          />
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
           <script
