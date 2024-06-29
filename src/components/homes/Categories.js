@@ -24,6 +24,8 @@ export default function Categories() {
               name="宿泊施設"
               text="Accomodations"
               image="/images/homes/accomodation.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
@@ -33,6 +35,8 @@ export default function Categories() {
               name="飲食店"
               text="Eat & Drink"
               image="/images/homes/eat-drink.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
@@ -42,6 +46,8 @@ export default function Categories() {
               name="空港・機内食"
               text="Airport & Airplane"
               image="/images/homes/airport-airplane.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
@@ -51,6 +57,8 @@ export default function Categories() {
               name="その他"
               text="Others"
               image="/images/homes/others.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>

@@ -19,93 +19,213 @@ export default function Areas() {
     <Box sx={{ flexGrow: 1, paddingBottom: "100px" }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <Link href="/areas/indonesia" underline="none">
+          <Link
+            href="/areas/indonesia"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
             <AreasCard
               name="インドネシア"
               image="/images/homes/indonesia.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/australia" underline="none">
+          <Link
+            href="/areas/australia"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
             <AreasCard
               name="オーストラリア"
               image="/images/homes/australia.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/oman" underline="none">
-            <AreasCard name="オマーン" image="/images/homes/oman.webp" />
+          <Link
+            href="/areas/oman"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="オマーン"
+              image="/images/homes/oman.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/qatar" underline="none">
-            <AreasCard name="カタール" image="/images/homes/qatar.webp" />
+          <Link
+            href="/areas/qatar"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="カタール"
+              image="/images/homes/qatar.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/cook-islands" underline="none">
+          <Link
+            href="/areas/cook-islands"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
             <AreasCard
               name="クック諸島"
               image="/images/homes/cookislands.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/thailand" underline="none">
-            <AreasCard name="タイ" image="/images/homes/thailand.webp" />
+          <Link
+            href="/areas/thailand"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="タイ"
+              image="/images/homes/thailand.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/vanuatu" underline="none">
-            <AreasCard name="バヌアツ" image="/images/homes/vanuatu.webp" />
+          <Link
+            href="/areas/vanuatu"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="バヌアツ"
+              image="/images/homes/vanuatu.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/madagascar" underline="none">
+          <Link
+            href="/areas/madagascar"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
             <AreasCard
               name="マダガスカル"
               image="/images/homes/madagascar.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/maldives" underline="none">
-            <AreasCard name="モルディブ" image="/images/homes/maldives.webp" />
+          <Link
+            href="/areas/maldives"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="モルディブ"
+              image="/images/homes/maldives.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/laos" underline="none">
-            <AreasCard name="ラオス" image="/images/homes/laos.webp" />
+          <Link
+            href="/areas/laos"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="ラオス"
+              image="/images/homes/laos.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/lesotho" underline="none">
-            <AreasCard name="レソト" image="/images/homes/lesotho.webp" />
+          <Link
+            href="/areas/lesotho"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="レソト"
+              image="/images/homes/lesotho.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/japan" underline="none">
-            <AreasCard name="日本" image="/images/homes/japan.webp" />
+          <Link
+            href="/areas/japan"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="日本"
+              image="/images/homes/japan.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/south-africa" underline="none">
+          <Link
+            href="/areas/south-africa"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
             <AreasCard
               name="南アフリカ"
               image="/images/homes/south-africa.webp"
+              imgHeight={200}
+              imgWidth={300}
             />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/taiwan" underline="none">
-            <AreasCard name="台湾" image="/images/homes/taiwan.webp" />
+          <Link
+            href="/areas/taiwan"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="台湾"
+              image="/images/homes/taiwan.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
         <Grid xs={12} md={3}>
-          <Link href="/areas/uae" underline="none">
-            <AreasCard name="U.A.E" image="/images/homes/uae.webp" />
+          <Link
+            href="/areas/uae"
+            underline="none"
+            sx={{ display: "block", width: "100%" }}
+          >
+            <AreasCard
+              name="U.A.E"
+              image="/images/homes/uae.webp"
+              imgHeight={200}
+              imgWidth={300}
+            />
           </Link>
         </Grid>
       </Grid>
