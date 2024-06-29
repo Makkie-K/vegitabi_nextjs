@@ -68,7 +68,7 @@ td {
   padding: 12px;
   border: 1px solid #dee2e6;
   text-align: left;
-  white-space: nowrap; /* 改行を禁止 */
+  /* white-space: nowrap;  */
 }
 
 tbody tr:nth-child(odd) {
