@@ -44,21 +44,21 @@ export default function AreaIndex({ postData }) {
   return (
     <Layout>
       <Head>
-        <title>{postData[0].areaJp}の記事一覧</title>
-        <meta name="description" content={`${postData[0].areaJp}の記事一覧`} />
+        <title>{postData[0].area}の記事一覧</title>
+        <meta name="description" content={`${postData[0].area}の記事一覧`} />
         <meta
           name="keywords"
-          content={`ベジタリアン,ヴィーガン,${postData[0].areaJp},${postData[0].categoryJp}`}
+          content={`ベジタリアン,ヴィーガン,${postData[0].area},${postData[0].category}`}
         />
         <meta
           property="og:url"
           content={`https://vegitabi.com/areas/${postData[0].area}`}
         />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`${postData[0].areaJp}の記事一覧`} />
+        <meta property="og:title" content={`${postData[0].area}の記事一覧`} />
         <meta
           property="og:description"
-          content={`${postData[0].areaJp}の記事一覧`}
+          content={`${postData[0].area}の記事一覧`}
         />
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
@@ -75,13 +75,13 @@ export default function AreaIndex({ postData }) {
             marginBottom: "30px",
           }}
         >
-          {postData[0].areaJp}の記事一覧
+          {postData[0].area}の記事一覧
         </Box>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <Grid container spacing={2}>
             {postData
               .slice(start, end)
-              .map(({ id, date, title, contents, titlejp, avator }) => (
+              .map(({ id, date, title, contents, avator }) => (
                 <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
                   <Link href={`/posts/${id}`}>
                     <Card sx={{ height: "100%" }}>
@@ -99,18 +99,6 @@ export default function AreaIndex({ postData }) {
                         // }
                         title={title} // 英語版タイトルを表示
                         titleTypographyProps={{ variant: "h6" }} // 英語版タイトル用にvariantを'h6'に設定
-                        subheader={
-                          <div>
-                            <Typography
-                              variant="subtitle1"
-                              style={{ fontSize: "0.8rem" }}
-                            >
-                              ({titlejp})
-                            </Typography>{" "}
-                            {/* 日本語版タイトルを表示 */}
-                            <br />
-                          </div>
-                        }
                       />
                       <CardContent>
                         <Typography variant="body2" color="text.secondary">

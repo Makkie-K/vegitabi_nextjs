@@ -106,6 +106,39 @@ export function getPostDataByCategory(category) {
   });
 }
 
+export function getPostDataByCategoryEn(category) {
+  // posts配下のマークダウンファイルを全件取得する
+  const fileNames = fs.readdirSync(postsDirectoryEn);
+  let categoryPostsData = fileNames.map((fileName) => {
+    // id を取得するためにファイル名から ".md" を削除する
+    const id = fileName.replace(/\.md$/, "");
+    // 抽出されたidを元に、マークダウンファイルのdataとcontentを取得し、returnする
+    const fullPath = path.join(postsDirectoryEn, fileName);
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    const matterResult = matter(fileContents);
+    // const contentHtml = matterResult.content.toString();
+    const contents = matterResult.content.slice(0, 200);
+    const c = matterResult.data.category;
+    if (c === category) {
+      return {
+        id,
+        contents,
+        ...matterResult.data,
+      };
+    }
+  });
+  categoryPostsData = categoryPostsData.filter((val) => Boolean(val));
+  return categoryPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+}
+
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const filesExist = checkIfNoImageExists(id);
@@ -198,6 +231,37 @@ export function getPostDataByArea(area) {
     const id = fileName.replace(/\.md$/, "");
     // 抽出されたidを元に、マークダウンファイルのdataとcontentを取得し、returnする
     const fullPath = path.join(postsDirectory, fileName);
+
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    const contents = matterResult.content.slice(0, 200);
+    const a = matterResult.data.area;
+    if (a === area) {
+      return {
+        id,
+        contents,
+        ...matterResult.data,
+      };
+    }
+  });
+  areaPostsData = areaPostsData.filter((val) => Boolean(val));
+  return areaPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+}
+
+export function getPostDataByAreaEn(area) {
+  // posts配下のマークダウンファイルを全件取得する
+  const fileNames = fs.readdirSync(postsDirectoryEn);
+  let areaPostsData = fileNames.map((fileName) => {
+    // id を取得するためにファイル名から ".md" を削除する
+    const id = fileName.replace(/\.md$/, "");
+    // 抽出されたidを元に、マークダウンファイルのdataとcontentを取得し、returnする
+    const fullPath = path.join(postsDirectoryEn, fileName);
 
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
