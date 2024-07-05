@@ -71,7 +71,6 @@ export default function Post({ postData }) {
           }}
         >
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
           <div className={utilStyles.dateParent}>
             <div className={utilStyles.dateChild}>
               <Date dateString={postData.date} />

@@ -6,7 +6,7 @@ import utilStyles from "/src/styles/utils.module.css";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Markdown from "/src/components/markdown";
-import ShopInfoPc from "/src/components/ShopInfoPc";
+import ShopInfoPcEn from "/src/components/ShopInfoPcEn";
 import ShopInfoMo from "/src/components/ShopInfoMo";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.css";
@@ -71,7 +71,6 @@ export default function Post({ postData }) {
           }}
         >
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
           <div className={utilStyles.dateParent}>
             <div className={utilStyles.dateChild}>
               <Date dateString={postData.date} />
@@ -102,7 +101,7 @@ export default function Post({ postData }) {
             ))}
           </Carousel>
 
-          <ShopInfoPc
+          <ShopInfoPcEn
             address={postData.address}
             map={postData.map}
             title={postData.title}

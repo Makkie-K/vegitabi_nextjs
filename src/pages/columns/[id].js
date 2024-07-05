@@ -22,6 +22,10 @@ export default function Column({ columnData }) {
         <meta property="og:description" content={`${columnData.description}`} />
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
+          property="og:url"
+          content={`https://vegitabi.com/columns/${columnData.id}`}
+        />
+        <meta
           property="og:image"
           content="https://vegitabi.com/images/ogp1.png"
         />
