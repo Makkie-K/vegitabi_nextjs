@@ -3,22 +3,19 @@ import Container from "@mui/material/Container";
 import Layout from "/src/components/layouts/layout";
 import Box from "@mui/material/Box";
 
-export default function ContactJp() {
+export default function ContactEn() {
   return (
     <Layout>
       <Head>
-        <title>お問い合わせ</title>
-        <meta name="description" content="お問い合わせ" />
-        <meta
-          name="keywords"
-          content="ベジタリアン, ヴィーガン, ビーガン, お問い合わせ"
-        />
-        <meta property="og:url" content="https://vegitabi.com/contact" />
+        <title>Contact us</title>
+        <meta name="description" content="Contact" />
+        <meta name="keywords" content="Vegetarian, Vegan, Enquiry, Inquiry" />
+        <meta property="og:url" content="https://vegitabi.com/en/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="home" />
         <meta
           property="og:description"
-          content="vegitabi.comのお問い合わせフォーム"
+          content="Contact page of vegitabi.com"
         />
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
@@ -30,9 +27,9 @@ export default function ContactJp() {
       <Container maxWidth="md" sx={{ marginTop: "100px" }}>
         <Box sx={{ width: "100%", maxWidth: "768px", margin: "0 auto" }}>
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdYWsqe4_NkHhfIC7mlBRoxYCQr5hgFh0QDsT4f4h6c7JSRmA/viewform?embedded=true"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeuGBRXt61hVJ2P89BrR_nW2homeCgPCkC_b8vfOH1kFHvZ5Q/viewform?embedded=true"
             width="640"
-            height="661"
+            height="801"
             frameborder="0"
             marginheight="0"
             marginwidth="0"

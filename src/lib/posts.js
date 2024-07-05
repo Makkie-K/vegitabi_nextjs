@@ -8,6 +8,8 @@ import { id } from "date-fns/locale";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
+const postsDirectoryEn = path.join(process.cwd(), "en/posts");
+
 export function getSortedPostsData() {
   // /posts　配下のファイル名を取得する
   const fileNames = fs.readdirSync(postsDirectory);
@@ -106,6 +108,39 @@ export function getPostDataByCategory(category) {
 
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
+  const filesExist = checkIfNoImageExists(id);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const files = fs.readdirSync(process.cwd() + `/public/images/posts/${id}`);
+  const menus = fs.readdirSync(process.cwd() + `/public/images/menus/${id}`);
+  const filesPosts = fs.readdirSync(
+    process.cwd() + `/public/images/posts/${id}`
+  );
+
+  const fileCount = files.length;
+  const menuCount = menus.length;
+
+  const fileCountPosts = filesPosts.length;
+  // 投稿のメタデータ部分を解析するために gray-matter を使う
+
+  const matterResult = matter(fileContents);
+  const contentHtml = matterResult.content.toString();
+
+  // データを id と組み合わせる
+  return {
+    id,
+    contentHtml,
+    files,
+    fileCount,
+    menuCount,
+    filesPosts,
+    fileCountPosts,
+    filesExist,
+    ...matterResult.data,
+  };
+}
+
+export async function getPostDataEn(id) {
+  const fullPath = path.join(postsDirectoryEn, `${id}.md`);
   const filesExist = checkIfNoImageExists(id);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const files = fs.readdirSync(process.cwd() + `/public/images/posts/${id}`);

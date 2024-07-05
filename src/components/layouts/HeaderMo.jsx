@@ -20,7 +20,8 @@ export default function HeaderMo() {
       <Box sx={{ width: "calc(100vw - 50px)" }}>
         <HeaderMoLogo />
       </Box>
-      <Box sx={{ width: "33px" }}>
+
+      <Box sx={{ width: "30px" }}>
         <HeaderMoMenu />
       </Box>
     </Box>
