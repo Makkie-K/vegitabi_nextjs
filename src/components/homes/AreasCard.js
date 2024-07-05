@@ -23,9 +23,7 @@ export default function AreasCard(props) {
           <Typography gutterBottom variant="h5" component="div">
             {props.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {props.text}
-          </Typography>
+          <Typography variant="h5">{props.text}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

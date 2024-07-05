@@ -22,16 +22,22 @@ export default function CategoriesCard(props) {
             backgroundColor: "#fff",
             opacity: "0.8",
             left: "50%",
-            bottom: "-3%",
-            height: "25%",
+            top: "50%",
+            // bottom: "-3%",
+            // height: "25%",
             transform: "translate(-50%, -50%)",
             textAlign: "center",
           }}
         >
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ marginBottom: 0 }}
+          >
             {props.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="h5" color="text.secondary">
             {props.text}
           </Typography>
         </CardContent>
