@@ -42,7 +42,7 @@ export default function ColumnEn({ columnData }) {
             <h1>{columnData.title}</h1>
             <br />
             <div className={utilStyles.lightText}>
-              <Date dateString={columnData.date} />
+              <DateEn dateString={columnData.date} />
             </div>
             <Markdown className={utilStyles.text}>
               {columnData.contentHtml}
