@@ -47,7 +47,8 @@ export default function Post({ postData }) {
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
           property="og:image"
-          content="https://vegitabi.com/images/ogp1.png"
+          content={`https://vegitabi.com/images/posts/${postData.id}/1.webp`}
+          // content="https://vegitabi.com/images/ogp1.png"
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
@@ -133,7 +134,7 @@ export default function Post({ postData }) {
         >
           <article style={{ width: "100%" }}>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-            <h2 className={utilStyles.headingJp}>({postData.title})</h2>
+            <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
             <br />
             <div className={utilStyles.lightText}>
               <Date dateString={postData.date} />
