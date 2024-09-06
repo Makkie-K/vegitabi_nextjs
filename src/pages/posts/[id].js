@@ -35,14 +35,14 @@ export default function Post({ postData }) {
         <meta name="description" content={postData.description} />
         <meta
           name="keywords"
-          content={`ベジタリアン,ヴィーガン,${postData.areaJp},${postData.categoryJp}`}
+          content={`ベジタリアン,ヴィーガン,${postData.area},${postData.category}`}
         />
         <meta
           property="og:url"
           content={`https://vegitabi.com/posts/${postData.id}`}
         />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${postData.titlejp}`} />
+        <meta property="og:title" content={`${postData.title}`} />
         <meta property="og:description" content={`${postData.description}`} />
         <meta property="og:site_name" content="vegitabi.com" />
         <meta
@@ -133,7 +133,7 @@ export default function Post({ postData }) {
         >
           <article style={{ width: "100%" }}>
             <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-            <h2 className={utilStyles.headingJp}>({postData.titlejp})</h2>
+            <h2 className={utilStyles.headingJp}>({postData.title})</h2>
             <br />
             <div className={utilStyles.lightText}>
               <Date dateString={postData.date} />
